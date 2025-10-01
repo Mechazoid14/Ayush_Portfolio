@@ -28,9 +28,9 @@
         <a href="#niches">Niches</a>
         <a href="#value">Value</a>
         <a href="#process">Process</a>
-        <a href="#contact" class="btn">Contact</a>
+        <a href="#enquiry" class="btn">Enquiry</a>
       </nav>
-      <button class="btn hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">☰</button>
+      <button class="btn hamburger" aria-label="Open menu" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">☰</button>
     </div>
   </header>
 
@@ -41,7 +41,7 @@
       <a href="#niches" onclick="mobileMenuClose()">Niches</a>
       <a href="#value" onclick="mobileMenuClose()">Value</a>
       <a href="#process" onclick="mobileMenuClose()">Process</a>
-      <a href="#contact" class="btn" onclick="mobileMenuClose()">Contact</a>
+      <a href="#enquiry" class="btn" onclick="mobileMenuClose()">Enquiry</a>
     </div>
   </div>
 
@@ -115,6 +115,27 @@
     </div>
   </section>
 
+  <!-- Niches -->
+  <section id="niches" class="section" style="padding-top:0">
+    <div class="container">
+      <h2 class="h2">Core Niches</h2>
+      <div class="grid three">
+        <div class="card">
+          <div class="h3">Engineering (IC → VP)</div>
+          <p class="muted">Senior Engineers, Staff/Principal, Architects; Directors, Sr Directors, VPs across platform, data, reliability, and backend.</p>
+        </div>
+        <div class="card">
+          <div class="h3">Product Organizations</div>
+          <p class="muted">Directors, Principal/Lead PMs, TPMs, Designers, and UX Research — competency models to interview loops.</p>
+        </div>
+        <div class="card">
+          <div class="h3">Cybersecurity & GRC</div>
+          <p class="muted">Security Engineering, AppSec, IAM, Threat, Governance/Risk/Compliance — IC to leadership.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Value -->
   <section id="value" class="section">
     <div class="container">
@@ -127,6 +148,19 @@
       </div>
     </div>
   </section>
+
+  <!-- Recommendations (COMMENTED OUT for later) -->
+  <!--
+  <aside id="recommendations" class="recommendations section">
+    <div class="container">
+      <h2 class="h2">Recommendations</h2>
+      <div class="swiper rec-swiper">
+        <div class="swiper-wrapper" id="rec-list"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </aside>
+  -->
 
   <!-- Process -->
   <section id="process" class="section">
@@ -142,19 +176,34 @@
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="section">
+  <!-- ENQUIRY (contact) -->
+  <section id="enquiry" class="section">
     <div class="container">
-      <h2 class="h2">Start a Conversation</h2>
+      <h2 class="h2">Enquiry</h2>
       <div class="grid two">
+        <!-- Quick contact tiles -->
         <div class="card">
           <p class="muted">Share a role or talent question. I’ll reply with next steps and a suggested plan within one business day.</p>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-            <a class="btn primary" href="mailto:ayushmishra14feb@gmail.com">Email</a>
+            <a class="btn primary" href="mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry&body=Hi%20Ayush%2C%20we'd%20like%20help%20with...">Email</a>
             <a class="btn" target="_blank" href="https://wa.me/919740352682">WhatsApp</a>
             <a class="btn" target="_blank" href="https://www.linkedin.com/in/mechazoid14">LinkedIn</a>
           </div>
+          <div class="muted" style="margin-top:10px">📍 Bangalore • India | MEA | SE Asia</div>
         </div>
+
+        <!-- Netlify-friendly form (works on static hosting too; mailto fallback included) -->
+        <form class="card" name="enquiry" method="POST" data-netlify="true" onsubmit="return mailtoFallback(event)">
+          <input type="hidden" name="form-name" value="enquiry">
+          <div class="grid two" style="gap:14px">
+            <div><label class="muted">Name</label><input required name="name" class="input"></div>
+            <div><label class="muted">Email</label><input required type="email" name="email" class="input"></div>
+          </div>
+          <div style="margin-top:10px"><label class="muted">Company</label><input name="company" class="input"></div>
+          <div style="margin-top:10px"><label class="muted">How can I help?</label><textarea required name="message" rows="5" class="input"></textarea></div>
+          <button class="btn primary" style="margin-top:12px" type="submit">Send Enquiry</button>
+          <div class="tiny muted" style="margin-top:8px">Submitting will open your email app if static hosting can’t process forms.</div>
+        </form>
       </div>
     </div>
   </section>
@@ -169,15 +218,50 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
+    // year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // hero slider
     new Swiper('.hero-swiper', {
       loop: true,
-      autoplay: { delay: 3000 },
+      autoplay: { delay: 3000, disableOnInteraction: false },
       speed: 700,
       pagination: { el: '.hero .swiper-pagination', clickable: true },
-      effect: 'fade', fadeEffect: { crossFade: true }
+      effect: 'fade',
+      fadeEffect: { crossFade: true }
     });
+
+    // close mobile menu
     function mobileMenuClose(){ document.getElementById('mobileMenu').classList.add('hidden'); }
+
+    // mailto fallback for static forms
+    function mailtoFallback(e){
+      // If Netlify (or similar) is not configured, open mail client with prefilled body.
+      try {
+        const form = e.target;
+        const name = encodeURIComponent(form.name.value || '');
+        const email = encodeURIComponent(form.email.value || '');
+        const company = encodeURIComponent(form.company.value || '');
+        const message = encodeURIComponent(form.message.value || '');
+        const subject = encodeURIComponent('Talent Partner Enquiry');
+        const body = encodeURIComponent(
+          `Name: ${decodeURIComponent(name)}\nEmail: ${decodeURIComponent(email)}\nCompany: ${decodeURIComponent(company)}\n\nMessage:\n${decodeURIComponent(message)}`
+        );
+        // Always open mailto (and still allow POST for Netlify if enabled)
+        window.location.href = `mailto:ayushmishra14feb@gmail.com?subject=${subject}&body=${body}`;
+      } catch(_) {}
+      // Let the POST happen for Netlify; return true
+      return true;
+    }
+
+    // pause marquee when tab hidden
+    const marquee = document.getElementById('logos-marquee');
+    if (marquee){
+      document.addEventListener('visibilitychange', ()=>{
+        const state = document.hidden ? 'paused' : 'running';
+        marquee.querySelectorAll('img').forEach(i=>i.style.animationPlayState = state);
+      });
+    }
   </script>
 </body>
 </html>
