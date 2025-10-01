@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ayush Mishra — 360° Talent Partner (Tech + Non‑Tech)</title>
+  <meta name="description" content="360° Talent Partner for Tech and Non‑Tech. Engineering (IC→Leadership), Product, Cybersecurity & GRC, Non‑Tech & Business Leadership, and Super‑Niche Headhunting with Talent Intelligence." />
+  <meta name="theme-color" content="#22d3ee"/>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --ink:#e7eefc;
+      --muted:#a6b1cf;
+      --glass:rgba(255,255,255,.07);
+      --line:rgba(255,255,255,.12);
+      --brand:#22d3ee;    /* cyan */
+      --brand2:#8b5cf6;   /* violet */
+      --accent:#34d399;   /* emerald */
+      --radius:18px;
+      --shadow:0 12px 34px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial}
+    a{color:inherit;text-decoration:none}
+    p{line-height:1.6}
+    .container{max-width:1140px;margin:0 auto;padding:0 22px}
+    .section{padding:90px 0}
+    .pill{display:inline-flex;gap:.6rem;align-items:center;padding:.42rem .8rem;border:1px solid var(--line);border-radius:999px;background:linear-gradient(120deg,rgba(34,211,238,.1),rgba(139,92,246,.1))}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.15rem;border-radius:12px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));backdrop-filter:blur(6px);box-shadow:var(--shadow);transition:transform .15s ease,border-color .2s ease}
+    .btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.28)}
+    .btn.primary{border:none;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#071018;font-weight:700}
+    .h1{font-size:clamp(2rem,6vw,3.3rem);line-height:1.05;margin:14px 0 12px}
+    .h2{font-size:clamp(1.4rem,3.6vw,2.2rem);margin:0 0 16px}
+    .h3{font-size:1.15rem;margin:0 0 8px}
+    .muted{color:var(--muted)}
+    .grid{display:grid;gap:22px}
+    .two{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .three{grid-template-columns:repeat(3,minmax(0,1fr))}
+    @media (max-width:900px){.two,.three{grid-template-columns:1fr}}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:10;background:rgba(11,18,32,.6);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .nav{height:64px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#071018;font-weight:800;box-shadow:0 6px 16px rgba(34,211,238,.25)}
+    .navlinks{display:flex;gap:16px;align-items:center}
+    .hamburger{display:none}
+    @media (max-width:900px){ .navlinks{display:none} .hamburger{display:inline-flex} }
+
+    /* Hero */
+    .hero{position:relative;isolation:isolate;padding:110px 0 90px}
+    .aurora{position:absolute;inset:-30% -10% auto -10%;height:60vh;z-index:-1;filter:blur(72px) saturate(140%);
+      background:radial-gradient(35% 45% at 30% 40%, rgba(34,211,238,.45) 0%, transparent 60%),
+                 radial-gradient(40% 50% at 70% 30%, rgba(139,92,246,.45) 0%, transparent 60%),
+                 radial-gradient(30% 40% at 50% 80%, rgba(52,211,153,.35) 0%, transparent 60%);
+      animation:floaty 18s ease-in-out infinite alternate;
+    }
+    @keyframes floaty{0%{transform:translateY(0) scale(1)}100%{transform:translateY(-22px) scale(1.05)}}
+
+    /* Cards */
+    .card{background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    .tag{display:inline-block;padding:.28rem .6rem;border-radius:8px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--muted);font-size:.9rem}
+
+    /* Process numbers */
+    .process{counter-reset:step}
+    .step{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+    .step::before{counter-increment:step;content:counter(step);width:34px;height:34px;display:grid;place-items:center;border-radius:50%;
+      background:linear-gradient(135deg,var(--brand),var(--brand2));color:#071018;font-weight:800;box-shadow:0 8px 18px rgba(139,92,246,.25)}
+
+    /* Footer */
+    footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:.95rem}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">AM</div>
+        <strong>Ayush Mishra</strong>
+      </div>
+      <nav class="navlinks">
+        <a href="#services">Services</a>
+        <a href="#niches">Niches</a>
+        <a href="#work">Case Studies</a>
+        <a href="#process">Process</a>
+        <a href="#contact" class="btn">Contact</a>
+      </nav>
+      <button class="btn hamburger" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+  <div id="mobileMenu" class="container" style="display:none;padding:10px 22px 0">
+    <div class="card grid" style="gap:10px">
+      <a href="#services" onclick="toggleMenu()">Services</a>
+      <a href="#niches" onclick="toggleMenu()">Niches</a>
+      <a href="#work" onclick="toggleMenu()">Case Studies</a>
+      <a href="#process" onclick="toggleMenu()">Process</a>
+      <a href="#contact" class="btn" onclick="toggleMenu()">Contact</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="aurora"></div>
+    <div class="container">
+      <div class="pill">360° Talent Partner • Tech & Non‑Tech • India | MEA | SE Asia</div>
+      <h1 class="h1">I build complete organizations — <span style="background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent">Engineering (IC → Leadership)</span>, <span style="background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent">Product teams</span>, <span style="background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent">Cybersecurity & GRC</span>, and <span style="background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent">Non‑Tech & Business leadership</span>.</h1>
+      <p class="muted" style="max-width:800px">From IC roles to senior executives, I partner with founders and CXOs to design the org, map the market, and close the right people — especially for <strong>super‑niche & niche roles</strong> where searches usually stall.</p>
+      <div style="display:flex;gap:12px;margin:18px 0 10px;flex-wrap:wrap">
+        <a class="btn primary" href="#contact">Start a Conversation</a>
+        <a class="btn" href="#services">Explore Services</a>
+      </div>
+
+      <div class="card grid three" style="margin-top:26px">
+        <div>
+          <div class="tag">Operating Model</div>
+          <div class="h3" style="margin-top:8px">Full Org Builds, Tech + Non‑Tech</div>
+          <p class="muted">Zero‑to‑one and scale‑ups across engineering, product, security, design, finance, legal, HR, strategy, GTM, and ops.</p>
+        </div>
+        <div>
+          <div class="tag">Edge</div>
+          <div class="h3" style="margin-top:8px">Engineering IC → VP, Product & Security</div>
+          <p class="muted">ICs, Principals, Architects; Directors, Sr Directors, VPs for Product and Cybersecurity functions.</p>
+        </div>
+        <div>
+          <div class="tag">Differentiator</div>
+          <div class="h3" style="margin-top:8px">Super‑Niche Headhunting</div>
+          <p class="muted">Tight calibration, targeted company lists, and closing narratives for tiny global talent pools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 class="h2">Services</h2>
+      <div class="grid three">
+        <div class="card">
+          <div class="h3">Engineering Talent (IC → Leadership)</div>
+          <p class="muted">Senior/Staff/Principal ICs, Architects → Directors, Sr Directors, VPs across backend, platform, data, reliability, and more.</p>
+          <div class="tag">IC to Executive</div>
+        </div>
+        <div class="card">
+          <div class="h3">Product & Cybersecurity Talent</div>
+          <p class="muted">PMs, TPMs, Designers, UX; AppSec, SecEng, IAM, Threat, GRC — calibrated pipelines built for speed.</p>
+          <div class="tag">IC to Leadership</div>
+        </div>
+        <div class="card">
+          <div class="h3">Non‑Tech & Business Roles</div>
+          <p class="muted">Legal, HR, Finance, Strategy, Marketing, GTM, Ops — complete business functions for GCCs & startups.</p>
+          <div class="tag">Cross‑Functional</div>
+        </div>
+        <div class="card">
+          <div class="h3">Leadership & Niche Headhunting</div>
+          <p class="muted">Directors, Sr Directors, VPs; Deputy CISOs, Principal Architects, Senior Legal Counsels, Market Intelligence leaders.</p>
+          <div class="tag">Global Searches</div>
+        </div>
+        <div class="card">
+          <div class="h3">Talent Intelligence</div>
+          <p class="muted">Market maps, salary bands, competitor org charts, succession pipelines, and candidate heatmaps.</p>
+          <div class="tag">Decision Support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Niches -->
+  <section id="niches" class="section" style="padding-top:0">
+    <div class="container">
+      <h2 class="h2">Core Niches</h2>
+      <div class="grid three">
+        <div class="card">
+          <div class="h3">Engineering (IC → VP)</div>
+          <p class="muted">Senior Engineers, Staff/Principal, Architects; Directors, Sr Directors, VPs across platform, data, reliability, and backend.</p>
+        </div>
+        <div class="card">
+          <div class="h3">Product Organizations</div>
+          <p class="muted">Directors, Principal/Lead PMs, TPMs, Designers, and UX Research — competency models to interview loops.</p>
+        </div>
+        <div class="card">
+          <div class="h3">Cybersecurity & GRC</div>
+          <p class="muted">Security Engineering, AppSec, IAM, Threat, Governance/Risk/Compliance — IC to leadership.</p>
+        </div>
+        <div class="card">
+          <div class="h3">Non‑Tech & Business Leadership</div>
+          <p class="muted">Finance, Legal, HR, Strategy, Ops, GTM — senior managers to functional heads.</p>
+        </div>
+        <div class="card">
+          <div class="h3">Super‑Niche Headhunting</div>
+          <p class="muted">Tiny global pools, bespoke outreach, and calibrated assessments to land rare talent.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <section id="work" class="section">
+    <div class="container">
+      <h2 class="h2">Selected Case Notes</h2>
+      <div class="grid three">
+        <div class="card">
+          <div class="tag">Engineering Leadership</div>
+          <div class="h3" style="margin-top:8px">Platform & Data Leaders</div>
+          <p class="muted">Partnered with engineering heads to define charter, create competency rubrics, and headhunt Directors/Sr Directors.</p>
+        </div>
+        <div class="card">
+          <div class="tag">Product</div>
+          <div class="h3" style="margin-top:8px">Product Org Build‑out</div>
+          <p class="muted">Mapped market, redesigned loop, and delivered calibrated shortlists across PM, TPM, and Design in sprints.</p>
+        </div>
+        <div class="card">
+          <div class="tag">Cybersecurity</div>
+          <div class="h3" style="margin-top:8px">Security & GRC Scaling</div>
+          <p class="muted">Hired AppSec/SecEng/IAM leaders and defined salary bands and competitor insights to accelerate closes.</p>
+        </div>
+        <div class="card">
+          <div class="tag">Non‑Tech</div>
+          <div class="h3" style="margin-top:8px">Legal & Finance Leadership</div>
+          <p class="muted">Headhunted Senior Legal Counsel and Finance leaders; aligned narratives with business priorities for effective closes.</p>
+        </div>
+        <div class="card">
+          <div class="tag">Super‑Niche</div>
+          <div class="h3" style="margin-top:8px">Principal & Specialist Roles</div>
+          <p class="muted">Executed bespoke searches for Principal ICs and specialized business roles with tiny talent pools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="section">
+    <div class="container">
+      <h2 class="h2">How We Work</h2>
+      <div class="grid two process">
+        <div class="card step">
+          <div></div>
+          <div>
+            <div class="h3">01 — Requirement Deep‑Dive</div>
+            <p class="muted">Role charter, must‑haves, deal‑breakers, compensation bands, and loop owners locked on Day 0.</p>
+          </div>
+        </div>
+        <div class="card step">
+          <div></div>
+          <div>
+            <div class="h3">02 — Market Map & Outreach</div>
+            <p class="muted">Target companies, Boolean systems, outreach playbooks, and a live tracker you can view anytime.</p>
+          </div>
+        </div>
+        <div class="card step">
+          <div></div>
+          <div>
+            <div class="h3">03 — Calibrated Shortlist</div>
+            <p class="muted">Tight feedback cycles; we align quickly on trade‑offs so you only meet the right people.</p>
+          </div>
+        </div>
+        <div class="card step">
+          <div></div>
+          <div>
+            <div class="h3">04 — Offer Design & Close</div>
+            <p class="muted">Transparent expectations, timeline control, and closing narratives tailored to candidate motivations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="h2">Start a Conversation</h2>
+      <div class="grid two">
+        <div class="card">
+          <p class="muted">Share a role or talent question. I’ll reply with next steps and a suggested plan within one business day.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+            <a class="btn primary" href="mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry&body=Hi%20Ayush%2C%20we'd%20like%20help%20with...">Email</a>
+            <a class="btn" target="_blank" href="https://wa.me/919740352682">WhatsApp</a>
+            <a class="btn" target="_blank" href="https://www.linkedin.com/in/mechazoid14">LinkedIn</a>
+          </div>
+        </div>
+
+        <!-- Netlify-friendly form (safe to keep) -->
+        <form class="card" name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact">
+          <div class="grid two" style="gap:14px">
+            <div><label class="muted">Name</label><input required name="name" class="input"></div>
+            <div><label class="muted">Email</label><input required type="email" name="email" class="input"></div>
+          </div>
+          <div style="margin-top:10px"><label class="muted">Company</label><input name="company" class="input"></div>
+          <div style="margin-top:10px"><label class="muted">How can I help?</label><textarea required name="message" rows="4" class="input"></textarea></div>
+          <button class="btn primary" style="margin-top:12px" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap">
+      <div class="muted">© <span id="year"></span> Ayush Mishra • 360° Talent Partner (Tech + Non‑Tech)</div>
+      <div class="tag">India • MEA • SE Asia</div>
+    </div>
+  </footer>
+
+  <style>
+    .input{width:100%;padding:.9rem 1rem;margin-top:.35rem;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--ink);outline:none;transition:border-color .2s}
+    .input:focus, textarea.input:focus{border-color:rgba(255,255,255,.34)}
+  </style>
+
+  <script>
+    // Year stamp
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Mobile menu
+    function toggleMenu(){
+      const el = document.getElementById('mobileMenu');
+      el.style.display = (el.style.display === 'none' || !el.style.display) ? 'block' : 'none';
+      window.scrollBy({top:1,left:0,behavior:'instant'});
+    }
+  </script>
+</body>
+</html>
