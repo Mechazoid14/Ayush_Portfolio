@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ayush Mishra — 360° Talent Partner (Tech + Non-Tech)</title>
-  <meta name="description" content="360° Talent Partner for Tech and Non-Tech. Engineering (IC→Leadership), Product, Cybersecurity & GRC, and Business Leadership. Super-niche headhunting with talent intelligence." />
+  <meta name="description" content="360° Talent Partner for Tech & Non-Tech. Engineering (IC→Leadership), Product, Cybersecurity & GRC, and Business Leadership." />
   <meta name="theme-color" content="#22d3ee"/>
 
   <!-- Fonts & Swiper -->
@@ -31,19 +31,19 @@
         <a href="#process">Process</a>
         <a href="#contact" class="btn">Contact</a>
       </nav>
-      <button class="btn hamburger" onclick="toggleMenu()">☰</button>
+      <button class="btn hamburger" aria-label="Open menu" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">☰</button>
     </div>
   </header>
 
   <!-- Mobile menu -->
   <div id="mobileMenu" class="container hidden">
     <div class="card grid" style="gap:10px">
-      <a href="#services" onclick="toggleMenu()">Services</a>
-      <a href="#niches" onclick="toggleMenu()">Niches</a>
-      <a href="#value" onclick="toggleMenu()">Value</a>
-      <!-- <a href="#recommendations" onclick="toggleMenu()">Recs</a> -->
-      <a href="#process" onclick="toggleMenu()">Process</a>
-      <a href="#contact" class="btn" onclick="toggleMenu()">Contact</a>
+      <a href="#services" onclick="mobileMenuClose()">Services</a>
+      <a href="#niches" onclick="mobileMenuClose()">Niches</a>
+      <a href="#value" onclick="mobileMenuClose()">Value</a>
+      <!-- <a href="#recommendations" onclick="mobileMenuClose()">Recs</a> -->
+      <a href="#process" onclick="mobileMenuClose()">Process</a>
+      <a href="#contact" class="btn" onclick="mobileMenuClose()">Contact</a>
     </div>
   </div>
 
@@ -84,24 +84,22 @@
     </div>
   </section>
 
-  <!-- Logos wall -->
   <!-- Logos wall (marquee) -->
-<section class="logos" aria-label="Companies I've worked with">
-  <div class="marquee" id="logos-marquee">
-    <img src="images/logo-itron.png" alt="Itron">
-    <img src="images/logo-ola.png" alt="Ola">
-    <img src="images/logo-zyoin.png" alt="Zyoin">
-    <img src="images/logo-nike.png" alt="Nike">
-    <img src="images/logo-newrelic.png" alt="New Relic">
-    <!-- duplicate set for seamless loop -->
-    <img src="images/logo-itron.png" alt="" aria-hidden="true">
-    <img src="images/logo-ola.png" alt="" aria-hidden="true">
-    <img src="images/logo-zyoin.png" alt="" aria-hidden="true">
-    <img src="images/logo-nike.png" alt="" aria-hidden="true">
-    <img src="images/logo-newrelic.png" alt="" aria-hidden="true">
-  </div>
-</section>
-
+  <section class="logos" aria-label="Companies I've worked with">
+    <div class="marquee" id="logos-marquee">
+      <img src="images/logo-itron.png" alt="Itron">
+      <img src="images/logo-ola.png" alt="Ola">
+      <img src="images/logo-zyoin.png" alt="Zyoin">
+      <img src="images/logo-nike.png" alt="Nike">
+      <img src="images/logo-newrelic.png" alt="New Relic">
+      <!-- duplicate set for seamless loop -->
+      <img src="images/logo-itron.png" alt="" aria-hidden="true">
+      <img src="images/logo-ola.png" alt="" aria-hidden="true">
+      <img src="images/logo-zyoin.png" alt="" aria-hidden="true">
+      <img src="images/logo-nike.png" alt="" aria-hidden="true">
+      <img src="images/logo-newrelic.png" alt="" aria-hidden="true">
+    </div>
+  </section>
 
   <!-- Services -->
   <section id="services" class="section">
@@ -203,7 +201,7 @@
     </div>
   </section>
 
-  <!-- Recommendations (COMMENTED OUT) -->
+  <!-- Recommendations (COMMENTED OUT for later) -->
   <!--
   <aside id="recommendations" class="recommendations section">
     <div class="container">
@@ -243,7 +241,6 @@
             <a class="btn" target="_blank" href="https://www.linkedin.com/in/mechazoid14">LinkedIn</a>
           </div>
         </div>
-        <!-- Netlify-friendly form -->
         <form class="card" name="contact" method="POST" data-netlify="true">
           <input type="hidden" name="form-name" value="contact">
           <div class="grid two" style="gap:14px">
@@ -268,6 +265,28 @@
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="./assets/app.js"></script>
+  <script>
+    // close mobile menu after click
+    function mobileMenuClose(){ document.getElementById('mobileMenu').classList.add('hidden'); }
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // hero slider
+    new Swiper('.hero-swiper', {
+      loop: true,
+      autoplay: { delay: 3200, disableOnInteraction: false },
+      speed: 700,
+      pagination: { el: '.hero .swiper-pagination', clickable: true },
+      effect: 'fade',
+      fadeEffect: { crossFade: true }
+    });
+    // pause marquee on tab blur (perf)
+    const marquee = document.getElementById('logos-marquee');
+    if (marquee){
+      document.addEventListener('visibilitychange', ()=>{
+        marquee.style.animationPlayState = document.hidden ? 'paused' : 'running';
+        marquee.querySelectorAll('img').forEach(i=>i.style.animationPlayState = document.hidden ? 'paused':'running');
+      });
+    }
+  </script>
 </body>
 </html>
