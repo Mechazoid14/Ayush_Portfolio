@@ -3,7 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ayush Mishra — Talent Partner</title>
+  <title>Ayush Mishra — 360° Talent Partner (Tech + Non-Tech)</title>
+  <meta name="description" content="360° Talent Partner for Tech and Non-Tech. Engineering (IC→Leadership), Product, Cybersecurity & GRC, and Business Leadership. Super-niche headhunting with talent intelligence." />
+  <meta name="theme-color" content="#22d3ee"/>
 
   <!-- Fonts & Swiper -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,174 +17,82 @@
 </head>
 <body>
   <!-- Header -->
-  <header class="site-header">
-    <div class="wrap">
-      <div class="brand">Ayush Mishra</div>
-      <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#work">Closures</a>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">AM</div>
+        <strong>Ayush Mishra</strong>
+      </div>
+      <nav class="navlinks">
+        <a href="#services">Services</a>
+        <a href="#niches">Niches</a>
+        <a href="#value">Value</a>
         <a href="#recommendations">Recs</a>
-        <a href="#pillars">Value</a>
-        <a href="#capabilities">Capabilities</a>
-        <a href="#cases">Wins</a>
         <a href="#process">Process</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact" class="btn">Contact</a>
       </nav>
+      <button class="btn hamburger" onclick="toggleMenu()">☰</button>
     </div>
   </header>
 
-  <!-- HERO slider -->
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="container hidden">
+    <div class="card grid" style="gap:10px">
+      <a href="#services" onclick="toggleMenu()">Services</a>
+      <a href="#niches" onclick="toggleMenu()">Niches</a>
+      <a href="#value" onclick="toggleMenu()">Value</a>
+      <a href="#recommendations" onclick="toggleMenu()">Recs</a>
+      <a href="#process" onclick="toggleMenu()">Process</a>
+      <a href="#contact" class="btn" onclick="toggleMenu()">Contact</a>
+    </div>
+  </div>
+
+  <!-- HERO (image slider + animated aurora) -->
   <section class="hero">
-    <div class="swiper hero-swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide hero-slide" style="--bg:url('images/hero-1.jpg')">
-          <div class="hero-copy">
-            <h1>360° Talent Partner</h1>
-            <p>Product • Cybersecurity • Engineering (IC → Leadership) • Non-Tech</p>
+    <div class="aurora"></div>
+    <div class="container">
+      <div class="pill">360° Talent Partner • Tech & Non-Tech • India | MEA | SE Asia</div>
+
+      <div class="swiper hero-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide hero-slide" style="--bg:url('images/hero-1.jpg')">
+            <div class="hero-copy">
+              <h1 class="h1">Build complete organizations</h1>
+              <p class="muted">Engineering (IC → Leadership), Product, Cybersecurity & GRC, and Business Leadership.</p>
+            </div>
+          </div>
+          <div class="swiper-slide hero-slide" style="--bg:url('images/hero-2.jpg')">
+            <div class="hero-copy">
+              <h1 class="h1">Super-niche headhunting</h1>
+              <p class="muted">Bespoke outreach, calibrated loops, clear narratives that convert.</p>
+            </div>
+          </div>
+          <div class="swiper-slide hero-slide" style="--bg:url('images/hero-3.jpg')">
+            <div class="hero-copy">
+              <h1 class="h1">Advisor & bridge</h1>
+              <p class="muted">Translate business goals ↔ talent strategy. Move fast without lowering the bar.</p>
+            </div>
           </div>
         </div>
-        <div class="swiper-slide hero-slide" style="--bg:url('images/hero-2.jpg')">
-          <div class="hero-copy">
-            <h1>Niche & Super-Niche</h1>
-            <p>Headhunting hard roles across India/APAC</p>
-          </div>
-        </div>
-        <div class="swiper-slide hero-slide" style="--bg:url('images/hero-3.jpg')">
-          <div class="hero-copy">
-            <h1>Advisor & Bridge</h1>
-            <p>Translating business goals ↔ talent strategy</p>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="about reveal">
-    <div class="wrap">
-      <h2>About</h2>
-      <p>I build high-signal pipelines for Product, Security, and Engineering—across ICs to senior leadership—aligning stakeholders to move fast without lowering the bar.</p>
-    </div>
-  </section>
-
-  <!-- WORK grid -->
-  <section id="work" class="work reveal">
-    <div class="wrap">
-      <h2>Featured Closures</h2>
-      <div class="filters">
-        <button class="fbtn active" data-filter="all">All</button>
-        <button class="fbtn" data-filter="product">Product</button>
-        <button class="fbtn" data-filter="security">Security</button>
-        <button class="fbtn" data-filter="engg">Engineering</button>
-        <button class="fbtn" data-filter="nontech">Non-Tech</button>
+        <div class="swiper-pagination"></div>
       </div>
 
-      <div class="grid">
-        <figure class="card" data-cat="product"><img src="images/p1.jpg" alt=""><figcaption>Principal PM — Cloud Observability</figcaption></figure>
-        <figure class="card" data-cat="security"><img src="images/s1.jpg" alt=""><figcaption>Deputy CISO — GRC</figcaption></figure>
-        <figure class="card" data-cat="engg"><img src="images/e1.jpg" alt=""><figcaption>Lead SWE — Telemetry (Go)</figcaption></figure>
-        <figure class="card" data-cat="nontech"><img src="images/n1.jpg" alt=""><figcaption>Senior Legal Counsel</figcaption></figure>
-      </div>
-
-      <div class="lightbox" id="lightbox"><img alt=""><span class="close">×</span></div>
-    </div>
-  </section>
-
-  <!-- Recommendations -->
-  <aside id="recommendations" class="recommendations reveal">
-    <h2>Recommendations</h2>
-    <div class="swiper rec-swiper">
-      <div class="swiper-wrapper" id="rec-list"></div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </aside>
-
-  <!-- Value pillars (no numbers) -->
-  <section class="pillars reveal" id="pillars">
-    <div class="wrap">
-      <h2>How I Add Value</h2>
-      <div class="pillars-grid">
-        <article class="pillar">
-          <div class="ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M10 18a8 8 0 1 1 5.3-14.1l4.9 4.9-1.4 1.4-4.7-4.7A6 6 0 1 0 10 16v2z"/></svg>
-          </div>
-          <h3>Signal-First Sourcing</h3>
-          <p>Fewer, sharper profiles. Decision-ready shortlists.</p>
-        </article>
-        <article class="pillar">
-          <div class="ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/></svg>
-          </div>
-          <h3>Bar-Raising Interviews</h3>
-          <p>Structured rubrics, calibrated loops, crisp write-ups.</p>
-        </article>
-        <article class="pillar">
-          <div class="ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm3.5 3.5L10 10l-2 7 7-2 4.5-5.5L15.5 5.5z"/></svg>
-          </div>
-          <h3>Stakeholder Orchestration</h3>
-          <p>Alignment across hiring managers, panels, leadership.</p>
-        </article>
-        <article class="pillar">
-          <div class="ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 2l2 6h6l-4.8 3.4L17.6 18 12 14.6 6.4 18l2.4-6.6L4 8h6z"/></svg>
-          </div>
-          <h3>Employer Brand Nudges</h3>
-          <p>Personalized pitch collateral that converts passive talent.</p>
-        </article>
+      <div style="display:flex;gap:12px;margin:18px 0 10px;flex-wrap:wrap">
+        <a class="btn primary" href="#contact">Start a Conversation</a>
+        <a class="btn" href="#services">Explore Services</a>
       </div>
     </div>
   </section>
 
-  <!-- Capabilities -->
-  <section class="capabilities reveal" id="capabilities">
-    <div class="wrap">
-      <h2>Role Spectrum I Handle</h2>
-
-      <div class="chips" id="cap-filters">
-        <button class="chip active" data-filter="all">All</button>
-        <button class="chip" data-filter="product">Product</button>
-        <button class="chip" data-filter="security">Cybersecurity</button>
-        <button class="chip" data-filter="engg">Engineering</button>
-        <button class="chip" data-filter="nontech">Non-Tech</button>
-        <button class="chip" data-filter="leadership">Leadership</button>
-      </div>
-
-      <div class="cap-grid" id="cap-grid">
-        <div class="cap-card" data-cat="product"><h3>Principal / Lead PM</h3><p>Platform, Observability, AI/ML, Monetization, Growth.</p></div>
-        <div class="cap-card" data-cat="product leadership"><h3>Director of Product</h3><p>0→1 revamps, portfolio rationalization, P&L awareness.</p></div>
-        <div class="cap-card" data-cat="security"><h3>Security Engineering</h3><p>AppSec, CloudSec, IAM, Detection & Response.</p></div>
-        <div class="cap-card" data-cat="security leadership"><h3>Deputy CISO</h3><p>GRC programs, risk frameworks, stakeholder comms.</p></div>
-        <div class="cap-card" data-cat="engg"><h3>Senior/Lead SWE (Backend)</h3><p>Java/Go, microservices, cloud (AWS/Azure/GCP).</p></div>
-        <div class="cap-card" data-cat="engg leadership"><h3>Engineering Manager</h3><p>Hands-on leaders who build & scale product teams.</p></div>
-        <div class="cap-card" data-cat="nontech"><h3>Legal Counsel</h3><p>Commercial, privacy, product advisory.</p></div>
-        <div class="cap-card" data-cat="nontech"><h3>People Ops / HRBP</h3><p>Org design, headcount planning, talent strategy.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Case studies -->
-  <section class="cases reveal" id="cases">
-    <div class="wrap">
-      <h2>Selected Wins</h2>
-      <div class="cases-grid">
-        <article class="case"><header><span class="badge">Product</span><h3>Cloud Observability PM (Principal)</h3></header><p>Reframed ambiguous scope, rebuilt profile thesis, and unlocked senior stakeholder buy-in. Outcome: confident, on-bar hire.</p></article>
-        <article class="case"><header><span class="badge">Security</span><h3>Deputy CISO (GRC)</h3></header><p>Calibrated interview loop and narrative to de-risk governance trade-offs. Outcome: leader who partners with the business.</p></article>
-        <article class="case"><header><span class="badge">Engineering</span><h3>Lead SWE — Telemetry (Go)</h3></header><p>Targeted builder-mindset ICs with platform thinking. Outcome: faster throughput without compromising standards.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Logos wall -->
-  <section class="logos reveal" aria-label="Brands">
+  <!-- Logos wall (marquee) -->
+  <section class="logos" aria-label="Brands">
     <div class="marquee" id="logos-marquee">
       <img src="images/logo1.png" alt="Brand 1">
       <img src="images/logo2.png" alt="Brand 2">
       <img src="images/logo3.png" alt="Brand 3">
       <img src="images/logo4.png" alt="Brand 4">
       <img src="images/logo5.png" alt="Brand 5">
+      <!-- duplicate for seamless loop -->
       <img src="images/logo1.png" alt="" aria-hidden="true">
       <img src="images/logo2.png" alt="" aria-hidden="true">
       <img src="images/logo3.png" alt="" aria-hidden="true">
@@ -191,34 +101,164 @@
     </div>
   </section>
 
-  <!-- Process -->
-  <section class="process reveal" id="process">
-    <div class="wrap">
-      <h2>Partnering Process</h2>
-      <ol class="steps">
-        <li><strong>Scope & Thesis:</strong> Align on success criteria, non-negotiables, and narrative.</li>
-        <li><strong>Market Pass:</strong> Rapid scan → example profiles → calibration.</li>
-        <li><strong>Signal-Driven Search:</strong> Targeted outreach & tailored pitch collateral.</li>
-        <li><strong>Structured Evaluation:</strong> Rubrics, panel design, debriefs.</li>
-        <li><strong>Decision & Close:</strong> Expectation alignment, risks addressed, smooth handover.</li>
-      </ol>
+  <!-- Services -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 class="h2">Services</h2>
+      <div class="grid three">
+        <div class="card">
+          <div class="h3">Engineering Talent (IC → Leadership)</div>
+          <p class="muted">Senior/Staff/Principal ICs, Architects → Directors, Sr Directors, VPs across backend, platform, data, reliability, and more.</p>
+          <div class="tag">IC to Executive</div>
+        </div>
+        <div class="card">
+          <div class="h3">Product & Cybersecurity Talent</div>
+          <p class="muted">PMs, TPMs, Designers, UX; AppSec, SecEng, IAM, Threat, GRC — calibrated pipelines built for speed.</p>
+          <div class="tag">IC to Leadership</div>
+        </div>
+        <div class="card">
+          <div class="h3">Business & Non-Tech Functions</div>
+          <p class="muted">Legal, HR, Finance, Strategy, Marketing, GTM, Ops — complete business functions for GCCs & startups.</p>
+          <div class="tag">Cross-Functional</div>
+        </div>
+        <div class="card">
+          <div class="h3">Leadership & Super-Niche Headhunting</div>
+          <p class="muted">Directors, Sr Directors, VPs; Principal Architects, Deputy CISOs, Senior Legal Counsels, etc.</p>
+          <div class="tag">Global Searches</div>
+        </div>
+        <div class="card">
+          <div class="h3">Talent Intelligence</div>
+          <p class="muted">Market maps, salary bands, competitor org charts, succession pipelines, and candidate heatmaps.</p>
+          <div class="tag">Decision Support</div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="faq reveal" id="faq">
-    <div class="wrap">
-      <h2>FAQ</h2>
-      <details class="qa"><summary>Do you handle leadership roles?</summary><p>Yes—Product, Security, and Engineering leadership. I also cover strategic non-tech roles.</p></details>
-      <details class="qa"><summary>How do you keep the bar high?</summary><p>Clear rubrics, calibrated panels, and write-ups that map evidence to requirements.</p></details>
-      <details class="qa"><summary>Can you work with ambiguous scopes?</summary><p>Absolutely. I help convert fuzzy asks into a search thesis the org can align on.</p></details>
+  <!-- Niches -->
+  <section id="niches" class="section" style="padding-top:0">
+    <div class="container">
+      <h2 class="h2">Core Niches</h2>
+      <div class="grid three">
+        <div class="card">
+          <div class="h3">Engineering (IC → VP)</div>
+          <p class="muted">Senior Engineers, Staff/Principal, Architects; Directors, Sr Directors, VPs across platform, data, reliability, and backend.</p>
+        </div>
+        <div class="card">
+          <div class="h3">Product Organizations</div>
+          <p class="muted">Directors, Principal/Lead PMs, TPMs, Designers, and UX Research — competency models to interview loops.</p>
+        </div>
+        <div class="card">
+          <div class="h3">Cybersecurity & GRC</div>
+          <p class="muted">Security Engineering, AppSec, IAM, Threat, Governance/Risk/Compliance — IC to leadership.</p>
+        </div>
+        <div class="card">
+          <div class="h3">Business Leadership (Non-Tech)</div>
+          <p class="muted">Finance, Legal, HR, Strategy, Ops, GTM — senior managers to functional heads.</p>
+        </div>
+        <div class="card">
+          <div class="h3">Super-Niche Headhunting</div>
+          <p class="muted">Tiny global pools, bespoke outreach, and calibrated assessments to land rare talent.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value (no numbers) -->
+  <section id="value" class="section">
+    <div class="container">
+      <h2 class="h2">How I Add Value</h2>
+      <div class="pillars-grid">
+        <article class="pillar card">
+          <div class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M10 18a8 8 0 1 1 5.3-14.1l4.9 4.9-1.4 1.4-4.7-4.7A6 6 0 1 0 10 16v2z"/></svg>
+          </div>
+          <h3>Signal-First Sourcing</h3>
+          <p class="muted">Fewer, sharper profiles. Decision-ready shortlists.</p>
+        </article>
+        <article class="pillar card">
+          <div class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/></svg>
+          </div>
+          <h3>Bar-Raising Interviews</h3>
+          <p class="muted">Structured rubrics, calibrated loops, crisp write-ups.</p>
+        </article>
+        <article class="pillar card">
+          <div class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm3.5 3.5L10 10l-2 7 7-2 4.5-5.5L15.5 5.5z"/></svg>
+          </div>
+          <h3>Stakeholder Orchestration</h3>
+          <p class="muted">Alignment across hiring managers, panels, leadership.</p>
+        </article>
+        <article class="pillar card">
+          <div class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2l2 6h6l-4.8 3.4L17.6 18 12 14.6 6.4 18l2.4-6.6L4 8h6z"/></svg>
+          </div>
+          <h3>Employer-Brand Nudges</h3>
+          <p class="muted">Personalized pitch collateral that converts passive talent.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommendations (slider fed by JSON) -->
+  <aside id="recommendations" class="recommendations section">
+    <div class="container">
+      <h2 class="h2">Recommendations</h2>
+      <div class="swiper rec-swiper">
+        <div class="swiper-wrapper" id="rec-list"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Process -->
+  <section id="process" class="section">
+    <div class="container">
+      <h2 class="h2">Partnering Process</h2>
+      <div class="grid two process">
+        <div class="card step"><div></div><div><div class="h3">Scope & Thesis</div><p class="muted">Success criteria, non-negotiables, and hiring narrative.</p></div></div>
+        <div class="card step"><div></div><div><div class="h3">Market Pass</div><p class="muted">Rapid scan → example profiles → calibration.</p></div></div>
+        <div class="card step"><div></div><div><div class="h3">Signal-Driven Search</div><p class="muted">Targeted outreach & tailored collateral.</p></div></div>
+        <div class="card step"><div></div><div><div class="h3">Structured Evaluation</div><p class="muted">Rubrics, panel design, debriefs.</p></div></div>
+        <div class="card step"><div></div><div><div class="h3">Decision & Close</div><p class="muted">Expectation alignment, risks addressed, smooth handover.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="h2">Start a Conversation</h2>
+      <div class="grid two">
+        <div class="card">
+          <p class="muted">Share a role or talent question. I’ll reply with next steps and a suggested plan within one business day.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+            <a class="btn primary" href="mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry&body=Hi%20Ayush%2C%20we'd%20like%20help%20with...">Email</a>
+            <a class="btn" target="_blank" href="https://wa.me/919740352682">WhatsApp</a>
+            <a class="btn" target="_blank" href="https://www.linkedin.com/in/mechazoid14">LinkedIn</a>
+          </div>
+        </div>
+        <!-- Netlify-friendly form (optional) -->
+        <form class="card" name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact">
+          <div class="grid two" style="gap:14px">
+            <div><label class="muted">Name</label><input required name="name" class="input"></div>
+            <div><label class="muted">Email</label><input required type="email" name="email" class="input"></div>
+          </div>
+          <div style="margin-top:10px"><label class="muted">Company</label><input name="company" class="input"></div>
+          <div style="margin-top:10px"><label class="muted">How can I help?</label><textarea required name="message" rows="4" class="input"></textarea></div>
+          <button class="btn primary" style="margin-top:12px" type="submit">Send</button>
+        </form>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer id="contact" class="footer">
-    <div class="wrap">
-      <p>📍 Bangalore • <a href="mailto:ayushmishra14feb@gmail.com">ayushmishra14feb@gmail.com</a> • <a href="https://mechazoid14.github.io/Ayush_Portfolio/" target="_blank" rel="noopener">Website</a></p>
+  <footer>
+    <div class="container footer-row">
+      <div class="muted">© <span id="year"></span> Ayush Mishra • 360° Talent Partner (Tech + Non-Tech)</div>
+      <div class="tag">India • MEA • SE Asia</div>
     </div>
   </footer>
 
