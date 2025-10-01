@@ -5,19 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ayush Mishra — Talent Partner</title>
 
-  <!-- ADDED: Inter font + base stylesheet -->
+  <!-- Fonts & Swiper -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
-  <!-- ADDED: Swiper CSS for sliders -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-  <!-- ADDED: Your main stylesheet -->
+  <!-- Site CSS -->
   <link rel="stylesheet" href="./assets/styles.css">
 </head>
 <body>
-
-  <!-- ====== HEADER (keep yours if you have one) ====== -->
+  <!-- Header -->
   <header class="site-header">
     <div class="wrap">
       <div class="brand">Ayush Mishra</div>
@@ -25,12 +22,17 @@
         <a href="#about">About</a>
         <a href="#work">Closures</a>
         <a href="#recommendations">Recs</a>
+        <a href="#pillars">Value</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#cases">Wins</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- ADDED: HERO SLIDER -->
+  <!-- HERO slider -->
   <section class="hero">
     <div class="swiper hero-swiper">
       <div class="swiper-wrapper">
@@ -57,23 +59,15 @@
     </div>
   </section>
 
-  <!-- Your original ABOUT (you can replace this block with yours) -->
+  <!-- About -->
   <section id="about" class="about reveal">
     <div class="wrap">
       <h2>About</h2>
-      <p>I build high-signal pipelines for Product, Security, and Engineering — from ICs to senior leadership — and align stakeholders to move fast without lowering the bar.</p>
+      <p>I build high-signal pipelines for Product, Security, and Engineering—across ICs to senior leadership—aligning stakeholders to move fast without lowering the bar.</p>
     </div>
   </section>
 
-  <!-- ADDED: METRICS with auto-counter -->
-  <section class="metrics reveal">
-    <div class="metric"><div class="num" data-target="97">0</div><div class="lbl">Offer-to-Join %</div></div>
-    <div class="metric"><div class="num" data-target="40">0</div><div class="lbl">Diversity %</div></div>
-    <div class="metric"><div class="num" data-target="38">0</div><div class="lbl">Joins</div></div>
-    <div class="metric"><div class="num" data-target="5">0</div><div class="lbl">+ yrs Team Lead</div></div>
-  </section>
-
-  <!-- ADDED: FILTERABLE WORK GRID + LIGHTBOX -->
+  <!-- WORK grid -->
   <section id="work" class="work reveal">
     <div class="wrap">
       <h2>Featured Closures</h2>
@@ -96,7 +90,7 @@
     </div>
   </section>
 
-  <!-- ADDED: RECOMMENDATIONS (DYNAMIC SLIDER FED BY JSON) -->
+  <!-- Recommendations -->
   <aside id="recommendations" class="recommendations reveal">
     <h2>Recommendations</h2>
     <div class="swiper rec-swiper">
@@ -105,15 +99,18 @@
     </div>
   </aside>
 
-  <!-- Simple contact footer (keep/replace) -->
-  <footer id="contact" class="footer">
+  <!-- Value pillars (no numbers) -->
+  <section class="pillars reveal" id="pillars">
     <div class="wrap">
-      <p>📍 Bangalore • <a href="mailto:ayushmishra14feb@gmail.com">ayushmishra14feb@gmail.com</a> • <a href="https://mechazoid14.github.io/Ayush_Portfolio/" target="_blank" rel="noopener">Website</a></p>
-    </div>
-  </footer>
-
-  <!-- ADDED: Swiper JS + your app script -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="./assets/app.js"></script>
-</body>
-</html>
+      <h2>How I Add Value</h2>
+      <div class="pillars-grid">
+        <article class="pillar">
+          <div class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M10 18a8 8 0 1 1 5.3-14.1l4.9 4.9-1.4 1.4-4.7-4.7A6 6 0 1 0 10 16v2z"/></svg>
+          </div>
+          <h3>Signal-First Sourcing</h3>
+          <p>Fewer, sharper profiles. Decision-ready shortlists.</p>
+        </article>
+        <article class="pillar">
+          <div class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c
