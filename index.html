@@ -27,7 +27,7 @@
         <a href="#services">Services</a>
         <a href="#niches">Niches</a>
         <a href="#value">Value</a>
-        <a href="#recommendations">Recs</a>
+        <!-- <a href="#recommendations">Recs</a> -->
         <a href="#process">Process</a>
         <a href="#contact" class="btn">Contact</a>
       </nav>
@@ -41,13 +41,13 @@
       <a href="#services" onclick="toggleMenu()">Services</a>
       <a href="#niches" onclick="toggleMenu()">Niches</a>
       <a href="#value" onclick="toggleMenu()">Value</a>
-      <a href="#recommendations" onclick="toggleMenu()">Recs</a>
+      <!-- <a href="#recommendations" onclick="toggleMenu()">Recs</a> -->
       <a href="#process" onclick="toggleMenu()">Process</a>
       <a href="#contact" class="btn" onclick="toggleMenu()">Contact</a>
     </div>
   </div>
 
-  <!-- HERO (image slider + animated aurora) -->
+  <!-- HERO -->
   <section class="hero">
     <div class="aurora"></div>
     <div class="container">
@@ -84,7 +84,7 @@
     </div>
   </section>
 
-  <!-- Logos wall (marquee) -->
+  <!-- Logos wall -->
   <section class="logos" aria-label="Brands">
     <div class="marquee" id="logos-marquee">
       <img src="images/logo1.png" alt="Brand 1">
@@ -92,7 +92,6 @@
       <img src="images/logo3.png" alt="Brand 3">
       <img src="images/logo4.png" alt="Brand 4">
       <img src="images/logo5.png" alt="Brand 5">
-      <!-- duplicate for seamless loop -->
       <img src="images/logo1.png" alt="" aria-hidden="true">
       <img src="images/logo2.png" alt="" aria-hidden="true">
       <img src="images/logo3.png" alt="" aria-hidden="true">
@@ -164,7 +163,7 @@
     </div>
   </section>
 
-  <!-- Value (no numbers) -->
+  <!-- Value -->
   <section id="value" class="section">
     <div class="container">
       <h2 class="h2">How I Add Value</h2>
@@ -201,7 +200,8 @@
     </div>
   </section>
 
-  <!-- Recommendations (slider fed by JSON) -->
+  <!-- Recommendations (COMMENTED OUT) -->
+  <!--
   <aside id="recommendations" class="recommendations section">
     <div class="container">
       <h2 class="h2">Recommendations</h2>
@@ -211,6 +211,7 @@
       </div>
     </div>
   </aside>
+  -->
 
   <!-- Process -->
   <section id="process" class="section">
@@ -239,7 +240,7 @@
             <a class="btn" target="_blank" href="https://www.linkedin.com/in/mechazoid14">LinkedIn</a>
           </div>
         </div>
-        <!-- Netlify-friendly form (optional) -->
+        <!-- Netlify-friendly form -->
         <form class="card" name="contact" method="POST" data-netlify="true">
           <input type="hidden" name="form-name" value="contact">
           <div class="grid two" style="gap:14px">
