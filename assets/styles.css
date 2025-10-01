@@ -57,7 +57,7 @@ header{position:sticky;top:0;z-index:10;background:rgba(11,18,32,.6);backdrop-fi
 /* Logos marquee */
 .logos{padding:22px 0}
 .marquee{display:flex;gap:40px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent)}
-.marquee img{height:28px;opacity:.75;filter:grayscale(100%);animation:scroll 18s linear infinite}
+.marquee img{height:36px;opacity:.85;filter:grayscale(100%);animation:scroll 18s linear infinite}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .marquee:hover img{animation-play-state:paused}
 
@@ -66,7 +66,7 @@ header{position:sticky;top:0;z-index:10;background:rgba(11,18,32,.6);backdrop-fi
 .pillar .ico{width:36px;height:36px;border-radius:10px;background:#121821;display:grid;place-items:center;margin-bottom:10px}
 .pillar .ico svg{fill:#d7def0;width:20px;height:20px;opacity:.9}
 
-/* Recommendations */
+/* Recommendations (if re-enabled later) */
 .recommendations .swiper{padding-top:10px}
 .rec-card{padding:16px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02))}
 .rec-quote{font-style:italic;line-height:1.6;margin:0 0 6px}
