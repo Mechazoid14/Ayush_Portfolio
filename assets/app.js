@@ -1,3 +1,14 @@
+// Mobile menu
+function toggleMenu(){
+  const el = document.getElementById('mobileMenu');
+  el.classList.toggle('hidden');
+  window.scrollBy({top:1,left:0,behavior:'instant'});
+}
+
+// Year stamp (optional footer if you add span#year)
+const y = document.getElementById('year');
+if (y) y.textContent = new Date().getFullYear();
+
 /* HERO slider */
 const heroSwiper = new Swiper('.hero-swiper', {
   loop: true,
@@ -30,7 +41,7 @@ const heroSwiper = new Swiper('.hero-swiper', {
       </div>
     `).join('');
     new Swiper('.rec-swiper', {
-      autoplay: { delay: 3800, disableOnInteraction: false },
+      autoplay: { delay: 4200, disableOnInteraction: false },
       speed: 600,
       pagination: { el: '.recommendations .swiper-pagination', clickable: true }
     });
@@ -39,55 +50,7 @@ const heroSwiper = new Swiper('.hero-swiper', {
   }
 })();
 
-/* Scroll reveal */
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show'); });
-},{ threshold:.12 });
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-/* Work filters */
-const buttons = document.querySelectorAll('.fbtn');
-const cards = document.querySelectorAll('.grid .card');
-buttons.forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    buttons.forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    const f = btn.dataset.filter;
-    cards.forEach(c=>{
-      c.style.display = (f==='all' || c.dataset.cat===f) ? '' : 'none';
-    });
-  });
-});
-
-/* Lightbox */
-const lb = document.getElementById('lightbox');
-const lbImg = lb.querySelector('img');
-document.querySelectorAll('.card img').forEach(img=>{
-  img.addEventListener('click', ()=>{
-    lbImg.src = img.src; lb.style.display='flex';
-  });
-});
-lb.addEventListener('click', (e)=>{
-  if(e.target===lb || e.target.classList.contains('close')) lb.style.display='none';
-});
-
-/* Capabilities filter (multi-category) */
-const capButtons = document.querySelectorAll('#cap-filters .chip');
-const capCards = document.querySelectorAll('#cap-grid .cap-card');
-capButtons.forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    capButtons.forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    const f = btn.dataset.filter;
-    capCards.forEach(card=>{
-      if(f === 'all'){ card.style.display=''; return; }
-      const cats = (card.dataset.cat||'').split(' ');
-      card.style.display = cats.includes(f) ? '' : 'none';
-    });
-  });
-});
-
-/* Pause marquee on tab blur */
+/* Pause marquee on tab blur (perf) */
 const marquee = document.getElementById('logos-marquee');
 if (marquee){
   document.addEventListener('visibilitychange', ()=>{
