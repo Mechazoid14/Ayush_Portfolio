@@ -24,4 +24,30 @@ header{position:sticky;top:0;z-index:10;background:rgba(11,18,32,.6);backdrop-fi
 
 /* Hero */
 .hero{padding:90px 0 60px;position:relative}
-.hero-slide{height:
+.hero-slide{height:60vh;border-radius:18px;overflow:hidden;display:flex;align-items:flex-end;color:#fff;background-size:cover;background-position:center;position:relative}
+.hero-slide::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.7))}
+.hero-copy{position:relative;z-index:1;padding:20px}
+.swiper-pagination-bullet{background:#fff}
+
+/* Logos sliding */
+.logos{padding:22px 0;overflow:hidden}
+.marquee{display:flex;gap:40px;animation:scroll 18s linear infinite;width:max-content}
+.marquee img{height:40px;opacity:.9;filter:grayscale(100%);flex:0 0 auto}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee:hover{animation-play-state:paused}
+
+/* Cards */
+.card{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:14px;padding:20px}
+.grid{display:grid;gap:22px}
+.three{grid-template-columns:repeat(3,1fr)}
+.two{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.three,.two{grid-template-columns:1fr}}
+
+/* Value */
+.pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+
+/* Process steps */
+.step{border-left:4px solid var(--brand);padding:12px 16px}
+
+/* Footer */
+footer{border-top:1px solid var(--line);padding:22px 0;text-align:center}
