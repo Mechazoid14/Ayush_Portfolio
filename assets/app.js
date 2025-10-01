@@ -1,4 +1,4 @@
-/* ADDED: HERO SLIDER */
+/* HERO slider */
 const heroSwiper = new Swiper('.hero-swiper', {
   loop: true,
   autoplay: { delay: 3200, disableOnInteraction: false },
@@ -8,7 +8,7 @@ const heroSwiper = new Swiper('.hero-swiper', {
   fadeEffect: { crossFade: true }
 });
 
-/* ADDED: Load Recommendations from JSON + slider */
+/* Recommendations from JSON + slider */
 (async function(){
   try{
     const res = await fetch('./data/recommendations.json?cb='+Date.now());
@@ -39,33 +39,13 @@ const heroSwiper = new Swiper('.hero-swiper', {
   }
 })();
 
-/* ADDED: Scroll reveal */
+/* Scroll reveal */
 const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show'); });
 },{ threshold:.12 });
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-/* ADDED: Animated counters */
-function animateCounter(el){
-  const target = +el.dataset.target;
-  let n = 0, step = Math.max(1, Math.floor(target/60));
-  const t = setInterval(()=>{
-    n += step;
-    if(n >= target){ n = target; clearInterval(t); }
-    el.textContent = n;
-  }, 18);
-}
-const io2 = new IntersectionObserver((es)=>{
-  es.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.querySelectorAll('.num').forEach(animateCounter);
-      io2.unobserve(e.target);
-    }
-  });
-},{ threshold:.6 });
-document.querySelectorAll('.metrics').forEach(m=>io2.observe(m));
-
-/* ADDED: Filters for work grid */
+/* Work filters */
 const buttons = document.querySelectorAll('.fbtn');
 const cards = document.querySelectorAll('.grid .card');
 buttons.forEach(btn=>{
@@ -79,7 +59,7 @@ buttons.forEach(btn=>{
   });
 });
 
-/* ADDED: Lightbox */
+/* Lightbox */
 const lb = document.getElementById('lightbox');
 const lbImg = lb.querySelector('img');
 document.querySelectorAll('.card img').forEach(img=>{
@@ -90,3 +70,28 @@ document.querySelectorAll('.card img').forEach(img=>{
 lb.addEventListener('click', (e)=>{
   if(e.target===lb || e.target.classList.contains('close')) lb.style.display='none';
 });
+
+/* Capabilities filter (multi-category) */
+const capButtons = document.querySelectorAll('#cap-filters .chip');
+const capCards = document.querySelectorAll('#cap-grid .cap-card');
+capButtons.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    capButtons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    capCards.forEach(card=>{
+      if(f === 'all'){ card.style.display=''; return; }
+      const cats = (card.dataset.cat||'').split(' ');
+      card.style.display = cats.includes(f) ? '' : 'none';
+    });
+  });
+});
+
+/* Pause marquee on tab blur */
+const marquee = document.getElementById('logos-marquee');
+if (marquee){
+  document.addEventListener('visibilitychange', ()=>{
+    marquee.style.animationPlayState = document.hidden ? 'paused' : 'running';
+    marquee.querySelectorAll('img').forEach(i=>i.style.animationPlayState = document.hidden ? 'paused':'running');
+  });
+}
