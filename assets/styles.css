@@ -40,9 +40,9 @@ header{position:sticky;top:0;z-index:10;background:rgba(11,18,32,.6);backdrop-fi
 /* Hero */
 .hero{position:relative;padding:110px 0 80px}
 .aurora{position:absolute;inset:-30% -10% auto -10%;height:60vh;z-index:-1;filter:blur(72px) saturate(140%);
-  background:radial-gradient(35% 45% at 30% 40%, rgba(34,211,238,.45) 0%, transparent 60%),
-             radial-gradient(40% 50% at 70% 30%, rgba(139,92,246,.45) 0%, transparent 60%),
-             radial-gradient(30% 40% at 50% 80%, rgba(52,211,153,.35) 0%, transparent 60%);
+  background:radial-gradient(35% 45% at 30% 40%, rgba(34,211,238,.45) 0%, transparent 30%),
+             radial-gradient(40% 50% at 70% 30%, rgba(139,92,246,.45) 0%, transparent 30%),
+             radial-gradient(30% 40% at 50% 80%, rgba(52,211,153,.35) 0%, transparent 30%);
   animation:floaty 18s ease-in-out infinite alternate}
 @keyframes floaty{0%{transform:translateY(0) scale(1)}100%{transform:translateY(-22px) scale(1.05)}}
 .hero-swiper{margin-top:16px}
