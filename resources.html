@@ -3,23 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Power, Money & Mind — Playbook Library</title>
-  <meta name="description" content="A web-friendly playbook by Ayush Mishra on power, money, mindset, leadership and ethical influence." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Resources | Power, Money & Mind</title>
+  <meta name="description" content="Explore the playbook: Power, Money & Mind – A Framework for Conscious Leadership by Ayush Mishra" />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0f1220; --card:#13162a; --muted:#8a94a6; --text:#e6e8ef;
-      --brand:#2a7bdc; --gold:#d9b650; --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35);
+      --bg:#0f1220;--card:#13162a;--muted:#8a94a6;--text:#e6e8ef;--brand:#2a7bdc;--gold:#d9b650;
+      --radius:18px;--shadow:0 10px 30px rgba(0,0,0,.35);
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       background:
         radial-gradient(1200px 600px at 10% -10%, rgba(42,123,220,.15), transparent 60%),
-        radial-gradient(900px 600px at 110% 10%, rgba(217,182,80,.12), transparent 60%),
-        var(--bg);
+        radial-gradient(900px 600px at 110% 10%, rgba(217,182,80,.12), transparent 60%), var(--bg);
       color:var(--text);
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       line-height:1.65;
@@ -35,159 +32,67 @@
     .hero{padding:42px 0 22px}
     .hero h2{font-family:Merriweather,serif;font-weight:900;font-size:34px;line-height:1.2;margin:0 0 8px}
     .hero p{margin:0;color:var(--muted)}
-    .toolbar{display:flex;gap:14px;flex-wrap:wrap;margin:24px 0}
-    .search{flex:1;min-width:240px;position:relative}
-    .search input{width:100%;padding:14px 44px 14px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.08);
-      background:rgba(19,22,42,.7);color:var(--text);outline:none}
-    .search svg{position:absolute;right:12px;top:50%;transform:translateY(-50%);opacity:.7}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    @media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:640px){.grid{grid-template-columns:1fr}}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:36px 0}
     .card{display:block;text-decoration:none;color:inherit;background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)), var(--card);
-      border:1px solid rgba(255,255,255,.06);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow);
-      transition:.2s transform ease,.2s box-shadow ease,.2s border-color ease;position:relative;overflow:hidden}
-    .card:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(0,0,0,.45);border-color:rgba(255,255,255,.12)}
-    .card .chip{position:absolute;right:12px;top:12px;font-size:11px;padding:6px 10px;border-radius:999px;background:rgba(42,123,220,.15);
-      color:#cfe2ff;border:1px solid rgba(42,123,220,.35)}
+      border:1px solid rgba(255,255,255,.06);padding:20px;border-radius:var(--radius);box-shadow:var(--shadow);
+      transition:.2s transform ease,.2s box-shadow ease,.2s border-color ease;}
+    .card:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.45);border-color:rgba(255,255,255,.12)}
     .card h3{margin:0 0 6px;font-family:Merriweather,serif;font-weight:900;font-size:18px;letter-spacing:.2px}
-    .card p{margin:0 0 12px;color:var(--muted)}
-    .meta{display:flex;gap:10px;flex-wrap:wrap}
-    .tag{font-size:11px;padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.08);color:#dcdfe8}
-    .tag.gold{border-color:rgba(217,182,80,.35);color:#f4e7bf;background:rgba(217,182,80,.1)}
-    footer{color:var(--muted);border-top:1px solid rgba(255,255,255,.06);margin-top:38px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    footer{color:var(--muted);text-align:center;padding:30px 0;border-top:1px solid rgba(255,255,255,.05)}
   </style>
 </head>
 <body>
   <header>
-    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:16px">
-      <a class="brand" href="./">
-        <div class="logo" aria-hidden="true"></div>
+    <div class="wrap">
+      <a href="/" class="brand" id="brandHome">
+        <div class="logo"></div>
         <div>
-          <h1>Power, Money & Mind — A Framework for Conscious Leadership</h1>
-          <small>By Ayush Mishra — Playbook Library</small>
+          <h1>Power, Money & Mind</h1>
+          <small>A Framework for Conscious Leadership</small>
         </div>
       </a>
-      <nav style="display:flex; gap:16px; align-items:center">
-        <a href="./" style="color:var(--muted); text-decoration:none">Home</a>
-      </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="hero">
-      <h2>Playbook Library</h2>
-      <p>Explore nine sections — distilled, practical, and designed for action.</p>
-      <div class="toolbar">
-        <div class="search">
-          <input id="search" type="search" placeholder="Search chapters — leadership, negotiation, habits, systems…" aria-label="Search chapters" />
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);opacity:.7">
-            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/>
-          </svg>
-        </div>
-      </div>
-    </section>
+  <section class="wrap hero">
+    <h2>Resources Library</h2>
+    <p>Dive into practical, mindful frameworks for building power with integrity, leading with empathy, and creating lasting value.</p>
 
-    <section class="grid" id="cards">
-      <!-- Cards — hrefs will be auto-prefixed with basePath in the script -->
-      <a class="card" href="playbook/foundation.html" data-tags="power discipline ethics awareness" data-title="The Foundation of Power">
-        <span class="chip">Section 1</span>
-        <h3>The Foundation of Power</h3>
-        <p>Inner discipline, clarity and ethical strength.</p>
-        <div class="meta"><span class="tag">Awareness</span><span class="tag gold">Integrity</span></div>
-      </a>
-
-      <a class="card" href="playbook/money.html" data-tags="wealth value compounding decisions integrity" data-title="The Psychology of Wealth & Value">
-        <span class="chip">Section 2</span>
-        <h3>The Psychology of Wealth & Value</h3>
-        <p>Value creation, long-term thinking, and ethical finance.</p>
-        <div class="meta"><span class="tag">Value</span><span class="tag gold">Compounding</span></div>
-      </a>
-
-      <a class="card" href="playbook/mind.html" data-tags="habits identity resilience antifragile" data-title="Mastering the Mind & Habits">
-        <span class="chip">Section 3</span>
-        <h3>Mastering the Mind & Habits</h3>
-        <p>Identity-based habits and resilience engineering.</p>
-        <div class="meta"><span class="tag">Habits</span><span class="tag gold">Resilience</span></div>
-      </a>
-
-      <a class="card" href="playbook/influence.html" data-tags="negotiation persuasion trust storytelling batna" data-title="Negotiation & Influence">
-        <span class="chip">Section 4</span>
-        <h3>Negotiation & Influence</h3>
-        <p>Alignment over manipulation, empathy and presence.</p>
-        <div class="meta"><span class="tag">Trust</span><span class="tag gold">BATNA</span></div>
-      </a>
-
-      <a class="card" href="playbook/leadership.html" data-tags="leadership culture feedback safety coaching" data-title="Leadership & Culture">
-        <span class="chip">Section 5</span>
-        <h3>Leadership & Culture</h3>
-        <p>High-trust ecosystems and people-first design.</p>
-        <div class="meta"><span class="tag">Culture</span><span class="tag gold">Coaching</span></div>
-      </a>
-
-      <a class="card" href="playbook/systems.html" data-tags="systems thinking decisions leverage ethics" data-title="Systems Thinking & Decision-Making">
-        <span class="chip">Section 6</span>
-        <h3>Systems Thinking & Decision-Making</h3>
-        <p>See interconnections and design leverage.</p>
-        <div class="meta"><span class="tag">Strategy</span><span class="tag gold">Clarity</span></div>
-      </a>
-
-      <a class="card" href="playbook/innovation.html" data-tags="innovation foresight experiments digital empathy" data-title="Innovation & Future Readiness">
-        <span class="chip">Section 7</span>
-        <h3>Innovation & Future Readiness</h3>
-        <p>Foresight, fast learning, and purpose-aligned bets.</p>
-        <div class="meta"><span class="tag">Foresight</span><span class="tag gold">Prototype</span></div>
-      </a>
-
-      <a class="card" href="playbook/resilience.html" data-tags="resilience ethics purpose boundaries burnout" data-title="Resilience, Ethics & Purpose">
-        <span class="chip">Section 8</span>
-        <h3>Resilience, Ethics & Purpose</h3>
-        <p>Energy, ethics and sustainable decisions.</p>
-        <div class="meta"><span class="tag">Ethics</span><span class="tag gold">Wellbeing</span></div>
-      </a>
-
-      <a class="card" href="playbook/conclusion.html" data-tags="integration gratitude next steps" data-title="Closing Reflections">
-        <span class="chip">Section 9</span>
-        <h3>Closing Reflections</h3>
-        <p>Integrate, iterate, and lead by example.</p>
-        <div class="meta"><span class="tag">Integration</span><span class="tag gold">Legacy</span></div>
-      </a>
-    </section>
-  </main>
+    <div class="grid" id="cards">
+      <a class="card" href="playbook/foundation.html"><h3>1️⃣ The Foundation of Power</h3><p>Self-discipline, awareness, and integrity under pressure.</p></a>
+      <a class="card" href="playbook/money.html"><h3>2️⃣ The Psychology of Wealth & Value</h3><p>Value creation, compounding systems, and ethical decisions.</p></a>
+      <a class="card" href="playbook/mind.html"><h3>3️⃣ Mastering the Mind & Habits</h3><p>Identity-based habits and resilience engineering.</p></a>
+      <a class="card" href="playbook/influence.html"><h3>4️⃣ Negotiation & Influence</h3><p>Empathy, frame control, and aligned outcomes.</p></a>
+      <a class="card" href="playbook/leadership.html"><h3>5️⃣ Leadership & Culture</h3><p>High-trust ecosystems and people-first design.</p></a>
+      <a class="card" href="playbook/systems.html"><h3>6️⃣ Systems Thinking & Decision-Making</h3><p>Clarity, leverage, and ethical structure in decisions.</p></a>
+      <a class="card" href="playbook/innovation.html"><h3>7️⃣ Innovation & Future Readiness</h3><p>Foresight, creativity, and human-centered growth.</p></a>
+      <a class="card" href="playbook/resilience.html"><h3>8️⃣ Resilience, Ethics & Purpose</h3><p>Energy, endurance, and value-aligned persistence.</p></a>
+      <a class="card" href="playbook/conclusion.html"><h3>9️⃣ Closing Reflections</h3><p>Integration, gratitude, and continuous evolution.</p></a>
+    </div>
+  </section>
 
   <footer>
-    <div class="wrap" style="padding:28px 24px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap">
-      <p style="margin:0">© <span id="y"></span> Ayush Mishra. All rights reserved.</p>
-      <p style="margin:0; color:var(--muted)">Playbook Library</p>
-    </div>
+    <p>© <span id="y"></span> Ayush Mishra • Playbook Series</p>
   </footer>
 
   <script>
     // auto year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // if your site runs under a subpath like /Ayush_Portfolio/, prefix links:
-    const basePath = window.location.pathname.includes('/Ayush_Portfolio/')
-      ? '/Ayush_Portfolio/'
-      : '/';
+    // ✅ Auto-detect basePath (handles project pages like /Ayush_Portfolio/)
+    const firstSeg = window.location.pathname.split('/')[1] || '';
+    const basePath = firstSeg && firstSeg !== 'index.html' ? '/' + firstSeg + '/' : '/';
 
-    // fix card links to include basePath
-    document.querySelectorAll('#cards .card').forEach(a => {
+    // Fix brand/home link
+    document.getElementById('brandHome').setAttribute('href', basePath);
+
+    // Prefix all card links with basePath
+    document.querySelectorAll('#cards a.card').forEach(a => {
       const href = a.getAttribute('href');
       if (href && !href.startsWith('http')) {
         a.setAttribute('href', basePath + href.replace(/^\\/?/, ''));
       }
-    });
-
-    // simple search
-    const input = document.getElementById('search');
-    const cards = Array.from(document.querySelectorAll('#cards .card'));
-    input.addEventListener('input', () => {
-      const q = input.value.trim().toLowerCase();
-      cards.forEach(c => {
-        const hay = (c.dataset.title + ' ' + c.dataset.tags).toLowerCase();
-        c.style.display = hay.includes(q) ? 'block' : 'none';
-      });
     });
   </script>
 </body>
