@@ -1,0 +1,2 @@
+Candidate,Role,City,Band Min (INR),Band Mid (INR),Band Max (INR),"Target Offer (INR) (=ROUND(E2*1.05,-3))",Notes
+,,,2400000,2800000,3200000,"=ROUND(E2*1.05,-3)",5% over mid as starting point

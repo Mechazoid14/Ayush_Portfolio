@@ -1,0 +1,2 @@
+Candidate Name,Role,Source,Status [Screened|Shortlisted|Interviewing|Offer|Closed|Declined],Interview Stage,Feedback,Offer (Y/N),Notes,Date Created (YYYY-MM-DD),SLA Days Open (=TODAY()-I2)
+,,,Screened,,,,,2025-10-29,=TODAY()-I2

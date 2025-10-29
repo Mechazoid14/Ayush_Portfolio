@@ -1,0 +1,4 @@
+Role,Level,Experience (yrs),Location,Market Median (INR),Range Min (INR),Range Max (INR),Suggested Offer (INR),Median USD (=E2/INR_USD),Notes,INR_USD (enter rate at top)
+Backend Engineer,Senior,6-9,Bangalore,2800000,2400000,3200000,=E2*1.05,=E2/$L$1,Adjust by tier,83.00
+Product Manager,Lead,8-12,Hyderabad,3500000,3100000,4000000,=E3*1.05,=E3/$L$1,Leadership premium,
+Security Engineer,Staff,8-12,Pune,3000000,2600000,3600000,=E4*1.05,=E4/$L$1,Scarcity premium,
