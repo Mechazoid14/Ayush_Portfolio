@@ -1,359 +1,402 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Ayush Mishra — 360° Talent Partner for CTOs & CHROs</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ayush Mishra — Talent Partner for CTOs & CHROs</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 <style>
+  /* ============ THEME ============ */
   :root{
-    /* Brand & UI */
-    --bg:#070a12; --bg2:#0a0f1d;
-    --surface:#0e1424; --surface2:#121a2e;
-    --ink:#eef3fb; --muted:#a8b1c3;
+    --bg:#06070c;         /* deep canvas */
+    --ink:#f2f6fb;        /* primary text */
+    --muted:#a7b0bd;      /* secondary text */
     --line:rgba(255,255,255,.08);
-    --acc:#76e4f7; --acc2:#a78bfa; --hot:#ffb86b;
-    --ok:#22c55e; --warn:#f59e0b; --err:#ef4444;
-
-    --radius:18px; --radius-sm:12px;
-    --shadow:0 10px 30px rgba(0,0,0,.35);
+    --card:#0c0f19;
+    --glass:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+    --acc1:#7dd3fc;       /* sky */
+    --acc2:#a78bfa;       /* violet */
+    --acc3:#34d399;       /* green */
+    --err:#ef4444;
+    --ok:#22c55e;
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
   a{color:inherit;text-decoration:none}
   .container{max-width:1180px;margin:0 auto;padding:0 18px}
-  .glass{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
-         border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
-
-  /* BACKGROUND FX */
-  .hero-wrap{position:relative;overflow:hidden}
-  .hero-wrap:before{
-    content:""; position:absolute; inset:-20% -10% auto -10%;
-    height:80vh; min-height:420px;
-    background:
-      radial-gradient(1000px 480px at 10% -10%, rgba(167,139,250,.22), transparent 60%),
-      radial-gradient(1000px 560px at 90% 20%, rgba(118,228,247,.20), transparent 65%);
-    filter:saturate(120%) blur(0px);
-    z-index:-1;
-  }
-
-  /* HEADER */
-  header{position:sticky;top:0;z-index:60;backdrop-filter:blur(8px);
-    background:linear-gradient(180deg, rgba(7,10,18,.9), rgba(7,10,18,.65) 70%, transparent);
-    border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-  .brand{font-weight:800;letter-spacing:.3px}
-  .brand span{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
-  nav a{opacity:.9;margin:0 8px;padding:8px 10px;border-radius:12px}
-  nav a:hover{opacity:1;background:rgba(255,255,255,.06)}
-  .btn{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:12px;font-weight:700;border:1px solid var(--line);transition:.2s ease all}
-  .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.06)}
-  .btn.primary{background:linear-gradient(90deg,var(--acc),var(--acc2));color:#05070c;border:none}
-  .btn.primary:hover{filter:brightness(1.05)}
-  .btn.ghost{background:rgba(255,255,255,.04)}
-  .btn.small{padding:8px 10px;font-weight:600;border-radius:10px}
-
-  /* HERO (Attention) */
-  .hero{padding:56px 0 28px}
-  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  @media (max-width:980px){.hero-grid{grid-template-columns:1fr}}
-  .tag{display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(118,228,247,.14);border:1px solid rgba(118,228,247,.45);color:#d9f7ff;margin-bottom:12px}
-  h1{font-size:44px;line-height:1.08;margin:6px 0 10px}
-  p.lead{color:var(--muted);font-size:16px;margin:0 0 16px}
-  .hero-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  @media (max-width:980px){.hero-tiles{grid-template-columns:1fr}}
-  .tile{padding:14px;border-radius:var(--radius);border:1px solid var(--line);
-        background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));box-shadow:var(--shadow)}
-  .tile h3{margin:4px 0 6px;font-size:18px}
-  .pill{display:inline-block;margin:6px 6px 0 0;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);font-size:12px}
-
-  /* SECTIONS TITLES */
-  section{padding:30px 0}
-  .section-title{font-size:22px;margin:0 0 12px;letter-spacing:.2px}
-
-  /* INTEREST — Capabilities + Proof */
-  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  @media (max-width:980px){.grid-2,.grid-3{grid-template-columns:1fr}}
-  .bullets{margin:8px 0 0 0;padding-left:18px;color:var(--muted)}
-  .metric{display:flex;align-items:center;gap:12px;padding:12px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
-  .metric strong{font-size:18px}
-
-  /* DESIRE — Operating Model + SLAs + Governance */
+  .section{padding:42px 0}
+  .title{font-size:28px;margin:0 0 12px}
+  .sub{color:var(--muted);margin:4px 0 14px}
+  .pill{display:inline-block;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.05);font-size:12px;margin:6px 6px 0 0}
+  .card{background:var(--glass);border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 36px rgba(0,0,0,.35)}
+  .card-pad{padding:16px}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media (max-width:1000px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+  .bullets{margin:6px 0 0;padding-left:18px;color:var(--muted)}
   .table{width:100%;border-collapse:separate;border-spacing:0}
   .table th,.table td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;font-size:14px}
-  .table th{color:#cfe}
-  .stage{display:flex;gap:10px;align-items:flex-start;margin:8px 0}
-  .stage-num{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,var(--acc2),var(--acc));display:grid;place-items:center;color:#05070c;font-weight:800}
-  .stage-body{flex:1}
+  .table th{color:#cfe;opacity:.85}
 
-  /* ACTION — Copilot */
-  .panel{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.02));box-shadow:var(--shadow)}
+  /* ============ HEADER ============ */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:linear-gradient(180deg,rgba(6,7,12,.95),rgba(6,7,12,.72) 80%, transparent);
+    backdrop-filter:saturate(1.1) blur(8px);
+    border-bottom:1px solid var(--line)
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .brand{font-weight:800;letter-spacing:.4px}
+  .brand span{background:linear-gradient(90deg,var(--acc1),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  nav a{padding:8px 10px;border-radius:10px;margin:0 6px;opacity:.9}
+  nav a:hover{opacity:1;background:rgba(255,255,255,.06)}
+  .btn{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:12px;font-weight:700;border:1px solid var(--line);transition:transform .2s ease, background .2s ease}
+  .btn:hover{transform:translateY(-1px);background:rgba(125,211,252,.08)}
+  .btn.primary{background:linear-gradient(90deg,var(--acc1),var(--acc2));border:none;color:#0a0a0a}
+
+  /* ============ HERO (A = Attention) ============ */
+  .hero{
+    padding:60px 0 36px;
+    background:
+      radial-gradient(1200px 500px at 15% -10%, rgba(125,211,252,.18), transparent 60%),
+      radial-gradient(900px 380px at 90% 0%, rgba(167,139,250,.16), transparent 60%);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+  @media (max-width:1000px){.hero-grid{grid-template-columns:1fr}}
+  h1{font-size:46px;line-height:1.05;margin:8px 0 10px}
+  .lead{color:var(--muted);font-size:17px;margin:0 0 16px}
+  .bar{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+  .spark{
+    display:flex;align-items:center;gap:10px;
+    padding:10px 14px;border-radius:14px;border:1px solid var(--line);
+    background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
+  }
+  .dot{width:8px;height:8px;border-radius:999px;background:var(--acc3);box-shadow:0 0 14px var(--acc3)}
+
+  /* ============ STRIP (I = Interest) ============ */
+  .strip{
+    margin-top:16px;border:1px solid var(--line);border-radius:14px;
+    background:linear-gradient(90deg,rgba(125,211,252,.08),rgba(167,139,250,.08));
+    padding:10px 12px;display:flex;flex-wrap:wrap;gap:10px
+  }
+
+  /* ============ SECTION TAGS ============ */
+  .tag{display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(125,211,252,.12);border:1px solid rgba(125,211,252,.35);color:#c8edff;margin-bottom:10px}
+
+  /* ============ COPILOT PANEL ============ */
+  #copilot{scroll-margin-top:90px}
+  .panel{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--glass)}
   .panel-head{display:flex;justify-content:space-between;align-items:center;padding:14px;border-bottom:1px solid var(--line)}
-  .status-dot{width:10px;height:10px;border-radius:50%;background:var(--warn);display:inline-block;margin-right:8px}
+  .status-dot{width:10px;height:10px;border-radius:50%;background:#f59e0b;margin-right:8px}
   .status-dot.ok{background:var(--ok)} .status-dot.err{background:var(--err)}
-  .preset{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
-  .preset button{border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);border-radius:10px;padding:6px 10px;font-size:12px;cursor:pointer}
-  .preset button:hover{background:rgba(255,255,255,.09)}
   .log{height:380px;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
-  .msg{border:1px solid var(--line);background:rgba(0,0,0,.25);padding:12px;border-radius:14px;max-width:100%;white-space:pre-wrap}
-  .me{align-self:flex-end;background:rgba(118,228,247,.1)}
+  .msg{border:1px solid var(--line);background:rgba(255,255,255,.03);padding:12px;border-radius:14px;white-space:pre-wrap}
+  .me{align-self:flex-end;background:rgba(125,211,252,.10)}
   .them{align-self:flex-start}
   .msg .actions{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
-  .copy{padding:6px 10px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.04);cursor:pointer;font-size:12px}
-  .inputbar{display:flex;gap:10px;padding:10px;border-top:1px solid var(--line)}
-  .inputbar input{flex:1;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#090e1a;color:var(--ink)}
-  .inputbar button{padding:12px 16px;border-radius:12px;border:none;font-weight:800;background:linear-gradient(90deg,var(--acc),var(--acc2));color:#05070c}
+  .copy{padding:6px 10px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.05);cursor:pointer;font-size:12px}
+  .inputbar{display:flex;gap:10px;padding:10px;border-top:1px solid var(--line);background:rgba(255,255,255,.02)}
+  .inputbar input{flex:1;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0a0b10;color:var(--ink)}
+  .inputbar button{padding:12px 16px;border-radius:12px;border:none;font-weight:800;background:linear-gradient(90deg,var(--acc1),var(--acc2));color:#0a0a0a}
+  .preset{display:flex;flex-wrap:wrap;gap:8px;margin:10px 14px}
+  .preset button{border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);border-radius:10px;padding:6px 10px;font-size:12px;cursor:pointer}
+  .preset button:hover{background:rgba(255,255,255,.08)}
 
-  /* Sticky Action Rail */
-  .rail{
-    position:fixed; right:18px; bottom:18px; z-index:70;
-    display:flex; flex-direction:column; gap:10px;
+  /* --- Copilot welcome card & command chips --- */
+  .syscard{
+    border:1px solid var(--line);
+    background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));
+    padding:14px;border-radius:14px;box-shadow:0 8px 26px rgba(0,0,0,.28)
   }
-  .rail a{box-shadow:var(--shadow)}
-  /* micro-anim */
+  .syscard h4{margin:0 0 6px;font-size:16px}
+  .syscard p{margin:0 0 8px;color:var(--muted);font-size:14px}
+  .cmds{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .cmd{
+    border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);
+    border-radius:999px;padding:6px 12px;font-size:12px;cursor:pointer
+  }
+  .cmd:hover{background:rgba(255,255,255,.09)}
+  .group{margin-top:8px}
+  .group b{display:block;margin-bottom:6px;font-size:12px;color:#cfe;opacity:.9;letter-spacing:.2px}
+
+  /* ============ MICRO-ANIM ============ */
+  .floaty{animation:floaty 13s ease-in-out infinite}
+  @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
   .fade{animation:fade .5s ease both}
   @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
-  footer{padding:22px 0;color:var(--muted);border-top:1px solid var(--line);margin-top:32px}
+
+  /* ============ FOOTER / CTA STICKY ============ */
+  footer{padding:22px 0;color:var(--muted);border-top:1px solid var(--line);margin-top:34px}
+  .sticky-cta{
+    position:fixed;bottom:14px;left:50%;transform:translateX(-50%);
+    z-index:99;
+    display:flex;gap:10px;align-items:center;
+    background:linear-gradient(90deg,rgba(125,211,252,.16),rgba(167,139,250,.16));
+    border:1px solid var(--line);border-radius:999px;padding:8px 10px;
+    box-shadow:0 12px 30px rgba(0,0,0,.35)
+  }
+  .sticky-cta a{padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(0,0,0,.25);font-weight:700}
+  .sticky-cta a.primary{background:linear-gradient(90deg,var(--acc1),var(--acc2));color:#0a0a0a;border:none}
+  @media (max-width:600px){.sticky-cta{width:92%;left:4%;transform:none;justify-content:space-between}}
 </style>
 </head>
-
 <body>
-<!-- HEADER -->
 <header>
   <div class="container nav">
     <div class="brand">Ayush <span>Mishra</span></div>
     <nav>
       <a href="#home">Overview</a>
       <a href="#capabilities">Capabilities</a>
-      <a href="#proof">Proof</a>
-      <a href="#operating">Operating Model</a>
+      <a href="#operating">Operating</a>
+      <a href="#exec">Exec Guardrails</a>
       <a href="#slas">SLAs</a>
       <a href="#copilot">Copilot</a>
       <a href="#contact">Contact</a>
     </nav>
-    <div class="cta">
-      <a class="btn ghost" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform">Submit JD</a>
+    <div class="bar">
+      <a class="btn" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform">Submit JD</a>
       <a class="btn primary" target="_blank" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20book%20a%2020-min%20call.">Book 20-min</a>
     </div>
   </div>
 </header>
 
-<!-- HERO (Attention) -->
-<div class="hero-wrap">
-  <main class="container">
-    <section id="home" class="hero">
-      <div class="hero-grid">
-        <div>
-          <span class="tag">CTO & CHRO Partner · Product · Cybersecurity/GRC · Engineering (IC → VP) · Business</span>
-          <h1>De-risk hiring. Raise the bar.<br/>Ship teams that ship outcomes.</h1>
-          <p class="lead">
-            I help leadership fill pivotal roles fast—without lowering standards. Calibrated scorecards, targeted market maps, tight loops, and executive-grade reporting.
-          </p>
-          <div class="cta">
-            <a class="btn primary" href="#copilot">Open Talent Copilot</a>
-            <a class="btn ghost" href="#operating">How I Operate</a>
-          </div>
-        </div>
-        <div class="hero-tiles">
-          <div class="tile fade">
-            <h3>Product & Design</h3>
-            <p class="muted">PMs, Principal/Director PMs, Group PMs, Product Designers, UX, Research</p>
-            <span class="pill">B2B SaaS</span><span class="pill">Growth</span><span class="pill">Platform</span>
-          </div>
-          <div class="tile fade">
-            <h3>Cybersecurity & GRC</h3>
-            <p class="muted">AppSec, CloudSec, IAM, GRC/Privacy, Sec Eng, Leadership</p>
-            <span class="pill">Zero Trust</span><span class="pill">SIEM</span><span class="pill">DPDP/GDPR</span>
-          </div>
-          <div class="tile fade">
-            <h3>Engineering (IC → VP)</h3>
-            <p class="muted">Backend, Frontend, Full-stack, Platform, SRE/DevOps, Data/ML, Mobile, Architects</p>
-            <span class="pill">Scale</span><span class="pill">Observability</span><span class="pill">Cloud</span>
-          </div>
-        </div>
+<!-- ======================= A = ATTENTION ======================= -->
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="tag">For CTOs & CHROs · Product · Security/GRC · Engineering (IC → VP) · Business</span>
+      <h1>De-risk hiring. Raise the bar.<br/>Ship teams that ship outcomes.</h1>
+      <p class="lead">
+        Executive-grade talent partnership across Product, Security/GRC, and Engineering. Calibrated scorecards,
+        targeted market maps, tight loops, and hands-on orchestration—without vanity metrics.
+      </p>
+      <div class="bar">
+        <div class="spark"><span class="dot"></span><strong>48-hour</strong> kickoff pack (map + scorecards)</div>
+        <div class="spark"><span class="dot"></span>IC → VP pipelines with raise-the-bar bias</div>
+        <div class="spark"><span class="dot"></span>Structured interviews · decision quality</div>
       </div>
-    </section>
-
-    <!-- INTEREST — Capabilities -->
-    <section id="capabilities">
-      <h2 class="section-title">Core Capabilities</h2>
-      <div class="grid-3">
-        <div class="glass" style="padding:16px">
-          <h3>Talent Intelligence</h3>
-          <ul class="bullets">
-            <li>Target company list (peers, GCCs, adjacencies)</li>
-            <li>Comp bands & levels (role/geo calibrated)</li>
-            <li>Org charts, succession signals, move-ready pools</li>
-          </ul>
-        </div>
-        <div class="glass" style="padding:16px">
-          <h3>Headhunting Sprints</h3>
-          <ul class="bullets">
-            <li>Scorecards aligned to business outcomes</li>
-            <li>3–5 calibrated profiles per sprint; weekly iteration</li>
-            <li>IC → VP pipelines with raise-the-bar bias</li>
-          </ul>
-        </div>
-        <div class="glass" style="padding:16px">
-          <h3>Loop Design & Enablement</h3>
-          <ul class="bullets">
-            <li>Structured loops (tech, design, XFN, bar-raiser)</li>
-            <li>Rubrics (competencies × weights), feedback hygiene</li>
-            <li>Offer strategy & close plans with landing support</li>
-          </ul>
-        </div>
+      <div class="bar" style="margin-top:12px">
+        <a class="btn primary" href="#copilot">Open Talent Copilot</a>
+        <a class="btn" href="#operating">See How I Operate</a>
       </div>
-    </section>
-
-    <!-- INTEREST — Proof (visual metrics, non-vanity) -->
-    <section id="proof">
-      <h2 class="section-title">Execution Signals (No fluff)</h2>
-      <div class="grid-3">
-        <div class="glass metric">
-          <strong>Week-1</strong>
-          <span class="muted">Market map + scorecards ready</span>
-        </div>
-        <div class="glass metric">
-          <strong>3–5</strong>
-          <span class="muted">Calibrated profiles per sprint</span>
-        </div>
-        <div class="glass metric">
-          <strong>Exec</strong>
-          <span class="muted">Weekly readout + risk flags</span>
-        </div>
+      <div class="strip">
+        <span class="pill">B2B SaaS</span><span class="pill">GCCs for US/EU Product Cos</span><span class="pill">Cybersecurity & GRC</span>
+        <span class="pill">Platform & Observability</span><span class="pill">Tier-1 Consumer Tech</span>
       </div>
-    </section>
-
-    <!-- DESIRE — Operating Model -->
-    <section id="operating">
-      <h2 class="section-title">Operating Model</h2>
+    </div>
+    <div class="card card-pad floaty">
+      <h3 style="margin:6px 0 8px">Snapshot — What I Own</h3>
       <div class="grid-2">
-        <div class="glass" style="padding:16px">
-          <div class="stage"><div class="stage-num">1</div><div class="stage-body">
-            <strong>Week 0–1: Define & Map</strong>
-            <ul class="bullets">
-              <li>JD co-write → outcomes, must-haves, anti-goals</li>
-              <li>Market map: peers, GCCs, comp window, title drift</li>
-              <li>Scorecards + 2 sample profiles to calibrate</li>
-            </ul>
-          </div></div>
-          <div class="stage"><div class="stage-num">2</div><div class="stage-body">
-            <strong>Week 2+: Sprint & Close</strong>
-            <ul class="bullets">
-              <li>3–5 calibrated profiles per sprint</li>
-              <li>Weekly exec readout; loop fixes in-sprint</li>
-              <li>Offer strategy (comp narrative, risk flags, start plan)</li>
-            </ul>
-          </div></div>
-        </div>
-        <div class="glass" style="padding:16px">
-          <h3>Governance, Confidentiality & Data</h3>
-          <table class="table" aria-label="Governance table">
-            <tr><th>Dimension</th><th>Standard</th></tr>
-            <tr><td>NDA / Confidential</td><td>NDA-ready. Role & candidate info handled on need-to-know basis.</td></tr>
-            <tr><td>Diversity & Fairness</td><td>Structured scorecards, interviewer mix, bias checks; report deltas transparently.</td></tr>
-            <tr><td>Data & Privacy</td><td>No resale of candidate data. Minimal PII retention. Shared securely on request.</td></tr>
-            <tr><td>Comms Cadence</td><td>Weekly exec readout + async dashboard; urgent flags same-day.</td></tr>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- DESIRE — SLAs & Packages -->
-    <section id="slas">
-      <h2 class="section-title">Engagement Models & SLAs</h2>
-      <div class="grid-3">
-        <div class="glass" style="padding:16px">
-          <h3>Leadership & Sr Eng (Retained/Hybrid)</h3>
+        <div>
+          <strong>Product & Design</strong>
           <ul class="bullets">
-            <li>Week-1 market map + scorecards</li>
-            <li>6–8 calibrated profiles in Weeks 2–3</li>
-            <li>Bar-raiser alignment & close strategy</li>
+            <li>PMs → Director/Group PM</li>
+            <li>Product Designers, UX, Research</li>
+            <li>Growth, Platform, Data-adjacent</li>
           </ul>
         </div>
-        <div class="glass" style="padding:16px">
-          <h3>Recruitment Partner (Fixed/Success)</h3>
+        <div>
+          <strong>Security & GRC</strong>
           <ul class="bullets">
-            <li>JD co-write, loop design, sprint delivery</li>
-            <li>3–5 profiles per sprint, weekly iteration</li>
-            <li>Lightweight dashboard + blockers unblocked</li>
+            <li>AppSec, CloudSec, IAM, Blue/Red</li>
+            <li>GRC/Privacy (DPDP, GDPR)</li>
+            <li>Security Leadership</li>
           </ul>
         </div>
-        <div class="glass" style="padding:16px">
-          <h3>Talent Intelligence (Fixed)</h3>
+        <div>
+          <strong>Engineering (IC → VP)</strong>
           <ul class="bullets">
-            <li>Target companies, comp bands, org charts</li>
-            <li>Move-ready pools and timing thesis</li>
-            <li>30-min executive readout</li>
+            <li>Backend, Frontend, Full-stack</li>
+            <li>Platform, SRE/DevOps, Data/ML</li>
+            <li>Mobile, Architects</li>
+          </ul>
+        </div>
+        <div>
+          <strong>Business (Select)</strong>
+          <ul class="bullets">
+            <li>Finance, Legal, HR/HRBP</li>
+            <li>Sales & CS, Growth/Marketing</li>
+            <li>Ops/Enablement roles</li>
           </ul>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- ACTION — Copilot -->
-    <section id="copilot">
-      <h2 class="section-title">Talent Copilot</h2>
-      <div class="panel">
-        <div class="panel-head">
-          <div><span id="dot" class="status-dot"></span><strong>Live agent</strong> — market maps, boolean/x-ray, loops, JD intake</div>
-          <div class="cta">
-            <a class="btn ghost" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform">Submit JD</a>
-            <a class="btn primary" target="_blank" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20book%20a%2020-min%20call.">WhatsApp 20-min</a>
-            <a class="btn ghost" href="mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry">Email</a>
-          </div>
-        </div>
-
-        <div class="preset">
-          <button data-q="services">Services</button>
-          <button data-q="jd intake">JD intake</button>
-          <button data-q="interview loop staff backend">Loop: Staff Backend</button>
-          <button data-q="market map principal product manager in bangalore">Map: Principal PM · BLR</button>
-          <button data-q="boolean sre kubernetes terraform in bangalore product companies">X-ray: SRE BLR</button>
-          <button data-q="boolean product manager in bangalore similar companies like google">X-ray: PM peers of Google</button>
-        </div>
-
-        <div id="log" class="log"></div>
-        <div class="inputbar">
-          <input id="msg" type="text" placeholder="Try: boolean staff frontend in hyderabad include:Flipkart,Swiggy exclude:Accenture"/>
-          <button id="send">Send</button>
-        </div>
+<!-- ======================= I = INTEREST ======================= -->
+<section id="capabilities" class="section">
+  <div class="container">
+    <h2 class="title">Core Capabilities</h2>
+    <p class="sub">Designed for exec velocity—signal-dense, repeatable, and measurable without fluff.</p>
+    <div class="grid-3">
+      <div class="card card-pad fade">
+        <h3>Talent Intelligence</h3>
+        <ul class="bullets">
+          <li>Target company list (peers, GCCs, adjacencies)</li>
+          <li>Comp bands & levels (role/geo calibrated)</li>
+          <li>Org charts, succession signals, move-ready pools</li>
+        </ul>
       </div>
-    </section>
+      <div class="card card-pad fade">
+        <h3>Headhunting Sprints</h3>
+        <ul class="bullets">
+          <li>Scorecards aligned to business outcomes</li>
+          <li>3–5 calibrated profiles per sprint, weekly iteration</li>
+          <li>IC → VP pipelines with “raise-the-bar” bias</li>
+        </ul>
+      </div>
+      <div class="card card-pad fade">
+        <h3>Loop Design & Enablement</h3>
+        <ul class="bullets">
+          <li>Structured loops: tech, system design, XFN, bar-raiser</li>
+          <li>Rubrics (competencies × weights), feedback hygiene</li>
+          <li>Offer strategy & close plans with landing support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- ACTION — Contact -->
-    <section id="contact">
-      <h2 class="section-title">Engage</h2>
-      <div class="glass" style="padding:16px">
-        <p class="muted">Send the JD or a simple brief. I’ll revert with a one-pager plan and map within 48 hours.</p>
-        <div class="cta" style="gap:10px">
+<!-- ======================= D = DESIRE ======================= -->
+<section id="operating" class="section">
+  <div class="container">
+    <h2 class="title">Operating Model</h2>
+    <p class="sub">Fast, transparent, and corrective—so we never fly blind.</p>
+    <div class="grid-2">
+      <div class="card card-pad fade">
+        <h3>Week 0–1: Define & Map</h3>
+        <ul class="bullets">
+          <li>JD co-write → outcomes, must-haves, anti-goals</li>
+          <li>Market map: peers, GCCs, comp window, title drift</li>
+          <li>Scorecards + 2 sample profiles to calibrate</li>
+        </ul>
+      </div>
+      <div class="card card-pad fade">
+        <h3>Week 2+: Sprint & Close</h3>
+        <ul class="bullets">
+          <li>3–5 calibrated profiles per sprint</li>
+          <li>Weekly exec readout; loop fixes in-sprint</li>
+          <li>Offer strategy (comp narrative, risk flags, start plan)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="exec" class="section">
+  <div class="container">
+    <h2 class="title">Exec Guardrails</h2>
+    <div class="card card-pad">
+      <table class="table">
+        <tr><th>Dimension</th><th>Standard</th></tr>
+        <tr><td>NDA / Confidential</td><td>NDA-ready; role & candidate info shared strictly on need-to-know.</td></tr>
+        <tr><td>Diversity & Fairness</td><td>Structured scorecards, interviewer mix, bias checks; report deltas clearly.</td></tr>
+        <tr><td>Data & Privacy</td><td>No resale of candidate data. Minimal PII retention. Secure sharing upon request.</td></tr>
+        <tr><td>Comms Cadence</td><td>Weekly exec readout + async dashboard; urgent flags same-day.</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="slas" class="section">
+  <div class="container">
+    <h2 class="title">Engagement Models & SLAs</h2>
+    <div class="grid-3">
+      <div class="card card-pad fade">
+        <h3>Leadership & Sr Eng (Retained/Hybrid)</h3>
+        <ul class="bullets">
+          <li>Week-1 map + scorecards</li>
+          <li>6–8 calibrated profiles in Weeks 2–3</li>
+          <li>Bar-raiser alignment & close strategy</li>
+        </ul>
+      </div>
+      <div class="card card-pad fade">
+        <h3>Recruitment Partner (Fixed/Success)</h3>
+        <ul class="bullets">
+          <li>JD co-write, loop design, sprint delivery</li>
+          <li>3–5 profiles/sprint, weekly iteration</li>
+          <li>Lightweight dashboard + blockers unblocked</li>
+        </ul>
+      </div>
+      <div class="card card-pad fade">
+        <h3>Talent Intelligence (Fixed)</h3>
+        <ul class="bullets">
+          <li>Target list, comp bands, org charts</li>
+          <li>Move-ready pools and timing thesis</li>
+          <li>30-min executive readout</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= A = ACTION (COPILOT) ======================= -->
+<section id="copilot" class="section">
+  <div class="container">
+    <h2 class="title">Talent Copilot</h2>
+    <p class="sub">Ask for services, packages, JD intake, interview loops, or Boolean/X-ray strings. Built for exec workflows.</p>
+    <div class="panel">
+      <div class="panel-head">
+        <div><span id="dot" class="status-dot"></span><strong>Live agent</strong></div>
+        <div class="bar">
+          <a class="btn" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform">Submit JD</a>
+          <a class="btn primary" target="_blank" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20book%20a%2020-min%20call.">WhatsApp 20-min</a>
           <a class="btn" href="mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry">Email</a>
-          <a class="btn" target="_blank" href="https://wa.me/919740352682">WhatsApp</a>
-          <a class="btn" target="_blank" href="https://www.linkedin.com/in/mechazoid14">LinkedIn</a>
         </div>
       </div>
-    </section>
-  </main>
-</div>
 
-<!-- Sticky Action Rail (always-visible CTA) -->
-<div class="rail">
-  <a class="btn primary" href="#copilot">Open Copilot</a>
-  <a class="btn" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform">Submit JD</a>
-  <a class="btn" target="_blank" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20book%20a%2020-min%20call.">Book 20-min</a>
-</div>
+      <!-- optional preset row you already had -->
+      <div class="preset">
+        <button data-q="services">Services</button>
+        <button data-q="jd intake">JD intake</button>
+        <button data-q="interview loop staff backend">Loop: Staff Backend</button>
+        <button data-q="market map principal product manager in bangalore">Map: Principal PM · BLR</button>
+        <button data-q="boolean sre kubernetes terraform in bangalore product companies">X-ray: SRE BLR</button>
+        <button data-q="boolean product manager in bangalore similar companies like google">X-ray: PM peers of Google</button>
+      </div>
+
+      <div id="log" class="log"></div>
+      <div class="inputbar">
+        <input id="msg" type="text" placeholder="Type a request, e.g., “boolean staff frontend in hyderabad include:Flipkart exclude:Accenture”" />
+        <button id="send">Send</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="container">
+    <h2 class="title">Engage</h2>
+    <div class="card card-pad">
+      <p class="sub">Send the JD or a simple brief. I’ll revert with a one-pager plan and market map within 48 hours.</p>
+      <div class="bar">
+        <a class="btn" href="mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry">Email</a>
+        <a class="btn" target="_blank" href="https://wa.me/919740352682">WhatsApp</a>
+        <a class="btn" target="_blank" href="https://www.linkedin.com/in/mechazoid14">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer>
   <div class="container">© Ayush Mishra · Talent Partner for CTOs & CHROs</div>
 </footer>
 
+<!-- Sticky bottom CTA -->
+<div class="sticky-cta">
+  <a class="" href="#copilot">Open Copilot</a>
+  <a class="" target="_blank" href="mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry">Email</a>
+  <a class="primary" target="_blank" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20book%20a%2020-min%20call.">Book 20-min</a>
+</div>
+
 <script>
-  // === Backend URL (latest deployment) ===
+  /* ================== BACKEND URL ================== */
   const BOT_URL = 'https://script.google.com/macros/s/AKfycbypyLp80mI77bXCCYpE1IpbvuCG5N1RDCm2a59SgOY9xKo6foYqMDNeuljvtZK89U-Anw/exec';
 
-  // Basic state
+  /* ================== COPILOT UI ================== */
   const logEl = document.getElementById('log');
   const msgEl = document.getElementById('msg');
   const sendEl = document.getElementById('send');
@@ -370,7 +413,7 @@
       actions.className = 'actions';
       buttons.forEach(b=>{
         const a = document.createElement('a');
-        a.className = 'btn small';
+        a.className = 'btn';
         a.textContent = b.label || 'Open';
         if (b.url) { a.href = b.url; a.target = '_blank'; }
         if (b.action){ a.href = '#copilot'; a.addEventListener('click', (e)=>{ e.preventDefault(); sendMsg(b.action); }); }
@@ -388,6 +431,62 @@
 
     logEl.appendChild(el);
     logEl.scrollTop = logEl.scrollHeight;
+  }
+
+  // Beautiful welcome card with clickable example commands
+  function addWelcomeCard(){
+    const wrapper = document.createElement('div');
+    wrapper.className = 'msg fade them';
+    wrapper.innerHTML = `
+      <div class="syscard">
+        <h4>Hi — I’m your Talent Copilot.</h4>
+        <p>I can draft market maps, design interview loops, build Boolean/X-ray searches, and handle JD intake. Choose an example below or type your own request.</p>
+
+        <div class="group">
+          <b>Quick actions</b>
+          <div class="cmds">
+            <button class="cmd" data-q="services">Services</button>
+            <button class="cmd" data-q="packages">Packages</button>
+            <button class="cmd" data-q="jd intake">JD intake</button>
+            <button class="cmd" data-q="contact">Contact options</button>
+          </div>
+        </div>
+
+        <div class="group">
+          <b>Interview loops</b>
+          <div class="cmds">
+            <button class="cmd" data-q="interview loop: staff backend">Interview loop: Staff Backend</button>
+            <button class="cmd" data-q="interview loop: principal product manager">Interview loop: Principal PM</button>
+            <button class="cmd" data-q="interview loop: head of security">Interview loop: Head of Security</button>
+          </div>
+        </div>
+
+        <div class="group">
+          <b>Market maps</b>
+          <div class="cmds">
+            <button class="cmd" data-q="market map principal product manager in bangalore">Map: Principal PM · Bangalore</button>
+            <button class="cmd" data-q="market map director cybersecurity in hyderabad">Map: Director, Cybersecurity · Hyderabad</button>
+            <button class="cmd" data-q="market map vp engineering in mumbai">Map: VP Engineering · Mumbai</button>
+          </div>
+        </div>
+
+        <div class="group">
+          <b>Boolean / X-ray</b>
+          <div class="cmds">
+            <button class="cmd" data-q="boolean machine learning engineer in bangalore product companies similar companies like google">X-ray: ML Engineer · Bangalore</button>
+            <button class="cmd" data-q="boolean sre kubernetes terraform in bangalore product companies">X-ray: SRE · Kubernetes/Terraform · Bangalore</button>
+            <button class="cmd" data-q="boolean product manager in bangalore similar companies like google">X-ray: PM · peers of Google · Bangalore</button>
+            <button class="cmd" data-q="boolean frontend react typescript in hyderabad include:Flipkart,Swiggy exclude:Accenture">X-ray: Frontend (React/TS) · HYD (with include/exclude)</button>
+          </div>
+        </div>
+      </div>
+    `;
+    logEl.appendChild(wrapper);
+    logEl.scrollTop = logEl.scrollHeight;
+    // Wire chips
+    wrapper.querySelectorAll('.cmd').forEach(b=>{
+      b.addEventListener('click', ()=> sendMsg(b.dataset.q));
+    });
   }
 
   async function ping(){
@@ -432,8 +531,8 @@
     }
   }
 
-  // Preset triggers
-  document.querySelectorAll('.preset button').forEach(b=>{
+  // (Optional) If you keep preset buttons:
+  document.querySelectorAll('.preset button')?.forEach(b=>{
     b.addEventListener('click', ()=> sendMsg(b.dataset.q));
   });
 
@@ -441,9 +540,9 @@
   sendEl.addEventListener('click', ()=> sendMsg(msgEl.value.trim()));
   msgEl.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ sendMsg(msgEl.value.trim()); } });
 
-  // Greeting + health probe
+  // Initial welcome card + health probe
   (async ()=>{
-    addMsg("Welcome. Try:\n• services\n• jd intake\n• interview loop: staff backend\n• market map principal product manager in bangalore\n• boolean product manager in bangalore similar companies like google", false);
+    addWelcomeCard();
     await ping();
   })();
 </script>
