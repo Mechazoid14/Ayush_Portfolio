@@ -3,79 +3,92 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Ayush Mishra — 360° Talent Partner</title>
+<title>Ayush Mishra — Talent Partner for CTOs & CHROs</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0b0c10; --card:#111218; --muted:#9aa1ac; --text:#e8edf2; --acc:#7dd3fc; --acc2:#a78bfa;
-    --ok:#22c55e; --warn:#f59e0b; --err:#ef4444;
+    --bg:#0a0b10; --elev:#0f1017; --card:#121422; --ink:#eaf0f6; --muted:#9aa3ad;
+    --line:rgba(255,255,255,0.08);
+    --acc:#7dd3fc; --acc2:#a78bfa; --ok:#22c55e; --warn:#f59e0b; --err:#ef4444;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
   a{color:inherit;text-decoration:none}
-  .container{max-width:1100px;margin:0 auto;padding:0 16px}
+  .container{max-width:1120px;margin:0 auto;padding:0 16px}
+
+  /* header */
   header{
     position:sticky;top:0;z-index:50;
-    background:linear-gradient(180deg, rgba(11,12,16,0.95), rgba(11,12,16,0.6) 80%, transparent);
+    background:linear-gradient(180deg, rgba(10,11,16,.95), rgba(10,11,16,.7) 80%, transparent);
     backdrop-filter: blur(6px);
-    border-bottom:1px solid rgba(255,255,255,0.06);
+    border-bottom:1px solid var(--line);
   }
   .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-  .brand{font-weight:800;letter-spacing:.5px}
+  .brand{font-weight:800;letter-spacing:.4px}
   .brand span{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .nav a{opacity:.9;margin:0 10px;padding:8px 10px;border-radius:10px}
-  .nav a:hover{opacity:1;background:rgba(255,255,255,0.06)}
+  nav a{opacity:.9;margin:0 8px;padding:8px 10px;border-radius:10px}
+  nav a:hover{opacity:1;background:rgba(255,255,255,.06)}
   .cta{display:flex;gap:10px;align-items:center}
-  .btn{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:12px;font-weight:600;border:1px solid rgba(255,255,255,0.12);transition:transform .2s ease, background .2s ease}
-  .btn:hover{transform:translateY(-1px);background:rgba(125,211,252,0.08)}
+  .btn{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:12px;font-weight:600;border:1px solid var(--line);transition:transform .2s ease, background .2s ease}
+  .btn:hover{transform:translateY(-1px);background:rgba(125,211,252,.08)}
   .btn.primary{background:linear-gradient(90deg,var(--acc),var(--acc2));color:#0a0a0a;border:none}
   .btn.primary:hover{filter:brightness(1.05)}
-  .hero{padding:52px 0 26px}
-  .hgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:26px}
-  @media (max-width:900px){.hgrid{grid-template-columns:1fr;}}
-  .tag{display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(125,211,252,0.12);border:1px solid rgba(125,211,252,0.35);color:#c8edff;margin-bottom:12px}
-  h1{font-size:40px;line-height:1.1;margin:6px 0 10px}
-  p.lead{color:var(--muted);font-size:16px;margin:0 0 18px}
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  @media (max-width:900px){.cards{grid-template-columns:1fr;}}
-  .card{
-    background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:18px;padding:16px;transition:transform .2s ease, box-shadow .2s ease;
-    box-shadow:0 6px 24px rgba(0,0,0,.25);
-  }
-  .card:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(0,0,0,.35)}
-  .card h3{margin:6px 0 8px;font-size:18px}
-  .muted{color:var(--muted)}
-  section{padding:28px 0}
+
+  /* sections */
+  section{padding:32px 0}
   .section-title{font-size:22px;margin:0 0 10px}
-  .bullets{margin:6px 0 0 0;padding-left:18px;color:var(--muted)}
-  .pill{display:inline-block;margin:6px 6px 0 0;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);font-size:12px}
-  /* Copilot */
-  #copilot{margin-top:8px}
-  .panel{
-    background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:18px;overflow:hidden
+  .muted{color:var(--muted)}
+  .tag{display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(125,211,252,.12);border:1px solid rgba(125,211,252,.35);color:#c8edff;margin-bottom:12px}
+  .pill{display:inline-block;margin:6px 6px 0 0;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);font-size:12px}
+  .card{
+    background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.02));
+    border:1px solid var(--line);
+    border-radius:18px;padding:16px;box-shadow:0 6px 24px rgba(0,0,0,.28);
+    transition:transform .2s ease, box-shadow .2s ease;
   }
-  .panel-head{display:flex;justify-content:space-between;align-items:center;padding:14px 14px;border-bottom:1px solid rgba(255,255,255,0.06)}
+  .card:hover{transform:translateY(-2px);box-shadow:0 10px 34px rgba(0,0,0,.34)}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media (max-width:950px){.grid-2,.grid-3{grid-template-columns:1fr}}
+
+  /* hero */
+  .hero{padding:56px 0 26px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:26px}
+  @media (max-width:950px){.hero-grid{grid-template-columns:1fr}}
+  h1{font-size:42px;line-height:1.08;margin:6px 0 10px}
+  p.lead{color:var(--muted);font-size:16px;margin:0 0 18px}
+
+  /* lists / tables */
+  .bullets{margin:6px 0 0 0;padding-left:18px;color:var(--muted)}
+  .table{width:100%;border-collapse:separate;border-spacing:0;margin-top:8px}
+  .table th,.table td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;font-size:14px}
+  .table th{color:#bcd;opacity:.9}
+
+  /* copilot */
+  #copilot{scroll-margin-top:80px}
+  .panel{background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.02));border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .panel-head{display:flex;justify-content:space-between;align-items:center;padding:14px 14px;border-bottom:1px solid var(--line)}
   .status-dot{width:10px;height:10px;border-radius:50%;background:var(--warn);display:inline-block;margin-right:8px}
-  .status-dot.ok{background:var(--ok)}
-  .status-dot.err{background:var(--err)}
+  .status-dot.ok{background:var(--ok)} .status-dot.err{background:var(--err)}
   .log{height:360px;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
-  .msg{border:1px solid rgba(255,255,255,0.08);background:rgba(0,0,0,0.25);padding:12px;border-radius:14px;max-width:100%;white-space:pre-wrap}
-  .me{align-self:flex-end;background:rgba(125,211,252,0.08)}
+  .msg{border:1px solid var(--line);background:rgba(0,0,0,.25);padding:12px;border-radius:14px;max-width:100%;white-space:pre-wrap}
+  .me{align-self:flex-end;background:rgba(125,211,252,.08)}
   .them{align-self:flex-start}
   .msg .actions{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
-  .copy{padding:6px 10px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);cursor:pointer;font-size:12px}
-  .inputbar{display:flex;gap:10px;padding:10px;border-top:1px solid rgba(255,255,255,0.06)}
-  .inputbar input{flex:1;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.12);background:#0a0b10;color:var(--text)}
+  .copy{padding:6px 10px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.04);cursor:pointer;font-size:12px}
+  .inputbar{display:flex;gap:10px;padding:10px;border-top:1px solid var(--line)}
+  .inputbar input{flex:1;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0a0b10;color:var(--ink)}
   .inputbar button{padding:12px 16px;border-radius:12px;border:none;font-weight:700;background:linear-gradient(90deg,var(--acc),var(--acc2));color:#0a0a0a}
-  footer{padding:22px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0.06);margin-top:30px}
-  /* micro-anim */
+  .preset{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
+  .preset button{border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);border-radius:10px;padding:6px 10px;font-size:12px;cursor:pointer}
+  .preset button:hover{background:rgba(255,255,255,.08)}
+
+  /* micro anim */
   .fade{animation:fade .5s ease both}
   @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+
+  footer{padding:22px 0;color:var(--muted);border-top:1px solid var(--line);margin-top:30px}
 </style>
 </head>
 <body>
@@ -83,16 +96,16 @@
   <div class="container nav">
     <div class="brand">Ayush <span>Mishra</span></div>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#niches">Niches</a>
-      <a href="#packages">Packages</a>
+      <a href="#home">Overview</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#operating">Operating Model</a>
+      <a href="#slas">SLAs</a>
       <a href="#copilot">Copilot</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="cta">
-      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform" target="_blank">Submit JD</a>
-      <a class="btn primary" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20book%20a%2020-min%20call." target="_blank">Book 20-min</a>
+      <a class="btn" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform">Submit JD</a>
+      <a class="btn primary" target="_blank" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20book%20a%2020-min%20call.">Book 20-min</a>
     </div>
   </div>
 </header>
@@ -100,107 +113,158 @@
 <main class="container">
   <!-- HERO -->
   <section id="home" class="hero">
-    <div class="hgrid">
+    <div class="hero-grid">
       <div>
-        <span class="tag">360° Talent Partner — IC → VP • Engineering • Product • Cybersecurity • Business</span>
-        <h1>Build elite teams faster.<br/>Zero fluff. Only outcomes.</h1>
+        <span class="tag">For CTOs & CHROs · Product · Security/GRC · Engineering (IC → VP) · Business</span>
+        <h1>De-risk hiring. Raise the talent bar.<br/>Ship teams that ship outcomes.</h1>
         <p class="lead">
-          I help founders & CXOs hire for Product, Security/GRC, and Engineering (IC to Leadership).
-          Expect calibrated scorecards, targeted market maps, and super-niche headhunting.
+          I partner with leadership to fill pivotal roles fast—without lowering standards.
+          Expect calibrated scorecards, targeted market maps, tight loops, and executive-grade reporting.
         </p>
         <div class="cta">
           <a class="btn primary" href="#copilot">Open Talent Copilot</a>
-          <a class="btn" href="#services">Explore Services</a>
+          <a class="btn" href="#operating">How I Operate</a>
         </div>
       </div>
-      <div class="cards">
+      <div class="grid-3">
         <div class="card fade">
           <h3>Product & Design</h3>
-          <p class="muted">PMs, PM-Leads, Principal/Director PMs, Product Designers, UX, Research.</p>
-          <div>
-            <span class="pill">B2B SaaS</span><span class="pill">Growth</span><span class="pill">Platform</span>
-          </div>
+          <p class="muted">PMs, Principal/Director PMs, Group PMs, Product Designers, UX, Research.</p>
+          <span class="pill">B2B SaaS</span><span class="pill">Growth</span><span class="pill">Platform</span>
         </div>
         <div class="card fade">
           <h3>Cybersecurity & GRC</h3>
-          <p class="muted">AppSec, CloudSec, IAM, GRC/Privacy, Sec Eng, Blue/Red, Sec Leadership.</p>
-          <div>
-            <span class="pill">Zero Trust</span><span class="pill">SIEM</span><span class="pill">DPDP/GDPR</span>
-          </div>
+          <p class="muted">AppSec, CloudSec, IAM, GRC/Privacy, Security Eng, Leadership.</p>
+          <span class="pill">Zero Trust</span><span class="pill">SIEM</span><span class="pill">DPDP/GDPR</span>
         </div>
         <div class="card fade">
           <h3>Engineering (IC → VP)</h3>
-          <p class="muted">Backend, Frontend, Full-stack, Platform, SRE/DevOps, Data, ML, Mobile, Architects.</p>
-          <div>
-            <span class="pill">Scale</span><span class="pill">Observability</span><span class="pill">Cloud</span>
-          </div>
+          <p class="muted">Backend, Frontend, Full-stack, Platform, SRE/DevOps, Data/ML, Mobile, Architects.</p>
+          <span class="pill">Scale</span><span class="pill">Observability</span><span class="pill">Cloud</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <h2 class="section-title">Services</h2>
-    <div class="card">
-      <p class="muted">
-        • Talent Partner (Fixed/Success): JD co-write, loop design, 3–5 calibrated profiles per sprint ·
-        • Leadership & Sr Eng (Retained/Hybrid): Week-1 map + scorecards → Weeks 2–3 shortlists ·
-        • Talent Intelligence: target companies, comp bands, org charts; 30-min executive readout
-      </p>
-      <div class="cta">
-        <a class="btn" href="#packages">See Packages</a>
-        <a class="btn" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform">Submit JD</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- NICHES -->
-  <section id="niches">
-    <h2 class="section-title">Niches I Own</h2>
-    <div class="card">
-      <ul class="bullets">
-        <li>Product-led B2B SaaS, India GCCs for US/EU product companies, Tier-1 consumer tech at scale</li>
-        <li>Security / data-heavy domains, high-bar engineering cultures, platform/observability orgs</li>
-        <li>Non-tech leadership: Finance, Legal, HR/HRBP, Sales & CS, Growth/Marketing (select)</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- PACKAGES -->
-  <section id="packages">
-    <h2 class="section-title">Packages</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Leadership & Sr Eng</h3>
-        <p class="muted">Retained/Hybrid. Week-1 market map + scorecards; Weeks 2–3: 6–8 calibrated profiles; CXO syncs.</p>
-      </div>
-      <div class="card">
-        <h3>Recruitment Partner</h3>
-        <p class="muted">Success/Fixed. JD co-write, loop design, 3–5 profiles/sprint, weekly reporting.</p>
-      </div>
+  <!-- CAPABILITIES -->
+  <section id="capabilities">
+    <h2 class="section-title">Core Capabilities</h2>
+    <div class="grid-3">
       <div class="card">
         <h3>Talent Intelligence</h3>
-        <p class="muted">Target companies, comp bands, org charts; executive readout in 30 minutes.</p>
+        <ul class="bullets">
+          <li>Target company list (peers, GCCs, adjacencies)</li>
+          <li>Comp bands & levels (role/geo calibrated)</li>
+          <li>Org charts, succession signals, move-ready pools</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Headhunting Sprints</h3>
+        <ul class="bullets">
+          <li>Scorecards aligned to business outcomes (not buzzwords)</li>
+          <li>3–5 calibrated profiles per sprint, weekly iteration</li>
+          <li>IC → VP pipelines with “raise-the-bar” bias</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Loop Design & Enablement</h3>
+        <ul class="bullets">
+          <li>Structured loops (tech, system design, XFN, bar-raiser)</li>
+          <li>Rubrics (competencies × weights), feedback hygiene</li>
+          <li>Offer strategy & close plans with landing support</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPERATING MODEL -->
+  <section id="operating">
+    <h2 class="section-title">Operating Model (Exec View)</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Week 0–1: Define & Map</h3>
+        <ul class="bullets">
+          <li>JD co-write → outcomes, must-haves, anti-goals</li>
+          <li>Market map: peers, GCCs, comp window, title drift</li>
+          <li>Scorecards + 2 sample profiles to calibrate</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Week 2+: Sprint & Close</h3>
+        <ul class="bullets">
+          <li>3–5 calibrated profiles per sprint</li>
+          <li>Weekly exec readout; loop fixes in-sprint</li>
+          <li>Offer strategy (comp narrative, risk flags, start plan)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h3>Governance, Confidentiality & Data</h3>
+      <table class="table">
+        <tr><th>Dimension</th><th>Standard</th></tr>
+        <tr><td>NDA / Confidential</td><td>NDA-ready. Role & candidate info handled on need-to-know basis.</td></tr>
+        <tr><td>Diversity & Fairness</td><td>Structured scorecards, interviewer mix, bias checks; report deltas transparently.</td></tr>
+        <tr><td>Data & Privacy</td><td>No resale of candidate data. Minimal PII retention. Shared securely on request.</td></tr>
+        <tr><td>Comms Cadence</td><td>Weekly exec readout + async dashboard; urgent flags same-day.</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- SLAs & PACKAGES -->
+  <section id="slas">
+    <h2 class="section-title">Engagement Models & SLAs</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Leadership / Sr Eng (Retained/Hybrid)</h3>
+        <ul class="bullets">
+          <li>Week-1 market map + scorecards</li>
+          <li>6–8 calibrated profiles in Weeks 2–3</li>
+          <li>Bar-raiser alignment & close strategy</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Recruitment Partner (Fixed/Success)</h3>
+        <ul class="bullets">
+          <li>JD co-write, loop design, sprint delivery</li>
+          <li>3–5 profiles per sprint, weekly iteration</li>
+          <li>Lightweight dashboard + blockers unblocked</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Talent Intelligence (Fixed)</h3>
+        <ul class="bullets">
+          <li>Target list, comp bands, org charts</li>
+          <li>Move-ready pools and timing thesis</li>
+          <li>30-min executive readout</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- COPILOT -->
   <section id="copilot">
-    <h2 class="section-title">Talent Copilot</h2>
+    <h2 class="section-title">Talent Copilot (Exec Tools)</h2>
     <div class="panel">
       <div class="panel-head">
-        <div><span id="dot" class="status-dot"></span><strong>Live agent</strong> — ask for services, packages, JD intake, interview loops, or <em>boolean/x-ray</em></div>
+        <div><span id="dot" class="status-dot"></span><strong>Live agent</strong> — market maps, boolean/x-ray, loops, JD intake</div>
         <div class="cta">
           <a class="btn" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform">Submit JD</a>
           <a class="btn primary" target="_blank" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20book%20a%2020-min%20call.">WhatsApp 20-min</a>
           <a class="btn" href="mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry">Email</a>
         </div>
       </div>
+      <div class="preset">
+        <button data-q="services">Services</button>
+        <button data-q="jd intake">JD intake</button>
+        <button data-q="interview loop staff backend">Loop: Staff Backend</button>
+        <button data-q="market map principal product manager in bangalore">Map: Principal PM · BLR</button>
+        <button data-q="boolean sre kubernetes terraform in bangalore product companies">X-ray: SRE BLR</button>
+        <button data-q="boolean product manager in bangalore similar companies like google">X-ray: PM peers of Google</button>
+      </div>
       <div id="log" class="log"></div>
       <div class="inputbar">
-        <input id="msg" type="text" placeholder="e.g., boolean product manager in bangalore similar companies like google" />
+        <input id="msg" type="text" placeholder="Try: boolean staff frontend in hyderabad include:Flipkart,Swiggy exclude:Accenture" />
         <button id="send">Send</button>
       </div>
     </div>
@@ -208,9 +272,9 @@
 
   <!-- CONTACT -->
   <section id="contact">
-    <h2 class="section-title">Contact</h2>
+    <h2 class="section-title">Engage</h2>
     <div class="card">
-      <p class="muted">Prefer a quick sync? Message me directly.</p>
+      <p class="muted">Send the JD or a simple brief. I’ll revert with a one-pager plan and map within 48 hours.</p>
       <div class="cta">
         <a class="btn" href="mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry">Email</a>
         <a class="btn" target="_blank" href="https://wa.me/919740352682">WhatsApp</a>
@@ -221,11 +285,11 @@
 </main>
 
 <footer>
-  <div class="container">© Ayush Mishra · 360° Talent Partner</div>
+  <div class="container">© Ayush Mishra · Talent Partner for CTOs & CHROs</div>
 </footer>
 
 <script>
-  // === Backend URL (new deployment) ===
+  // === Backend URL (latest deployment) ===
   const BOT_URL = 'https://script.google.com/macros/s/AKfycbypyLp80mI77bXCCYpE1IpbvuCG5N1RDCm2a59SgOY9xKo6foYqMDNeuljvtZK89U-Anw/exec';
 
   // Basic state
@@ -253,7 +317,6 @@
       });
       el.appendChild(actions);
     }
-    // Copy button (for boolean/x-rays etc.)
     const copy = document.createElement('button');
     copy.className = 'copy';
     copy.textContent = 'Copy';
@@ -292,7 +355,7 @@
 
       if(!res.ok){
         const t = await res.text();
-        throw new Error('HTTP ' + res.status + ': ' + t.slice(0,120));
+        throw new Error('HTTP ' + res.status + ': ' + t.slice(0,160));
       }
 
       const data = await res.json();
@@ -308,13 +371,18 @@
     }
   }
 
+  // Preset triggers for exec workflows
+  document.querySelectorAll('.preset button').forEach(b=>{
+    b.addEventListener('click', ()=> sendMsg(b.dataset.q));
+  });
+
   // UI events
   sendEl.addEventListener('click', ()=> sendMsg(msgEl.value.trim()));
   msgEl.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ sendMsg(msgEl.value.trim()); } });
 
   // Warm greeting + health probe
   (async ()=>{
-    addMsg("I’m your Talent Copilot. Try:\n• services\n• packages\n• jd intake\n• interview loop: staff backend\n• boolean product manager in bangalore similar companies like google", false);
+    addMsg("Welcome. Try:\n• services\n• jd intake\n• interview loop: staff backend\n• market map principal product manager in bangalore\n• boolean product manager in bangalore similar companies like google", false);
     await ping();
   })();
 </script>
