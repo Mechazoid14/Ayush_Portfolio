@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Ayush Mishra — 360° Talent Partner (Tech + Non-Tech)</title>
-<meta name="description" content="Full-stack Talent Partner for Engineering, Product, Cybersecurity/GRC and Business functions. From IC to Leadership. India • MEA • SE Asia." />
+<meta name="description" content="Leadership & super-niche hiring across Engineering, Product, Cybersecurity/GRC, and Business functions. Market maps, calibrated shortlists, and fast closes." />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
   :root{
     --bg:#060a12; --panel:#0d1424; --ink:#eaf1ff; --muted:#9fb0d7;
-    --line:rgba(255,255,255,.12);
-    --brand:#22d3ee; --brand2:#8b5cf6; --accent:#34d399;
+    --line:rgba(255,255,255,.12); --brand:#22d3ee; --brand2:#8b5cf6; --accent:#34d399;
     --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.45);
   }
   *{box-sizing:border-box}
@@ -61,8 +60,50 @@
 
   footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:.96rem}
 
-  .reveal{ opacity:0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease }
-  .reveal.on{ opacity:1; transform: translateY(0) }
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease, transform .5s ease}
+  .reveal.on{opacity:1;transform:translateY(0)}
+
+  /* === Copilot styles === */
+  #copilot-box{background:var(--panel);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+  #copilot-box .head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--line)}
+  #copilot-box .head strong{font-size:1.05rem}
+  #copilot-box .body{height:56vh;min-height:420px;max-height:70vh;overflow:auto;padding:12px 14px;display:flex;flex-direction:column;gap:10px}
+  #copilot-box .input{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);background:rgba(255,255,255,.02)}
+  .msg{padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.04)}
+  .msg.me{align-self:flex-end;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03))}
+  .msg .btnrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .msg .btnrow a,.msg .btnrow button{border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);padding:6px 10px;border-radius:999px;cursor:pointer;text-decoration:none;font-size:.9rem}
+  #cp-msg{flex:1;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:#0b1120;color:var(--ink)}
+  #cp-send{padding:10px 12px;border-radius:10px;border:0;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#06101a;font-weight:800;cursor:pointer}
+
+  /* Floating Quick-Access Dock */
+  .qa-dock{position:fixed; right:18px; bottom:18px; z-index:70; display:flex; gap:10px; align-items:center}
+  .qa-btn,.qa-toggle{border:0; cursor:pointer; font-weight:800; padding:10px 14px; border-radius:999px; text-decoration:none; color:#06101a; box-shadow:0 10px 26px rgba(0,0,0,.45); transition:transform .15s ease, box-shadow .15s ease, opacity .2s; background:linear-gradient(135deg,var(--brand),var(--brand2))}
+  .qa-btn:hover,.qa-toggle:hover{ transform:translateY(-3px); box-shadow:0 14px 30px rgba(0,0,0,.55) }
+  .qa-btn.mail{ background:linear-gradient(135deg,#fde68a,#fbbf24) }
+  .qa-btn.wa{ background:linear-gradient(135deg,#34d399,#10b981) }
+  .qa-toggle{ display:none; background:linear-gradient(135deg,#94a3b8,#64748b); color:#06101a }
+
+  @media (max-width:720px){
+    .qa-dock{ flex-direction:column-reverse; right:14px; bottom:14px }
+    .qa-toggle{ display:inline-flex; align-items:center; justify-content:center }
+    .qa-dock .qa-btn{ display:none; width:160px; justify-content:center }
+    .qa-dock.open .qa-btn{ display:inline-flex }
+  }
+
+  /* 📘 Playbook badge repurposed to Copilot */
+  #playbook-container{position:fixed;left:18px;bottom:18px;z-index:60;display:flex;align-items:center;gap:10px}
+  #playbook-badge{
+    background:linear-gradient(135deg,var(--brand),var(--brand2));color:#06101a;font-weight:700;padding:10px 16px;border-radius:999px;
+    box-shadow:0 6px 18px rgba(0,0,0,.45);text-decoration:none;font-size:.95rem;transition:all .25s ease;opacity:.92;position:relative;animation:pulseBadge 16s ease-in-out infinite;
+  }
+  #playbook-badge:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(139,92,246,.35),0 0 0 1px rgba(255,255,255,.06) inset;opacity:1;}
+  #playbook-badge::after{content:"";position:absolute;inset:-6px;border-radius:inherit;z-index:-1;background:radial-gradient(60% 60% at 50% 50%,rgba(34,211,238,.35),transparent 70%);opacity:0;filter:blur(10px);animation:pulseGlow 16s ease-in-out infinite;}
+  #playbook-tooltip{position:absolute;left:100%;bottom:50%;transform:translateY(50%) translateX(10px);background:rgba(13,20,36,.9);color:var(--ink);border:1px solid var(--line);border-radius:10px;font-size:.85rem;padding:6px 10px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;backdrop-filter:blur(6px)}
+  #playbook-container:hover #playbook-tooltip{opacity:1;transform:translateY(50%) translateX(14px)}
+  @media(max-width:640px){#playbook-badge{font-size:.85rem;padding:9px 14px}#playbook-tooltip{display:none}}
+  @keyframes pulseBadge{0%,78%{transform:translateY(0) scale(1);}82%{transform:translateY(-1px) scale(1.03);}85%{transform:translateY(0) scale(1.06);}88%{transform:translateY(-1px) scale(1.02);}92%,100%{transform:translateY(0) scale(1);}}
+  @keyframes pulseGlow{0%,78%{opacity:0;}82%{opacity:.18;}85%{opacity:.28;}88%{opacity:.16;}92%,100%{opacity:0;}}
 </style>
 </head>
 <body>
@@ -78,7 +119,7 @@
         <a href="#pricing">Packages</a>
         <a href="#niches">Niches</a>
         <a href="#work">Case Studies</a>
-        <a href="#resources">Resources</a>
+        <a href="#copilot">Copilot</a>
         <a href="#process">Process</a>
         <a href="#contact" class="btn ghost">Contact</a>
       </nav>
@@ -91,10 +132,8 @@
     <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:12px 0;">
       <div style="font-weight:800">Share your JD → Get a 48-Hour Market Map</div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <a class="btn primary" target="_blank"
-           href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform">Submit JD</a>
-        <a class="btn primary" target="_blank"
-           href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20I%20want%20to%20book%20a%2020-min%20intro%20call.">Book 20-min Call</a>
+        <a class="btn primary" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform">Submit JD</a>
+        <a class="btn primary" target="_blank" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20I%20want%20to%20book%20a%2020-min%20intro%20call.">Book 20-min Call</a>
       </div>
     </div>
   </div>
@@ -106,7 +145,7 @@
       <a href="#pricing" onclick="toggleMenu()">Packages</a>
       <a href="#niches" onclick="toggleMenu()">Niches</a>
       <a href="#work" onclick="toggleMenu()">Case Studies</a>
-      <a href="#resources" onclick="toggleMenu()">Resources</a>
+      <a href="#copilot" onclick="toggleMenu()">Copilot</a>
       <a href="#process" onclick="toggleMenu()">Process</a>
       <a href="#contact" class="btn ghost" onclick="toggleMenu()">Contact</a>
     </div>
@@ -117,10 +156,9 @@
     <div class="container">
       <div class="pill">360° Talent Partner • Tech & Non-Tech • India | MEA | SE Asia</div>
       <h1 class="h1">I build complete organizations — <span style="background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent">Engineering (IC → Leadership)</span>, <span style="background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent">Product</span>, <span style="background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent">Cybersecurity & GRC</span>, and <span style="background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent">Business Functions</span>.</h1>
-      <p class="muted" style="max-width:860px">From Senior ICs to VPs, I partner with founders & CXOs to design the org, map the market, and close the right people — especially for <strong>super-niche</strong> and <strong>niche</strong> roles.</p>
+      <p class="muted" style="max-width:860px">From Senior ICs to VPs, I partner with founders & CXOs to design the org, map the market, and close the right people — especially for <strong>super-niche</strong> and <strong>leadership</strong> roles.</p>
       <div style="display:flex;gap:12px;margin:22px 0 10px;flex-wrap:wrap">
-        <a class="btn primary" target="_blank"
-           href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform">Share JD (48-Hour Map)</a>
+        <a class="btn primary" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform">Share JD (48-Hour Map)</a>
         <a class="btn ghost" href="#services">Explore Services</a>
       </div>
 
@@ -166,25 +204,19 @@
         <div class="card reveal">
           <div class="h3">Recruitment Partner</div>
           <p class="muted">End-to-end hiring for Tech & Non-Tech. Fast intake → calibrated shortlist → close.</p>
-          <ul class="muted" style="margin:0 0 10px 18px">
-            <li>IC roles to Managers</li><li>Flexible engagement</li><li>Weekly reporting</li>
-          </ul>
+          <ul class="muted" style="margin:0 0 10px 18px"><li>IC roles to Managers</li><li>Flexible engagement</li><li>Weekly reporting</li></ul>
           <div class="tag">Success-based / Fixed</div>
         </div>
         <div class="card reveal">
           <div class="h3">Leadership & Sr Engineering</div>
           <p class="muted">Directors / Sr Directors / VPs, Principal ICs. Tight calibration & targeted headhunting.</p>
-          <ul class="muted" style="margin:0 0 10px 18px">
-            <li>Discovery with CXOs</li><li>Competency scorecards</li><li>Sprint shortlists</li>
-          </ul>
+          <ul class="muted" style="margin:0 0 10px 18px"><li>Discovery with CXOs</li><li>Competency scorecards</li><li>Sprint shortlists</li></ul>
           <div class="tag">Retained or Hybrid</div>
         </div>
         <div class="card reveal">
           <div class="h3">Talent Intelligence</div>
           <p class="muted">Market map, salary bands, competitor org charts, candidate heatmaps — packaged for decisions.</p>
-          <ul class="muted" style="margin:0 0 10px 18px">
-            <li>Target company list</li><li>Comp benchmarks</li><li>30-min readout</li>
-          </ul>
+          <ul class="muted" style="margin:0 0 10px 18px"><li>Target company list</li><li>Comp benchmarks</li><li>30-min readout</li></ul>
           <div class="tag">Fixed-fee Report</div>
         </div>
       </div>
@@ -217,39 +249,27 @@
     </div>
   </section>
 
-  <!-- RESOURCES (12 tracked downloads) -->
-  <section id="resources" class="section">
+  <!-- COPILOT (Agent placeholder; backend comes next) -->
+  <section id="copilot" class="section">
     <div class="container">
-      <h2 class="h2">Resources</h2>
+      <h2 class="h2">Talent Copilot</h2>
       <p class="muted" style="margin-top:-4px;max-width:860px">
-        Enhanced Playbook templates built for founders and CXOs — designed to run full-stack talent operations end-to-end.
+        Your on-site concierge for Services, Packages, JD Intake, Market Maps, and Interview Loops. It routes to your JD form or WhatsApp and will log chats once we wire the backend.
       </p>
 
-      <div class="grid three" style="margin-top:16px">
-        <!-- Original 6 -->
-        <div class="card reveal"><div class="h3">JD Intake Template</div><p class="muted">Enhanced intake with context, scope and success metrics.</p><a class="btn primary" data-dl="jd-intake" href="#">Open Template</a></div>
-        <div class="card reveal"><div class="h3">Interview Scorecards (Bundle)</div><p class="muted">Eng, Product/TPM/Design, Security/GRC, Leadership — with weights.</p><a class="btn primary" data-dl="scorecards-bundle" href="#">Download Bundle</a></div>
-        <div class="card reveal"><div class="h3">Market Mapping Brief</div><p class="muted">Target companies starter sheet — calibrate quickly.</p><a class="btn primary" data-dl="marketmap-brief" href="#">Open Brief</a></div>
-        <div class="card reveal"><div class="h3">Salary Benchmark Worksheet</div><p class="muted">INR→USD helper, min/mid/max, suggested offer formula.</p><a class="btn primary" data-dl="salary" href="#">Open Sheet</a></div>
-        <div class="card reveal"><div class="h3">Boolean Search Cheat Sheet</div><p class="muted">Ready strings for Eng / Product / Security + X-Ray examples.</p><a class="btn primary" data-dl="boolean" href="#">Open Cheat Sheet</a></div>
-        <div class="card reveal"><div class="h3">Candidate Update Tracker</div><p class="muted">Simple tracker with auto SLA days open.</p><a class="btn primary" data-dl="tracker" href="#">Open Tracker</a></div>
-        <!-- New 6 -->
-        <div class="card reveal"><div class="h3">Cold Outreach Email Kit</div><p class="muted">Short, high-reply scripts for founders and candidates.</p><a class="btn primary" data-dl="email-kit" href="#">Open Kit</a></div>
-        <div class="card reveal"><div class="h3">JD Writing Guide</div><p class="muted">Outcome-driven JD structure — clarity > fluff.</p><a class="btn primary" data-dl="jd-guide" href="#">Open Guide</a></div>
-        <div class="card reveal"><div class="h3">Interview Loop Checklist</div><p class="muted">Before / During / After — keep loops tight and consistent.</p><a class="btn primary" data-dl="loop-checklist" href="#">Open Checklist</a></div>
-        <div class="card reveal"><div class="h3">Offer Calculator</div><p class="muted">Band min/mid/max → suggested offer with rounding.</p><a class="btn primary" data-dl="offer-calc" href="#">Open Calculator</a></div>
-        <div class="card reveal"><div class="h3">Referral Policy Template</div><p class="muted">Lean policy: eligibility, payout, process, ethics.</p><a class="btn primary" data-dl="referral-policy" href="#">Open Template</a></div>
-        <div class="card reveal"><div class="h3">Weekly Hiring Report</div><p class="muted">Adds, shortlist, interviews, offers, joins, risks — one page.</p><a class="btn primary" data-dl="weekly-report" href="#">Open Report</a></div>
-      </div>
-
-      <div class="card reveal"
-           style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between">
-        <div class="muted">Want these customized for your hiring strategy? Let’s collaborate.</div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <a class="btn green" target="_blank"
-             href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20I%20loved%20your%20enhanced%20Playbook%20and%20would%20like%20to%20customize%20it%20for%20our%20hiring.">Message on WhatsApp</a>
-          <a class="btn ghost" target="_blank"
-             href="mailto:ayushmishra14feb@gmail.com?subject=Customize%20Enhanced%20Playbook&body=Hi%20Ayush%2C%20we'd%20like%20your%20help%20to%20customize%20the%20Playbook%20for%20our%20roles.">Email Request</a>
+      <div id="copilot-box" class="reveal">
+        <div class="head">
+          <strong>Talent Copilot</strong>
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+            <a class="btn ghost" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform">Submit JD</a>
+            <a class="btn ghost" target="_blank" href="mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry&body=Hi%20Ayush%2C%20we'd%20like%20help%20with...">Email</a>
+            <a class="btn green" target="_blank" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20let%E2%80%99s%20book%20a%2020-min%20discovery%20call.">WhatsApp 20-min</a>
+          </div>
+        </div>
+        <div class="body" id="cp-body"></div>
+        <div class="input">
+          <input id="cp-msg" type="text" placeholder="Ask about services, packages, JD intake, market maps, loops…" />
+          <button id="cp-send">Send</button>
         </div>
       </div>
     </div>
@@ -276,20 +296,16 @@
         <div class="card reveal">
           <p class="muted">Share a role or talent question. I’ll reply with next steps and a suggested plan within one business day.</p>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-            <a class="btn primary" target="_blank"
-               href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform">Open Google Form</a>
-            <a class="btn green" target="_blank"
-               href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20I%20want%20to%20book%20a%2020-min%20intro%20call.">WhatsApp</a>
-            <a class="btn ghost" target="_blank"
-               href="mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry&body=Hi%20Ayush%2C%20we'd%20like%20help%20with...">Email</a>
+            <a class="btn primary" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform">Open Google Form</a>
+            <a class="btn green" target="_blank" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20I%20want%20to%20book%20a%2020-min%20intro%20call.">WhatsApp</a>
+            <a class="btn ghost" target="_blank" href="mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry&body=Hi%20Ayush%2C%20we'd%20like%20help%20with...">Email</a>
             <a class="btn ghost" target="_blank" href="https://www.linkedin.com/in/mechazoid14">LinkedIn</a>
           </div>
         </div>
         <div class="card reveal">
           <div class="h3">Share JD → 48-Hour Market Map</div>
           <p class="muted">Send the JD, target companies, and priorities. I’ll respond with a market map and suggested plan.</p>
-          <a class="btn primary" target="_blank"
-             href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform">Submit JD</a>
+          <a class="btn primary" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform">Submit JD</a>
         </div>
       </div>
     </div>
@@ -302,76 +318,26 @@
     </div>
   </footer>
 
-  <!-- Floating WhatsApp -->
-  <div class="wa-fab" style="position:fixed;right:18px;bottom:18px;z-index:50">
-    <a class="btn green" target="_blank"
-       href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20I%20want%20to%20book%20a%2020-min%20intro%20call.">WhatsApp</a>
+  <!-- Floating Quick-Access Dock -->
+  <div class="qa-dock" role="region" aria-label="Quick Actions">
+    <button class="qa-toggle" aria-label="Open quick actions">☰</button>
+    <a class="qa-btn jd" target="_blank"
+       href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform"
+       aria-label="Submit Job Description">Submit JD</a>
+    <a class="qa-btn mail" target="_blank"
+       href="mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry&body=Hi%20Ayush%2C%20we'd%20like%20help%20with..."
+       aria-label="Email Ayush">Email</a>
+    <a class="qa-btn wa" target="_blank"
+       href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20I%20want%20to%20book%20a%2020-min%20intro%20call."
+       aria-label="WhatsApp 20-min call">WhatsApp</a>
   </div>
 
-  <!-- 📘 Onsite Playbook Badge with Micro Animation -->
+  <!-- 📘 Playbook badge now opens Copilot section -->
   <div id="playbook-container">
-    <a href="#resources" id="playbook-badge" onclick="scrollToResources(event)">📘 Playbook</a>
-    <span id="playbook-tooltip">Open all templates here</span>
-  </div>
-  <style>
-    #playbook-container{position:fixed;left:18px;bottom:18px;z-index:60;display:flex;align-items:center;gap:10px}
-    #playbook-badge{
-      background:linear-gradient(135deg,var(--brand),var(--brand2));
-      color:#06101a;font-weight:700;padding:10px 16px;border-radius:999px;
-      box-shadow:0 6px 18px rgba(0,0,0,.45);text-decoration:none;font-size:.95rem;
-      transition:all .25s ease;opacity:.92;position:relative;animation:pulseBadge 16s ease-in-out infinite;
-    }
-    #playbook-badge:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(139,92,246,.35),0 0 0 1px rgba(255,255,255,.06) inset;opacity:1;}
-    #playbook-badge::after{content:"";position:absolute;inset:-6px;border-radius:inherit;z-index:-1;
-     background:radial-gradient(60% 60% at 50% 50%,rgba(34,211,238,.35),transparent 70%);
-     opacity:0;filter:blur(10px);animation:pulseGlow 16s ease-in-out infinite;}
-    #playbook-tooltip{position:absolute;left:100%;bottom:50%;transform:translateY(50%) translateX(10px);
-     background:rgba(13,20,36,.9);color:var(--ink);border:1px solid var(--line);
-     border-radius:10px;font-size:.85rem;padding:6px 10px;white-space:nowrap;
-     opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;backdrop-filter:blur(6px);}
-    #playbook-container:hover #playbook-tooltip{opacity:1;transform:translateY(50%) translateX(14px);}
-    @media(max-width:640px){#playbook-badge{font-size:.85rem;padding:9px 14px}#playbook-tooltip{display:none}}
-    .highlight-burst{outline:2px solid rgba(34,211,238,.7);box-shadow:0 0 0 6px rgba(34,211,238,.15);transition:box-shadow 1.2s ease,outline-color 1.2s ease;}
-    @keyframes pulseBadge{0%,78%{transform:translateY(0) scale(1);}82%{transform:translateY(-1px) scale(1.03);}85%{transform:translateY(0) scale(1.06);}88%{transform:translateY(-1px) scale(1.02);}92%,100%{transform:translateY(0) scale(1);}}
-    @keyframes pulseGlow{0%,78%{opacity:0;}82%{opacity:.18;}85%{opacity:.28;}88%{opacity:.16;}92%,100%{opacity:0;}}
-    @media (prefers-reduced-motion: reduce){#playbook-badge,#playbook-badge::after{animation:none!important}}
-  </style>
-
-  <!-- Download Modal (Email Capture) -->
-  <div id="dl-modal" style="position:fixed;inset:0;display:none;place-items:center;z-index:90;background:rgba(0,0,0,.55);backdrop-filter:blur(4px)">
-    <div style="background:#0d1424;border:1px solid var(--line);border-radius:16px;max-width:420px;width:92%;padding:18px 18px 14px">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px">
-        <strong class="h3" style="color:var(--ink);background:none">Get the template</strong>
-        <button id="dl-close" class="btn ghost" style="padding:.4rem .7rem">✕</button>
-      </div>
-      <p class="muted" style="margin:6px 0 12px">Enter your work email to receive access. We’ll only use it to share talent resources.</p>
-      <form id="dl-form" style="display:grid;gap:10px">
-        <input id="dl-email" type="email" required placeholder="you@company.com"
-              style="padding:.9rem 1rem;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);outline:none">
-        <button class="btn primary" type="submit">Continue to download</button>
-        <small class="muted">By continuing, you agree to receive occasional updates. <em>Unsubscribe anytime.</em></small>
-      </form>
-    </div>
+    <a href="#copilot" id="playbook-badge" onclick="scrollToCopilot(event)">📘 Playbook</a>
+    <span id="playbook-tooltip">Open the Copilot</span>
   </div>
 
-  <!-- Template Viewer Modal -->
-  <div id="viewer-modal" style="position:fixed;inset:0;display:none;place-items:center;z-index:95;background:rgba(0,0,0,.55);backdrop-filter:blur(4px)">
-    <div style="background:#0d1424;border:1px solid rgba(255,255,255,.12);border-radius:16px;max-width:920px;width:94%;height:84vh;display:flex;flex-direction:column;overflow:hidden">
-      <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.12)">
-        <div style="display:flex;gap:10px;align-items:center">
-          <strong id="viewer-title" style="font-size:1.05rem">Template</strong>
-          <span id="viewer-type" class="tag">Preview</span>
-        </div>
-        <div style="display:flex;gap:8px;align-items:center">
-          <a id="viewer-download" class="btn primary" href="#" download>Download</a>
-          <button id="viewer-close" class="btn ghost">✕</button>
-        </div>
-      </div>
-      <div id="viewer-body" style="flex:1;overflow:auto;padding:14px 16px"></div>
-    </div>
-  </div>
-
-  <!-- Scripts -->
   <script>
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -387,179 +353,89 @@
     const ro = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('on'); ro.unobserve(e.target);} }); }, {threshold:.15});
     document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 
-    // Smooth scroll + highlight for Playbook badge
-    function scrollToResources(e){
+    // Playbook badge → Copilot scroll
+    function scrollToCopilot(e){
       if(e) e.preventDefault();
-      const target = document.getElementById('resources');
-      if(!target){ location.hash = '#resources'; return; }
+      const target = document.getElementById('copilot');
+      if(!target){ location.hash = '#copilot'; return; }
       target.scrollIntoView({behavior:'smooth', block:'start'});
       target.classList.add('highlight-burst');
       setTimeout(()=> target.classList.remove('highlight-burst'), 1200);
     }
 
-    // ===========================
-    // Email-gated downloads + Inline Viewer
-    // ===========================
-    const GAS_URL = 'https://script.google.com/macros/s/AKfycbyY-geMmNJRGX8g-6907c4kp2DoYCe6RzBEUTzpmpNYwq6J0ddAk_RmHM02iWv0L8ND/exec';
-    const BASE = 'https://raw.githubusercontent.com/Mechazoid14/Ayush_Portfolio/main/playbook/enhanced/resources/';
-    const FILES = {
-      // Original 6
-      'jd-intake':         {url: BASE+'jd-intake-template.md',                 title:'JD Intake Template',           type:'md'},
-      'scorecards-bundle': {url: BASE+'interview_scorecards_bundle.zip',       title:'Interview Scorecards (ZIP)',   type:'zip'},
-      'marketmap-brief':   {url: BASE+'marketmap_company_targets.csv',         title:'Market Mapping Brief',         type:'csv'},
-      'salary':            {url: BASE+'salary_benchmark_worksheet.csv',        title:'Salary Benchmark Worksheet',   type:'csv'},
-      'boolean':           {url: BASE+'boolean_search_cheat_sheet.md',         title:'Boolean Search Cheat Sheet',   type:'md'},
-      'tracker':           {url: BASE+'candidate_update_tracker.csv',          title:'Candidate Update Tracker',     type:'csv'},
-      // New 6
-      'email-kit':         {url: BASE+'cold_outreach_email_kit.md',            title:'Cold Outreach Email Kit',      type:'md'},
-      'jd-guide':          {url: BASE+'jd_writing_guide.md',                   title:'JD Writing Guide',             type:'md'},
-      'loop-checklist':    {url: BASE+'interview_loop_checklist.md',           title:'Interview Loop Checklist',     type:'md'},
-      'offer-calc':        {url: BASE+'offer_calculator.csv',                  title:'Offer Calculator',             type:'csv'},
-      'referral-policy':   {url: BASE+'referral_policy_template.md',           title:'Referral Policy Template',     type:'md'},
-      'weekly-report':     {url: BASE+'weekly_hiring_report.csv',              title:'Weekly Hiring Report',         type:'csv'}
-    };
+    // Quick-Access dock toggle (mobile)
+    (function(){
+      const dock = document.querySelector('.qa-dock');
+      const toggle = dock.querySelector('.qa-toggle');
+      toggle.addEventListener('click', ()=> dock.classList.toggle('open'));
+    })();
 
-    // Email gate modal
-    const gate = document.getElementById('dl-modal');
-    const gateClose = document.getElementById('dl-close');
-    const gateForm = document.getElementById('dl-form');
-    const gateEmail = document.getElementById('dl-email');
-    let pendingFileKey = null;
-    function openGate(key){ pendingFileKey = key; gate.style.display='grid'; setTimeout(()=> gateEmail && gateEmail.focus(), 60); }
-    function closeGate(){ gate.style.display='none'; }
-    gateClose.addEventListener('click', closeGate);
-    gate.addEventListener('click', (e)=>{ if(e.target === gate) closeGate(); });
+    /********** COPILOT (frontend only for now) **********/
+    const BOT_URL = 'REPLACE_WITH_YOUR_WEB_APP_URL/exec'; // <-- we’ll set this in the next step
+    const bodyPanel = document.getElementById('cp-body');
+    const msgPanel  = document.getElementById('cp-msg');
+    const sendPanel = document.getElementById('cp-send');
 
-    // Viewer modal
-    const viewer = document.getElementById('viewer-modal');
-    const viewerClose = document.getElementById('viewer-close');
-    const viewerBody = document.getElementById('viewer-body');
-    const viewerTitle = document.getElementById('viewer-title');
-    const viewerType = document.getElementById('viewer-type');
-    const viewerDownload = document.getElementById('viewer-download');
-    function openViewer(){ viewer.style.display='grid'; }
-    function closeViewer(){ viewer.style.display='none'; viewerBody.innerHTML=''; }
-    viewerClose.addEventListener('click', closeViewer);
-    viewer.addEventListener('click', (e)=>{ if(e.target === viewer) closeViewer(); });
+    let sessionId = localStorage.getItem('copilot_session') || '';
+    if (!sessionId){ sessionId = 'S' + Math.random().toString(36).slice(2); localStorage.setItem('copilot_session', sessionId); }
 
-    // Light Markdown → HTML
-    function mdToHtml(md){
-      let h = md
-        .replace(/^###### (.*$)/gim, '<h6>$1</h6>')
-        .replace(/^##### (.*$)/gim, '<h5>$1</h5>')
-        .replace(/^#### (.*$)/gim, '<h4>$1</h4>')
-        .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-        .replace(/^## (.*$)/gim, '<h2>$1</h2>')
-        .replace(/^# (.*$)/gim, '<h1>$1</h1>')
-        .replace(/^\> (.*$)/gim, '<blockquote>$1</blockquote>')
-        .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
-        .replace(/\*(.*?)\*/gim, '<em>$1</em>')
-        .replace(/`([^`]+)`/gim, '<code>$1</code>')
-        .replace(/\n$/gim, '<br/>');
-      h = h.replace(/^\s*-\s+(.*)$/gim, '<li>$1</li>');
-      h = h.replace(/(<li>.*<\/li>)(\s*<li>.*<\/li>)+/gim, '<ul>$&</ul>');
-      return h;
-    }
-
-    function csvToTable(csvText){
-      const rows = csvText.replace(/\r/g,'').split('\n').filter(r=>r.trim().length);
-      const cells = rows.map(r => r.split(','));
-      const table = document.createElement('table');
-      table.style.width = '100%';
-      table.style.borderCollapse = 'collapse';
-      table.style.fontSize = '.95rem';
-      const makeCell = (tag, txt, isHead=false) => {
-        const el = document.createElement(tag);
-        el.textContent = txt;
-        el.style.border = '1px solid rgba(255,255,255,.12)';
-        el.style.padding = '8px 10px';
-        el.style.textAlign = 'left';
-        if(isHead){ el.style.background = 'rgba(255,255,255,.06)'; el.style.fontWeight='700'; }
-        return el;
-      };
-      const thead = document.createElement('thead');
-      const trh = document.createElement('tr');
-      cells[0].forEach(v => trh.appendChild(makeCell('th', v, true)));
-      thead.appendChild(trh);
-      table.appendChild(thead);
-      const tbody = document.createElement('tbody');
-      for(let i=1;i<cells.length;i++){
-        const tr = document.createElement('tr');
-        cells[i].forEach(v => tr.appendChild(makeCell('td', v)));
-        tbody.appendChild(tr);
+    function addMsg(text, me=false, buttons=[]){
+      const div = document.createElement('div');
+      div.className = 'msg' + (me ? ' me' : '');
+      div.innerHTML = text.replace(/\n/g,'<br>');
+      if (buttons && buttons.length){
+        const br = document.createElement('div'); br.className='btnrow';
+        buttons.forEach(b=>{
+          if (b.url){
+            const a=document.createElement('a'); a.href=b.url; a.target='_blank'; a.textContent=b.label; br.appendChild(a);
+          } else if (b.anchor){
+            const a=document.createElement('a'); a.href=b.anchor; a.onclick=(e)=>{e.preventDefault(); document.querySelector(b.anchor).scrollIntoView({behavior:'smooth'});}; a.textContent=b.label; br.appendChild(a);
+          }
+        });
+        div.appendChild(br);
       }
-      table.appendChild(tbody);
-      return table;
+      bodyPanel.appendChild(div); bodyPanel.scrollTop = bodyPanel.scrollHeight;
     }
 
-    async function logAndPreview(fileKey, email){
-      const f = FILES[fileKey];
-      if(!f) return;
+    function boot(){
+      addMsg("Hi — I’m your Talent Copilot. Ask me about services, packages, JD intake, market maps, or interview loops. Use quick buttons anytime.", false, [
+        {label:"Submit JD", url:"https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform"},
+        {label:"Email", url:"mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry"},
+        {label:"WhatsApp 20-min", url:"https://wa.me/919740352682?text=Hi%20Ayush%2C%20book%20a%2020-min%20call."}
+      ]);
+      if (BOT_URL.startsWith('REPLACE_')){
+        addMsg("⚙️ Bot backend not connected yet. Click **Submit JD** / **WhatsApp** above, or finish step 2 to enable AI replies.", false, []);
+      }
+    }
 
-      // Log to GAS (non-blocking)
-      try {
-        fetch(`${GAS_URL}?email=${encodeURIComponent(email)}&file=${encodeURIComponent(fileKey)}&ref=${encodeURIComponent(location.href)}`, {mode:'no-cors'});
-      } catch(e){}
-
-      // ZIPs: direct download
-      if(f.type === 'zip'){
-        const a = document.createElement('a'); a.href = f.url; a.download = ''; document.body.appendChild(a); a.click(); a.remove();
+    async function sendMsg(text){
+      if(!text) return;
+      addMsg(text, true);
+      msgPanel.value='';
+      if (BOT_URL.startsWith('REPLACE_')){
+        addMsg("Once we connect the backend, I’ll respond here. For now, use the quick actions below.", false, [
+          {label:"Submit JD", url:"https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform"},
+          {label:"WhatsApp 20-min", url:"https://wa.me/919740352682?text=Hi%20Ayush%2C%20book%20a%2020-min%20call."}
+        ]);
         return;
       }
-
-      // Open viewer and render
-      viewerTitle.textContent = f.title;
-      viewerType.textContent = f.type.toUpperCase();
-      viewerDownload.href = f.url;
-      viewerBody.innerHTML = '<div class="muted">Loading…</div>';
-      openViewer();
-
       try{
-        const res = await fetch(f.url, {cache:'no-store'});
-        const txt = await res.text();
-        viewerBody.innerHTML = ''; // clear
-        if(f.type === 'md'){
-          const wrapper = document.createElement('div');
-          wrapper.style.lineHeight = '1.65';
-          wrapper.innerHTML = mdToHtml(txt);
-          viewerBody.appendChild(wrapper);
-        } else if(f.type === 'csv'){
-          viewerBody.appendChild(csvToTable(txt));
-        } else {
-          const pre = document.createElement('pre');
-          pre.textContent = txt;
-          pre.style.whiteSpace='pre-wrap';
-          pre.style.lineHeight='1.55';
-          viewerBody.appendChild(pre);
-        }
-      }catch(err){
-        viewerBody.innerHTML = '<div style="color:#fca5a5">Could not load preview. Use Download.</div>';
+        const q = new URLSearchParams({ session_id: sessionId, message: text });
+        const res = await fetch(BOT_URL + '?' + q.toString(), { method:'GET' });
+        const data = await res.json();
+        const r = data.reply || { text: "…" };
+        addMsg(r.text, false, (r.buttons||[]));
+      }catch(e){
+        addMsg("I couldn’t reach the server. Please try again or use WhatsApp.", false, [
+          {label:"WhatsApp", url:"https://wa.me/919740352682"}
+        ]);
       }
     }
 
-    // Bind resource buttons
-    document.querySelectorAll('[data-dl]').forEach(btn=>{
-      btn.addEventListener('click', (e)=>{
-        const key = btn.getAttribute('data-dl');
-        if(!FILES[key]) return;
-        e.preventDefault();
-        const saved = localStorage.getItem('playbook_email') || '';
-        saved ? logAndPreview(key, saved) : openGate(key);
-      });
-    });
-
-    // Handle email submission then preview
-    gateForm.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const email = (gateEmail.value || '').trim().toLowerCase();
-      if(!email) return;
-      localStorage.setItem('playbook_email', email);
-      closeGate();
-      // determine the key from last clicked button (data-dl)
-      const last = document.activeElement;
-      const key = pendingFileKey;
-      if(key) logAndPreview(key, email);
-    });
+    // Wire up
+    boot();
+    sendPanel.addEventListener('click', ()=> sendMsg(msgPanel.value.trim()));
+    msgPanel.addEventListener('keydown', e=>{ if(e.key==='Enter'){ sendPanel.click(); }});
   </script>
 </body>
 </html>
