@@ -2,189 +2,747 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Ayush Mishra — 360° Talent Partner (Tech + Non-Tech)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title>Ayush Mishra | Talent Partner</title>
 
   <style>
-    :root {
-      --bg: #0b0c10;
-      --card: #111218;
-      --ink: #e8e8ea;
-      --muted: #b4b4be;
-      --brand: #7c5cff;
-      --brand2: #4dd0e1;
-      --radius: 18px;
-      --gap: 18px;
-      --pad: 18px;
-      --shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    :root{
+      --bg:#05060b;
+      --bg-soft:#0b0c10;
+      --card:#11121a;
+      --ink:#f4f4fb;
+      --muted:#b4b4be;
+      --brand:#7c5cff;
+      --brand2:#4dd0e1;
+      --accent:#171826;
+      --danger:#ef4444;
+      --ok:#22c55e;
+      --radius:22px;
+      --gap:20px;
+      --shadow:0 18px 60px rgba(0,0,0,.6);
     }
 
-    * { box-sizing: border-box; }
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+    *,*::before,*::after{box-sizing:border-box;}
+    html,body{
+      margin:0;
+      padding:0;
+      background:radial-gradient(circle at 0 0,#15172a 0,transparent 40%),radial-gradient(circle at 100% 100%,#141827 0,transparent 45%),var(--bg);
+      color:var(--ink);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      scroll-behavior:smooth;
+    }
+    a{color:inherit;text-decoration:none;}
+    img{max-width:100%;height:auto;border-radius:18px;}
+
+    h1,h2,h3{
+      margin:0 0 8px;
+      letter-spacing:-0.02em;
+    }
+    h1{
+      font-size:clamp(28px,7.5vw,46px);
+      line-height:1.05;
+    }
+    h2{
+      font-size:clamp(22px,4.2vw,30px);
+      line-height:1.15;
+    }
+    h3{
+      font-size:18px;
+      line-height:1.2;
+    }
+    p{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.5;
     }
 
-    a { color: inherit; text-decoration: none; }
-
-    .container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 16px; }
-
-    .nav {
-      position: sticky; top: 0; z-index: 50;
-      background: linear-gradient(180deg, #0b0c10 0%, rgba(11,12,16,0.85) 100%);
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid #1a1b23;
+    .container{
+      width:100%;
+      max-width:1120px;
+      margin:0 auto;
+      padding:0 16px;
     }
-    .nav .row { display: flex; align-items: center; justify-content: space-between; height: 58px; }
-    .brand { display: flex; gap: 10px; align-items: center; font-weight: bold; }
-    .brand .dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--brand), var(--brand2)); }
-    .menu { display: flex; gap: 14px; }
-    .menu a { padding: 8px 10px; border-radius: 10px; }
-    .hamb { display: none; }
-
-    .hero { padding: 26px 0 6px; }
-    .chip { display: inline-flex; gap: 8px; align-items: center; padding: 6px 10px; border-radius: 999px; background: #141522; border: 1px solid #1d1e29; color: #cdd1ff; font-size: 12px; }
-    .lead { font-size: 16px; color: #cfd0da; margin-top: 10px; }
-    .cta-row { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
-
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 12px 14px; border-radius: 14px; font-weight: 600;
-      border: 1px solid #232433; box-shadow: var(--shadow);
-      transition: transform 0.08s ease;
+    section{
+      padding:28px 0;
     }
-    .btn:active { transform: scale(0.98); }
-    .btn.primary { background: linear-gradient(135deg, var(--brand), var(--brand2)); color: #0c0d12; border: 0; }
-    .btn.ghost { background: #12131a; color: #e9e9f2; }
-    .btn.whatsapp { background: #0b141a; border-color: #143a2b; }
-    .btn.whatsapp span { color: #9ef7bf; }
 
-    .card { background: var(--card); border: 1px solid #1b1c25; border-radius: var(--radius); padding: var(--pad); box-shadow: var(--shadow); }
-    .kpis { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .kpi { background: #0f1016; border: 1px solid #1b1c25; padding: 12px; border-radius: 14px; text-align: center; }
-    .kpi b { display: block; font-size: 18px; }
-
-    .accordion { border-radius: 16px; overflow: hidden; border: 1px solid #1b1c25; }
-    .acc-item { border-bottom: 1px solid #1b1c25; background: #0f1016; }
-    .acc-head { width: 100%; text-align: left; background: #12131a; color: #eaeaf6; padding: 14px 16px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
-    .acc-body { padding: 12px 16px; display: none; }
-    .acc-item.open .acc-body { display: block; }
-
-    .copilot { display: grid; gap: 12px; }
-    .copilot textarea { width: 100%; min-height: 120px; border-radius: 14px; border: 1px solid #232433; background: #0f1016; color: #e9e9f2; padding: 12px; resize: vertical; }
-    .copilot pre { white-space: pre-wrap; background: #0f1016; border: 1px solid #232433; border-radius: 14px; padding: 12px; max-height: 420px; overflow: auto; font-size: 13px; }
-
-    .stickybar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: rgba(11,12,16,0.85); border-top: 1px solid #1b1c25; padding: 8px 12px; backdrop-filter: blur(8px); }
-    .stickybar .row { display: flex; gap: 10px; }
-    .stickybar .row a { flex: 1; }
-
-    .spacer { height: 64px; }
-
-    @media (max-width: 767px) {
-      .menu { display: none; }
-      .hamb { display: block; }
-      .menu.open { display: flex; flex-direction: column; background: #0c0d12; border-top: 1px solid #1a1b23; padding: 10px; }
-      .menu a { padding: 12px; border-radius: 12px; background: #0f1016; border: 1px solid #1b1c25; }
+    /* ====== NAV ====== */
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:60;
+      background:linear-gradient(180deg,rgba(5,6,11,.96) 0,rgba(5,6,11,.80) 100%);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.04);
     }
+    .nav-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      height:60px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:700;
+      font-size:16px;
+    }
+    .brand-tag{
+      background:linear-gradient(135deg,var(--brand),var(--brand2));
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+    .dot{
+      width:11px;
+      height:11px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--brand),var(--brand2));
+      box-shadow:0 0 0 4px rgba(124,92,255,.35);
+    }
+
+    .menu{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      font-size:14px;
+    }
+    .menu a{
+      padding:6px 10px;
+      border-radius:999px;
+      color:#e3e3f5;
+      white-space:nowrap;
+    }
+    .menu a:hover{
+      background:rgba(255,255,255,.04);
+    }
+
+    .header-cta-inline{
+      display:flex;
+      gap:10px;
+      margin-left:16px;
+    }
+
+    .hamb{
+      display:none;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.1);
+      background:#101118;
+      color:#f5f5ff;
+      font-size:16px;
+    }
+
+    /* ====== BUTTONS ====== */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:12px 16px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.08);
+      font-weight:600;
+      font-size:14px;
+      background:#131421;
+      color:#f6f6ff;
+      box-shadow:0 12px 40px rgba(0,0,0,.6);
+      transition:transform .08s ease,box-shadow .08s ease,background .08s ease;
+      cursor:pointer;
+    }
+    .btn.primary{
+      background:linear-gradient(135deg,var(--brand),var(--brand2));
+      color:#05060b;
+      border-color:transparent;
+    }
+    .btn.ghost{
+      background:rgba(10,11,18,.9);
+    }
+    .btn.whatsapp{
+      background:#081813;
+      border-color:#143a2b;
+    }
+    .btn.whatsapp span{color:#9ef7bf;}
+    .btn:active{
+      transform:scale(.97);
+      box-shadow:0 6px 24px rgba(0,0,0,.7);
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 12px;
+      border-radius:999px;
+      background:rgba(20,21,35,.9);
+      border:1px solid rgba(255,255,255,.06);
+      color:#cfd3ff;
+      font-size:12px;
+    }
+    .chip-dot{
+      width:7px;height:7px;border-radius:50%;background:#22c55e;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:6px 12px;
+      border-radius:999px;
+      background:#151623;
+      border:1px solid #222336;
+      font-size:12px;
+      color:#d4d7ff;
+      margin:4px 6px 0 0;
+      white-space:nowrap;
+    }
+
+    .hero{
+      padding:26px 0 10px;
+    }
+    .hero-grid{
+      display:grid;
+      gap:24px;
+      align-items:flex-start;
+    }
+    .hero-lead{
+      font-size:15px;
+      color:#d5d7f0;
+      margin-top:10px;
+    }
+    .hero-ctas{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .hero-cta-row-secondary{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:14px;
+      font-size:12px;
+      color:#a4a6c0;
+    }
+
+    .card{
+      background:radial-gradient(circle at 0 0,rgba(124,92,255,.15) 0,transparent 55%),radial-gradient(circle at 100% 100%,rgba(77,208,225,.12) 0,transparent 55%),var(--card);
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.06);
+      box-shadow:var(--shadow);
+      padding:18px 18px 16px;
+    }
+    .card h3{margin-bottom:6px;}
+
+    .grid{
+      display:grid;
+      gap:var(--gap);
+    }
+    .grid-2{grid-template-columns:1fr;}
+    .grid-3{grid-template-columns:1fr;}
+
+    .meta-label{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:#8b8ea7;
+      margin-bottom:4px;
+    }
+
+    .kpi-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:10px;
+    }
+    .kpi-pill{
+      padding:6px 10px;
+      border-radius:999px;
+      background:#10111c;
+      border:1px solid #222336;
+      font-size:11px;
+      color:#d9dbff;
+    }
+
+    .list-tight{
+      margin:6px 0 0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.45;
+    }
+    .list-tight li{margin-bottom:4px;}
+
+    .section-heading{
+      margin-bottom:10px;
+    }
+
+    .label-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:6px;
+    }
+
+    /* COPILOT */
+    .copilot-grid{
+      display:grid;
+      gap:12px;
+    }
+    .copilot textarea{
+      width:100%;
+      min-height:130px;
+      border-radius:16px;
+      border:1px solid #25263a;
+      background:#090a11;
+      color:#f2f2ff;
+      padding:12px;
+      resize:vertical;
+      font-family:inherit;
+      font-size:14px;
+    }
+    .copilot pre{
+      margin:0;
+      white-space:pre-wrap;
+      background:#05060d;
+      border-radius:18px;
+      border:1px solid #232436;
+      padding:14px;
+      max-height:420px;
+      overflow:auto;
+      font-size:13px;
+    }
+    .copilot-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    /* CONTACT */
+    .contact-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    /* Sticky CTA bar */
+    .spacer{height:72px;}
+    .stickybar{
+      position:fixed;
+      left:0;right:0;bottom:0;
+      z-index:40;
+      background:linear-gradient(180deg,rgba(5,6,11,.25),rgba(5,6,11,.97));
+      backdrop-filter:blur(10px);
+      border-top:1px solid rgba(255,255,255,.06);
+      padding:8px 12px;
+    }
+    .stickybar-inner{
+      max-width:1120px;
+      margin:0 auto;
+      padding:0 4px;
+    }
+    .sticky-row{
+      display:flex;
+      gap:8px;
+    }
+    .sticky-row a{flex:1;}
+
+    /* Targets so anchor scroll doesn't hide headings behind nav */
+    :target{scroll-margin-top:80px;}
+
+    /* ======= MOBILE PATCH ======= */
+    @media (max-width:767px){
+      .nav-row{gap:10px;}
+      .menu{display:none;}
+      .hamb{display:inline-flex;}
+      .menu.open{
+        position:fixed;
+        inset:60px 0 auto 0;
+        display:flex;
+        flex-direction:column;
+        background:#05060f;
+        padding:10px 16px 12px;
+        border-bottom:1px solid rgba(255,255,255,.06);
+        gap:8px;
+      }
+      .menu.open a{
+        background:#10111c;
+        border-radius:12px;
+        padding:10px 12px;
+        border:1px solid #202233;
+      }
+      .header-cta-inline{display:none;} /* hide extra CTAs in nav on mobile */
+
+      h1{font-size:clamp(26px,8vw,40px);line-height:1.07;}
+      h2{font-size:clamp(20px,5.2vw,28px);}
+      p{font-size:14px;}
+
+      section{padding:24px 0;}
+      .hero{padding-top:22px;}
+      .hero-grid{gap:18px;}
+
+      .chip{font-size:11px;padding:5px 10px;}
+      .hero-lead{font-size:14px;}
+
+      .container{padding-left:16px;padding-right:16px;}
+      .card{border-radius:18px;box-shadow:0 14px 40px rgba(0,0,0,.7);}
+      .kpi-row{gap:6px;}
+      .pill{margin-right:4px;font-size:11px;}
+
+      .stickybar{
+        padding-bottom:8px;
+      }
+      .spacer{height:70px;}
+    }
+
+    /* ======= DESKTOP ======= */
+    @media (min-width:768px){
+      .hero-grid{
+        grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
+      }
+      .grid-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+      .grid-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+    }
+
   </style>
 </head>
-
 <body>
-  <nav class="nav">
-    <div class="container row">
-      <div class="brand"><span class="dot"></span>Ayush Mishra</div>
-      <button class="hamb btn ghost" id="hamb">☰</button>
-      <div class="menu" id="menu">
+
+  <!-- ========== NAVBAR ========== -->
+  <header class="nav">
+    <div class="container nav-row">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Ayush <span class="brand-tag">Mishra</span></span>
+      </div>
+
+      <nav class="menu" id="menu">
         <a href="#overview">Overview</a>
-        <a href="#services">Services</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#operating">Operating</a>
+        <a href="#guardrails">Guardrails</a>
+        <a href="#slas">SLAs</a>
         <a href="#copilot">Copilot</a>
         <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
+      </nav>
 
-  <header class="hero">
-    <div class="container">
-      <span class="chip">360° TA • Tech & Non-Tech • GCC Specialist</span>
-      <h1>De-risk hiring. Raise the bar. Ship teams that ship outcomes.</h1>
-      <p class="lead">For CTOs & CHROs hiring across Product, Engineering, Security, and Business functions.</p>
-      <div class="cta-row header-cta">
-        <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform" target="_blank">Submit JD</a>
-        <a class="btn whatsapp" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20book%20a%2020-min%20call." target="_blank"><span>Book 20-min</span></a>
+      <div class="header-cta-inline">
+        <a class="btn ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform" target="_blank">Submit JD</a>
+        <a class="btn primary" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20book%20a%2020-min%20call." target="_blank">Book 20-min</a>
       </div>
+
+      <button class="hamb" id="hamb">☰</button>
     </div>
   </header>
 
-  <section id="services">
+  <!-- ========== OVERVIEW / HERO ========== -->
+  <section id="overview" class="hero">
     <div class="container">
-      <h2>Core Capabilities</h2>
-      <div class="accordion">
-        <div class="acc-item open">
-          <button class="acc-head">Talent Intelligence <span>+</span></button>
-          <div class="acc-body">
-            <ul>
-              <li>Target company list (peers, GCCs, adjacencies)</li>
-              <li>Comp bands & levels (role/geo calibrated)</li>
-              <li>Org charts, succession signals, move-ready pools</li>
-            </ul>
+      <span class="chip">
+        <span class="chip-dot"></span>
+        For CTOs & CHROs · Product · Security/GRC · Engineering (IC → VP) · Business
+      </span>
+
+      <div class="hero-grid" style="margin-top:16px;">
+        <div>
+          <h1>De-risk hiring. Raise the bar. Ship teams that ship outcomes.</h1>
+          <p class="hero-lead">
+            Executive-grade talent partner for GCCs and product companies across India & UAE.
+            I build complete organizations — Product, Security/GRC, Engineering (IC → Leadership),
+            and select Business leadership.
+          </p>
+
+          <div class="hero-ctas">
+            <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform" target="_blank">Submit JD · 48-hour map</a>
+            <a class="btn whatsapp" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20share%20JD%20for%20a%2048-hr%20map" target="_blank">
+              <span>WhatsApp 20-min</span>
+            </a>
+            <a class="btn ghost" href="mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry">Email</a>
+          </div>
+
+          <div class="hero-cta-row-secondary">
+            <span>• Week-1: Market map + scorecards</span>
+            <span>• Week-2/3: 3–5 calibrated profiles/sprint</span>
           </div>
         </div>
-        <div class="acc-item">
-          <button class="acc-head">Headhunting Sprints <span>+</span></button>
-          <div class="acc-body">
-            <ul>
-              <li>Scorecards aligned to business outcomes</li>
-              <li>3–5 calibrated profiles per sprint, weekly iteration</li>
-              <li>VP pipelines with raise-the-bar bias</li>
-            </ul>
+
+        <!-- Snapshot card -->
+        <aside class="card">
+          <div class="meta-label">Snapshot — What I Own</div>
+          <h3>Product & Design</h3>
+          <ul class="list-tight">
+            <li>PMs → Director/Group PM</li>
+            <li>Product Designers, UX, Research</li>
+            <li>Growth, Platform, Data-adjacent</li>
+          </ul>
+
+          <h3 style="margin-top:10px;">Security & GRC</h3>
+          <ul class="list-tight">
+            <li>AppSec, CloudSec, IAM, Blue/Red</li>
+            <li>GRC/Privacy (DPDP, GDPR)</li>
+            <li>Security leadership for GCCs</li>
+          </ul>
+
+          <h3 style="margin-top:10px;">Engineering (IC → VP)</h3>
+          <ul class="list-tight">
+            <li>Backend, Frontend, Full-stack, Platform</li>
+            <li>SRE/DevOps, Data/ML, Mobile, Architects</li>
+          </ul>
+
+          <h3 style="margin-top:10px;">Business (Select)</h3>
+          <ul class="list-tight">
+            <li>Finance, Legal, HR/HRBP, TA</li>
+            <li>Sales & CS, Growth/Marketing</li>
+            <li>Ops / Enablement roles</li>
+          </ul>
+
+          <div class="kpi-row">
+            <span class="kpi-pill">GCCs for US/EU Product Cos</span>
+            <span class="kpi-pill">India · UAE focus</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CAPABILITIES ========== -->
+  <section id="capabilities">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Core Capabilities</h2>
+        <p>Designed for exec velocity — signal-dense, repeatable, and measurable without fluff.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="meta-label">Capability</div>
+          <h3>Talent Intelligence</h3>
+          <ul class="list-tight">
+            <li>Target company list (peers, GCCs, adjacencies)</li>
+            <li>Comp bands & levels (role/geo calibrated)</li>
+            <li>Org charts, succession signals, move-ready pools</li>
+          </ul>
+          <div class="label-row">
+            <span class="pill">Market maps</span>
+            <span class="pill">Org design input</span>
           </div>
         </div>
-        <div class="acc-item">
-          <button class="acc-head">Loop Design & Enablement <span>+</span></button>
-          <div class="acc-body">
-            <ul>
-              <li>Structured loops: tech, system design, XFN, bar-raiser</li>
-              <li>Rubrics (competencies × weights), feedback hygiene</li>
-              <li>Offer strategy & close plans with landing support</li>
-            </ul>
+
+        <div class="card">
+          <div class="meta-label">Capability</div>
+          <h3>Headhunting Sprints</h3>
+          <ul class="list-tight">
+            <li>Scorecards aligned to business outcomes</li>
+            <li>3–5 calibrated profiles per sprint, weekly iteration</li>
+            <li>IC → VP pipelines with raise-the-bar bias</li>
+          </ul>
+          <div class="label-row">
+            <span class="pill">Principal / Director+</span>
+            <span class="pill">Super-niche roles</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="meta-label">Capability</div>
+          <h3>Loop Design & Enablement</h3>
+          <ul class="list-tight">
+            <li>Structured loops: tech, system design, XFN, bar-raiser</li>
+            <li>Rubrics (competencies × weights), feedback hygiene</li>
+            <li>Offer strategy & close plans with landing support</li>
+          </ul>
+          <div class="label-row">
+            <span class="pill">Interview kits</span>
+            <span class="pill">Bar-raiser culture</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ========== OPERATING MODEL ========== -->
+  <section id="operating">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Operating Model</h2>
+        <p>Fast, transparent, and corrective — so we never fly blind.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>48-hour kickoff pack</h3>
+          <ul class="list-tight">
+            <li>JD co-write → outcomes, must-haves, anti-goals</li>
+            <li>Market map: peers, GCCs, adjacencies, comp window, title drift</li>
+            <li>Scorecards + 2 sample profiles to calibrate</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Week 0–1 — Define & Map</h3>
+          <ul class="list-tight">
+            <li>Signals: what a “hell yes” vs. “maybe” looks like</li>
+            <li>Search thesis: where to over-invest vs. ignore</li>
+            <li>Agree on update cadence & decision hygiene</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Week 2–3 — Sprint & Iterate</h3>
+          <ul class="list-tight">
+            <li>3–5 calibrated profiles each sprint</li>
+            <li>Loop instrumentation: who, what, how to de-risk</li>
+            <li>Offer strategy, close plans, landing support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EXEC GUARDRAILS ========== -->
+  <section id="guardrails">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Exec Guardrails</h2>
+        <p>How I protect your time, brand, and bar.</p>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>No spray-and-pray</h3>
+          <ul class="list-tight">
+            <li>No uncalibrated mass outreach, ever.</li>
+            <li>Every candidate sees a contextual, role-specific story.</li>
+            <li>Your brand is presented like an internal TA leader would.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Honest signal, not theatre</h3>
+          <ul class="list-tight">
+            <li>If the market doesn’t support the ask, I say it early.</li>
+            <li>Every loop debrief ends with “ship / stretch / stop” clarity.</li>
+            <li>Escalations are structured — not emotional.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Exec-ready communication</h3>
+          <ul class="list-tight">
+            <li>1-page summaries you can forward to founders/boards.</li>
+            <li>Clear numbers: funnel health, time-to-signal, blockers.</li>
+            <li>No jargon; no 20-slide decks for 2-minute decisions.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Candidate-first</h3>
+          <ul class="list-tight">
+            <li>No ghosting; expectations and timelines are explicit.</li>
+            <li>Post-offer connect and landing support baked in.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SLAs ========== -->
+  <section id="slas">
+    <div class="container">
+      <div class="section-heading">
+        <h2>SLAs</h2>
+        <p>Simple, measurable, and written for founders & execs.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Speed & Signal</h3>
+          <ul class="list-tight">
+            <li>48-hour kickoff pack for any new role.</li>
+            <li>First calibrated profiles within 5–7 business days.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Communication</h3>
+          <ul class="list-tight">
+            <li>Weekly written update; async Loom optional.</li>
+            <li>Critical issues surfaced same day — not in the next review.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Quality</h3>
+          <ul class="list-tight">
+            <li>Every candidate: written “why this person / why now”.</li>
+            <li>Loop design reviewed before you start interviewing.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TALENT COPILOT ========== -->
   <section id="copilot">
     <div class="container">
-      <h2>Talent Copilot</h2>
-      <div class="card copilot">
-        <textarea id="cp_inp" placeholder='Try:\n- boolean hrbp in bangalore include:org design\n- boolean ml engineer in hyderabad similar companies like google\n- interview loop principal product manager\n- market map sre in pune'></textarea>
-        <div class="cta-row">
-          <button class="btn primary" id="cp_run">Run</button>
-          <button class="btn ghost" id="cp_clear">Clear</button>
+      <div class="section-heading">
+        <h2>Talent Copilot</h2>
+        <p>Ask for Boolean strings, interview loops, or market maps — tuned for TA, not generic AI.</p>
+      </div>
+
+      <div class="card">
+        <div class="copilot-grid">
+          <textarea id="cp_inp" placeholder="Try:
+- boolean hrbp in bangalore include:org design
+- boolean ml engineer in hyderabad similar companies like google
+- boolean fp&a manager in mumbai include:forecasting,variance
+- interview loop principal product manager
+- market map sre in pune"></textarea>
+
+          <div class="copilot-actions">
+            <button class="btn primary" id="cp_run">Run</button>
+            <button class="btn ghost" id="cp_clear">Clear</button>
+          </div>
+
+          <pre id="cp_out">Ready.</pre>
         </div>
-        <pre id="cp_out">Ready.</pre>
       </div>
     </div>
   </section>
 
+  <!-- ========== CONTACT ========== -->
   <section id="contact">
     <div class="container">
-      <h2>Contact</h2>
-      <div class="cta-row">
-        <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform" target="_blank">Submit JD</a>
-        <a class="btn whatsapp" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20book%20a%2020-min%20call." target="_blank"><span>WhatsApp 20-min</span></a>
-        <a class="btn ghost" href="mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry">Email</a>
+      <div class="section-heading">
+        <h2>Contact</h2>
+        <p>Share a JD, a market question, or a hiring problem. I’ll respond within one business day.</p>
+      </div>
+
+      <div class="card">
+        <div class="meta-label">Channels</div>
+        <div class="contact-row">
+          <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform" target="_blank">Submit JD</a>
+          <a class="btn whatsapp" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20book%20a%2020-min%20call." target="_blank"><span>WhatsApp 20-min</span></a>
+          <a class="btn ghost" href="mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry">Email</a>
+        </div>
+
+        <div class="kpi-row" style="margin-top:14px;">
+          <span class="kpi-pill">India · UAE</span>
+          <span class="kpi-pill">Product · Security/GRC · Engineering · Business</span>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Spacer so content doesn't hide behind sticky bar -->
   <div class="spacer"></div>
+
+  <!-- ========== STICKY CTA BAR (MOBILE-FIRST, also fine on desktop) ========== -->
   <div class="stickybar">
-    <div class="container">
-      <div class="row">
+    <div class="stickybar-inner">
+      <div class="sticky-row">
         <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform" target="_blank">Submit JD</a>
         <a class="btn whatsapp" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20book%20a%2020-min%20call." target="_blank"><span>WhatsApp</span></a>
         <a class="btn ghost" href="mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry">Email</a>
@@ -192,42 +750,53 @@
     </div>
   </div>
 
+  <!-- ========== SCRIPTS ========== -->
   <script>
+    // Apps Script endpoint (latest deployment)
     const BOT_URL = "https://script.google.com/macros/s/AKfycbyN4lE9s0_sICQG0y9TkPqGb50F6xXZWERJokjQdNvfY02-s679afcs3DGqfQsJMyb-yg/exec";
 
+    // Mobile nav toggle
     const hamb = document.getElementById('hamb');
     const menu = document.getElementById('menu');
-    hamb?.addEventListener('click', () => menu.classList.toggle('open'));
+    if (hamb && menu) {
+      hamb.addEventListener('click', () => {
+        menu.classList.toggle('open');
+      });
+    }
 
-    document.querySelectorAll('.acc-head').forEach(btn => {
-      btn.addEventListener('click', () => btn.parentElement.classList.toggle('open'));
-    });
-
+    // Talent Copilot
     const inp = document.getElementById('cp_inp');
     const out = document.getElementById('cp_out');
-    document.getElementById('cp_run').addEventListener('click', async () => {
-      const msg = (inp.value || '').trim();
-      if (!msg) {
-        out.textContent = "Type a request, e.g., boolean hrbp in bangalore include:org design";
-        return;
-      }
-      out.textContent = "Thinking…";
-      try {
-        const u = new URL(BOT_URL);
-        u.searchParams.set('session_id', 'mweb-' + Date.now());
-        u.searchParams.set('message', msg);
-        const r = await fetch(u, { method: 'GET' });
-        const j = await r.json();
-        out.textContent = j?.reply?.text || JSON.stringify(j, null, 2);
-      } catch (e) {
-        out.textContent = "Can’t reach server. Check BOT_URL or deployment.";
-      }
-    });
+    const runBtn = document.getElementById('cp_run');
+    const clearBtn = document.getElementById('cp_clear');
 
-    document.getElementById('cp_clear').addEventListener('click', () => {
-      inp.value = '';
-      out.textContent = 'Ready.';
-    });
+    if (runBtn) {
+      runBtn.addEventListener('click', async () => {
+        const msg = (inp.value || '').trim();
+        if (!msg) {
+          out.textContent = "Type a request, e.g., `boolean hrbp in bangalore include:org design`";
+          return;
+        }
+        out.textContent = "Thinking…";
+        try {
+          const u = new URL(BOT_URL);
+          u.searchParams.set('session_id', 'web-' + Date.now());
+          u.searchParams.set('message', msg);
+          const resp = await fetch(u.toString(), { method: 'GET' });
+          const json = await resp.json();
+          out.textContent = (json && json.reply && json.reply.text) ? json.reply.text : JSON.stringify(json, null, 2);
+        } catch (e) {
+          out.textContent = "Can’t reach server. Check BOT_URL or deployment.";
+        }
+      });
+    }
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        inp.value = "";
+        out.textContent = "Ready.";
+      });
+    }
   </script>
 </body>
 </html>
