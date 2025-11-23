@@ -26,7 +26,9 @@
     html,body{
       margin:0;
       padding:0;
-      background:radial-gradient(circle at 0 0,#15172a 0,transparent 40%),radial-gradient(circle at 100% 100%,#141827 0,transparent 45%),var(--bg);
+      background:radial-gradient(circle at 0 0,#15172a 0,transparent 40%),
+                 radial-gradient(circle at 100% 100%,#141827 0,transparent 45%),
+                 var(--bg);
       color:var(--ink);
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
       scroll-behavior:smooth;
@@ -134,7 +136,7 @@
       font-size:16px;
     }
 
-    /* ====== BUTTONS ====== */
+    /* ====== BUTTONS / CHIPS ====== */
     .btn{
       display:inline-flex;
       align-items:center;
@@ -228,7 +230,9 @@
     }
 
     .card{
-      background:radial-gradient(circle at 0 0,rgba(124,92,255,.15) 0,transparent 55%),radial-gradient(circle at 100% 100%,rgba(77,208,225,.12) 0,transparent 55%),var(--card);
+      background:radial-gradient(circle at 0 0,rgba(124,92,255,.15) 0,transparent 55%),
+                 radial-gradient(circle at 100% 100%,rgba(77,208,225,.12) 0,transparent 55%),
+                 var(--card);
       border-radius:var(--radius);
       border:1px solid rgba(255,255,255,.06);
       box-shadow:var(--shadow);
@@ -286,39 +290,154 @@
       margin-top:6px;
     }
 
-    /* COPILOT */
-    .copilot-grid{
+    /* ========== NEW ADVANCED TALENT COPILOT ========== */
+    .copilot-shell{
+      border-radius:24px;
+      border:1px solid rgba(124,92,255,.45);
+      background:
+        radial-gradient(circle at 0 0,rgba(124,92,255,.20) 0,transparent 55%),
+        radial-gradient(circle at 100% 100%,rgba(77,208,225,.18) 0,transparent 55%),
+        #050611;
+      box-shadow:0 22px 70px rgba(0,0,0,.85);
+      padding:18px;
+      display:grid;
+      gap:18px;
+    }
+    .copilot-main{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .copilot-header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .copilot-header h3{
+      margin-top:2px;
+      font-size:17px;
+    }
+    .cp-status{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(12,181,82,.07);
+      border:1px solid rgba(34,197,94,.35);
+      font-size:11px;
+      color:#bbf7d0;
+      white-space:nowrap;
+    }
+    .cp-status-dot{
+      width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 10px rgba(34,197,94,.7);
+    }
+
+    .cp-quick{
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      margin-top:4px;
+    }
+    .cp-chip{
+      font-size:11px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,255,.35);
+      background:rgba(15,23,42,.85);
+      color:#e0e7ff;
+      cursor:pointer;
+      transition:background .1s ease,transform .08s ease;
+    }
+    .cp-chip:hover{
+      background:rgba(129,140,248,.25);
+      transform:translateY(-1px);
+    }
+    .cp-chip:active{transform:scale(.97);}
+
+    .cp-layout{
+      display:grid;
+      gap:14px;
+    }
+
+    .cp-io{
       display:grid;
       gap:12px;
     }
-    .copilot textarea{
-      width:100%;
-      min-height:130px;
-      border-radius:16px;
-      border:1px solid #25263a;
-      background:#090a11;
-      color:#f2f2ff;
+    .cp-input, .cp-output{
+      background:rgba(3,6,24,.85);
+      border-radius:18px;
+      border:1px solid rgba(148,163,255,.18);
       padding:12px;
-      resize:vertical;
-      font-family:inherit;
-      font-size:14px;
     }
-    .copilot pre{
+    .cp-input-label,
+    .cp-output-label{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:#9ca3ff;
+      margin-bottom:6px;
+    }
+    .cp-input textarea{
+      width:100%;
+      min-height:120px;
+      border-radius:12px;
+      border:1px solid rgba(148,163,255,.35);
+      background:rgba(5,10,30,.95);
+      color:#f2f4ff;
+      padding:10px;
+      font-family:inherit;
+      font-size:13px;
+      resize:vertical;
+    }
+    .cp-actions-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-top:8px;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .cp-actions-btns{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .cp-hint{
+      font-size:11px;
+      color:#a5b4fc;
+      opacity:.9;
+    }
+    .cp-output pre{
       margin:0;
       white-space:pre-wrap;
-      background:#05060d;
-      border-radius:18px;
-      border:1px solid #232436;
-      padding:14px;
-      max-height:420px;
+      font-size:12px;
+      line-height:1.45;
+      max-height:360px;
       overflow:auto;
+      color:#e5e7ff;
+    }
+
+    .copilot-side{
+      border-radius:18px;
+      border:1px dashed rgba(148,163,255,.45);
+      background:rgba(15,23,42,.88);
+      padding:12px 12px 10px;
+      font-size:12px;
+      color:#c7d2fe;
+    }
+    .copilot-side h4{
+      margin:0 0 6px;
       font-size:13px;
+      color:#e0e7ff;
     }
-    .copilot-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
+    .copilot-side ul{
+      margin:4px 0 0;
+      padding-left:16px;
+      line-height:1.45;
     }
+    .copilot-side li{margin-bottom:4px;}
 
     /* CONTACT */
     .contact-row{
@@ -392,6 +511,13 @@
       .kpi-row{gap:6px;}
       .pill{margin-right:4px;font-size:11px;}
 
+      .copilot-shell{
+        padding:14px;
+      }
+      .cp-io{
+        grid-template-columns:1fr;
+      }
+
       .stickybar{
         padding-bottom:8px;
       }
@@ -405,6 +531,13 @@
       }
       .grid-2{grid-template-columns:repeat(2,minmax(0,1fr));}
       .grid-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+
+      .cp-layout{
+        grid-template-columns:minmax(0,1.6fr) minmax(0,1.1fr);
+      }
+      .cp-io{
+        grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
+      }
     }
 
   </style>
@@ -684,29 +817,98 @@
     </div>
   </section>
 
-  <!-- ========== TALENT COPILOT ========== -->
+  <!-- ========== TALENT COPILOT (ADVANCED UI) ========== -->
   <section id="copilot">
     <div class="container">
       <div class="section-heading">
         <h2>Talent Copilot</h2>
-        <p>Ask for Boolean strings, interview loops, or market maps — tuned for TA, not generic AI.</p>
+        <p>Purpose-built assistant for TA & leadership hiring — Boolean, loops, market maps, not generic chat.</p>
       </div>
 
-      <div class="card">
-        <div class="copilot-grid">
-          <textarea id="cp_inp" placeholder="Try:
+      <div class="copilot-shell">
+        <div class="cp-layout">
+          <!-- LEFT: main console -->
+          <div class="copilot-main">
+            <div class="copilot-header">
+              <div>
+                <div class="meta-label">AI Assistant</div>
+                <h3>TA Copilot for GCC & Product Hiring</h3>
+                <p style="font-size:12px;margin-top:4px;color:#c7d2fe;">
+                  Works best with short, direct prompts. One intent at a time.
+                </p>
+              </div>
+              <div class="cp-status">
+                <span class="cp-status-dot"></span>
+                Online · v1.0
+              </div>
+            </div>
+
+            <div class="cp-quick">
+              <span class="cp-chip" data-prompt="boolean hrbp in bangalore include:org design">
+                HRBP · Bangalore Boolean
+              </span>
+              <span class="cp-chip" data-prompt="boolean product manager in hyderabad similar companies like google include:platform,experimentation">
+                Principal PM · Hyderabad
+              </span>
+              <span class="cp-chip" data-prompt="boolean ml engineer in bangalore similar companies like google include:transformers">
+                ML Engineer · BLR
+              </span>
+              <span class="cp-chip" data-prompt="boolean fp&a manager in mumbai include:forecasting,variance">
+                FP&A Manager · Mumbai
+              </span>
+              <span class="cp-chip" data-prompt="interview loop principal product manager">
+                Interview loop · Principal PM
+              </span>
+              <span class="cp-chip" data-prompt="market map sre in pune">
+                Market map · SRE Pune
+              </span>
+            </div>
+
+            <div class="cp-io">
+              <!-- INPUT -->
+              <div class="cp-input">
+                <div class="cp-input-label">Prompt</div>
+                <textarea id="cp_inp" placeholder="Examples:
 - boolean hrbp in bangalore include:org design
 - boolean ml engineer in hyderabad similar companies like google
 - boolean fp&a manager in mumbai include:forecasting,variance
 - interview loop principal product manager
 - market map sre in pune"></textarea>
+                <div class="cp-actions-row">
+                  <div class="cp-actions-btns">
+                    <button class="btn primary" id="cp_run">Run</button>
+                    <button class="btn ghost" id="cp_clear">Clear</button>
+                  </div>
+                  <div class="cp-hint">
+                    Tip: keep it tight — role · geo · include:/exclude: · “similar companies like …”
+                  </div>
+                </div>
+              </div>
 
-          <div class="copilot-actions">
-            <button class="btn primary" id="cp_run">Run</button>
-            <button class="btn ghost" id="cp_clear">Clear</button>
+              <!-- OUTPUT -->
+              <div class="cp-output">
+                <div class="cp-output-label">Response</div>
+                <pre id="cp_out">Ready.</pre>
+              </div>
+            </div>
           </div>
 
-          <pre id="cp_out">Ready.</pre>
+          <!-- RIGHT: side info -->
+          <aside class="copilot-side">
+            <h4>What it’s good at</h4>
+            <ul>
+              <li>Boolean/X-ray for tech & non-tech GCC roles.</li>
+              <li>Naukri (≤500 chars) variants you can paste.</li>
+              <li>Interview loop outlines for staff/leadership.</li>
+              <li>High-level market map hints for new searches.</li>
+            </ul>
+            <h4 style="margin-top:10px;">Best prompts</h4>
+            <ul>
+              <li><code style="font-size:11px;">boolean sre in hyderabad include:kubernetes,terraform</code></li>
+              <li><code style="font-size:11px;">boolean head of security in bangalore similar companies like google</code></li>
+              <li><code style="font-size:11px;">boolean hrbp in gurgaon include:org design,performance</code></li>
+            </ul>
+          </aside>
         </div>
       </div>
     </div>
@@ -717,7 +919,7 @@
     <div class="container">
       <div class="section-heading">
         <h2>Contact</h2>
-        <p>Share a JD, a market question, or a hiring problem. I’ll respond within one business day.</p>
+      <p>Share a JD, a market question, or a hiring problem. I’ll respond within one business day.</p>
       </div>
 
       <div class="card">
@@ -739,7 +941,7 @@
   <!-- Spacer so content doesn't hide behind sticky bar -->
   <div class="spacer"></div>
 
-  <!-- ========== STICKY CTA BAR (MOBILE-FIRST, also fine on desktop) ========== -->
+  <!-- ========== STICKY CTA BAR ========== -->
   <div class="stickybar">
     <div class="stickybar-inner">
       <div class="sticky-row">
@@ -764,7 +966,7 @@
       });
     }
 
-    // Talent Copilot
+    // Talent Copilot logic
     const inp = document.getElementById('cp_inp');
     const out = document.getElementById('cp_out');
     const runBtn = document.getElementById('cp_run');
@@ -784,7 +986,9 @@
           u.searchParams.set('message', msg);
           const resp = await fetch(u.toString(), { method: 'GET' });
           const json = await resp.json();
-          out.textContent = (json && json.reply && json.reply.text) ? json.reply.text : JSON.stringify(json, null, 2);
+          out.textContent = (json && json.reply && json.reply.text)
+            ? json.reply.text
+            : JSON.stringify(json, null, 2);
         } catch (e) {
           out.textContent = "Can’t reach server. Check BOT_URL or deployment.";
         }
@@ -797,6 +1001,16 @@
         out.textContent = "Ready.";
       });
     }
+
+    // Quick chips → fill prompt
+    document.querySelectorAll('.cp-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const prompt = chip.getAttribute('data-prompt') || '';
+        inp.value = prompt;
+        inp.focus();
+      });
+    });
   </script>
 </body>
 </html>
+
