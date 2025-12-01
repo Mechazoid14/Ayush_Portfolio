@@ -8,6 +8,7 @@
     name="description"
     content="Executive-grade talent partner for GCCs & product companies across India & UAE. Product, Security/GRC, Engineering (IC → Leadership) and select Business leadership."
   />
+  <meta name="theme-color" content="#05060a" />
   <style>
     :root {
       --bg: #05060a;
@@ -35,7 +36,7 @@
     html {
       height: 100%;
       scroll-behavior: smooth;
-      background: radial-gradient(circle at top left, #171b2b 0, #05060a 52%);
+      background: #05060a;
     }
 
     body {
@@ -44,7 +45,7 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
         "Inter", sans-serif;
       color: var(--text-main);
-      background: transparent; /* handled by html */
+      background: radial-gradient(circle at top left, #171b2b 0, #05060a 52%);
       -webkit-font-smoothing: antialiased;
     }
 
@@ -61,7 +62,7 @@
     main {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 16px 16px 72px;
+      padding: 16px 16px 96px; /* extra bottom to breathe above glassbar */
     }
 
     h1,
@@ -708,7 +709,7 @@
     footer {
       max-width: var(--max-width);
       margin: 18px auto 16px;
-      padding: 0 16px;
+      padding: 0 16px 24px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -722,6 +723,59 @@
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
+    }
+
+    /* ===== FLOATING GLASSBAR ===== */
+
+    .bottom-glassbar {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 10px;
+      width: calc(100% - 24px);
+      max-width: var(--max-width);
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(5, 7, 16, 0.92);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(143, 156, 220, 0.6);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      z-index: 40;
+    }
+
+    .bottom-glassbar-label {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bottom-glassbar-actions {
+      display: flex;
+      gap: 6px;
+      flex-wrap: nowrap;
+    }
+
+    .bottom-glassbar .btn {
+      padding: 6px 10px;
+      font-size: 0.74rem;
+      white-space: nowrap;
+    }
+
+    .bottom-glassbar .btn-primary {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65);
+    }
+
+    /* Only show floating bar on small / medium screens */
+    @media (min-width: 900px) {
+      .bottom-glassbar {
+        display: none;
+      }
     }
 
     /* ===== ANIMATIONS / SCROLL REVEAL ===== */
@@ -1275,7 +1329,7 @@ Ready.
             class="btn btn-outline"
             >WhatsApp 20-min</a
           >
-          <a href="mailto:ayushmishra.hr@gmail.com" class="btn btn-outline"
+          <a href="mailto:ayush.email@example.com" class="btn btn-outline"
             >Email Ayush</a
           >
           <a
@@ -1297,6 +1351,30 @@ Ready.
       <a href="#overview">Back to top</a>
     </div>
   </footer>
+
+  <!-- FLOATING GLASSBAR (mobile / tablet) -->
+  <div class="bottom-glassbar">
+    <div class="bottom-glassbar-label">
+      Talk hiring: Product · Security · Engineering · Business
+    </div>
+    <div class="bottom-glassbar-actions">
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform"
+        class="btn btn-primary"
+        >Submit JD</a
+      >
+      <a
+        href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20share%20JD%20for%20a%2048-hr%20map"
+        class="btn btn-outline"
+        >WhatsApp</a
+      >
+      <a
+        href="https://www.linkedin.com/in/ayush-mishra-/"
+        class="btn btn-outline"
+        >LinkedIn</a
+      >
+    </div>
+  </div>
 
   <script>
     // NAV MOBILE TOGGLE
