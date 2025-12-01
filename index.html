@@ -3,556 +3,657 @@
 <head>
   <meta charset="UTF-8" />
   <title>Ayush Mishra — 360° Talent Partner (Tech + Non-Tech)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Executive-grade talent partner for GCCs & product companies across India & UAE. Product, Security/GRC, Engineering (IC → Leadership) and select Business leadership."
+  />
   <style>
-    :root{
-      --bg:#05060b;
-      --bg-soft:#0b0c10;
-      --card:#11121a;
-      --ink:#f4f4fb;
-      --muted:#b4b4be;
-      --brand:#7c5cff;
-      --brand2:#4dd0e1;
-      --accent:#171826;
-      --danger:#ef4444;
-      --ok:#22c55e;
-      --radius:22px;
-      --gap:20px;
-      --shadow:0 18px 60px rgba(0,0,0,.6);
+    :root {
+      --bg: #05060a;
+      --bg-soft: #0c0f16;
+      --card: #10141f;
+      --card-soft: #151a26;
+      --accent: #7b5cff;
+      --accent-soft: rgba(123, 92, 255, 0.18);
+      --accent-2: #46d7ff;
+      --text-main: #f5f5ff;
+      --text-muted: #a9b0c7;
+      --border-subtle: #232836;
+      --danger: #ff4b6e;
+      --shadow-card: 0 18px 45px rgba(0,0,0,0.6);
+      --radius-xl: 22px;
+      --radius-pill: 999px;
+      --nav-height: 64px;
+      --max-width: 1120px;
     }
 
-    *,*::before,*::after{box-sizing:border-box;}
-    html,body{
-      margin:0;
-      padding:0;
-      background:radial-gradient(circle at 0 0,#15172a 0,transparent 40%),
-                 radial-gradient(circle at 100% 100%,#141827 0,transparent 45%),
-                 var(--bg);
-      color:var(--ink);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-      scroll-behavior:smooth;
-    }
-    a{color:inherit;text-decoration:none;}
-    img{max-width:100%;height:auto;border-radius:18px;}
-
-    h1,h2,h3{
-      margin:0 0 8px;
-      letter-spacing:-0.02em;
-    }
-    h1{
-      font-size:clamp(28px,7.5vw,46px);
-      line-height:1.05;
-    }
-    h2{
-      font-size:clamp(22px,4.2vw,30px);
-      line-height:1.15;
-    }
-    h3{
-      font-size:18px;
-      line-height:1.2;
-    }
-    p{
-      margin:6px 0 0;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.5;
+    * {
+      box-sizing: border-box;
     }
 
-    .container{
-      width:100%;
-      max-width:1120px;
-      margin:0 auto;
-      padding:0 16px;
-    }
-    section{
-      padding:28px 0;
-    }
-
-    /* ====== NAV ====== */
-    .nav{
-      position:sticky;
-      top:0;
-      z-index:60;
-      background:linear-gradient(180deg,rgba(5,6,11,.96) 0,rgba(5,6,11,.80) 100%);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(255,255,255,.04);
-    }
-    .nav-row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      height:60px;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:700;
-      font-size:16px;
-    }
-    .brand-tag{
-      background:linear-gradient(135deg,var(--brand),var(--brand2));
-      -webkit-background-clip:text;
-      color:transparent;
-    }
-    .dot{
-      width:11px;
-      height:11px;
-      border-radius:50%;
-      background:linear-gradient(135deg,var(--brand),var(--brand2));
-      box-shadow:0 0 0 4px rgba(124,92,255,.35);
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Inter", sans-serif;
+      color: var(--text-main);
+      background: radial-gradient(circle at top left, #171b2b 0, #05060a 52%);
+      -webkit-font-smoothing: antialiased;
     }
 
-    .menu{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      font-size:14px;
-    }
-    .menu a{
-      padding:6px 10px;
-      border-radius:999px;
-      color:#e3e3f5;
-      white-space:nowrap;
-    }
-    .menu a:hover{
-      background:rgba(255,255,255,.04);
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .header-cta-inline{
-      display:flex;
-      gap:10px;
-      margin-left:16px;
+    img {
+      max-width: 100%;
+      display: block;
     }
 
-    .hamb{
-      display:none;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.1);
-      background:#101118;
-      color:#f5f5ff;
-      font-size:16px;
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 16px 16px 72px;
     }
 
-    /* ====== BUTTONS / CHIPS ====== */
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:12px 16px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.08);
-      font-weight:600;
-      font-size:14px;
-      background:#131421;
-      color:#f6f6ff;
-      box-shadow:0 12px 40px rgba(0,0,0,.6);
-      transition:transform .08s ease,box-shadow .08s ease,background .08s ease;
-      cursor:pointer;
-    }
-    .btn.primary{
-      background:linear-gradient(135deg,var(--brand),var(--brand2));
-      color:#05060b;
-      border-color:transparent;
-    }
-    .btn.ghost{
-      background:rgba(10,11,18,.9);
-    }
-    .btn.whatsapp{
-      background:#081813;
-      border-color:#143a2b;
-    }
-    .btn.whatsapp span{color:#9ef7bf;}
-    .btn:active{
-      transform:scale(.97);
-      box-shadow:0 6px 24px rgba(0,0,0,.7);
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin: 0 0 8px;
+      letter-spacing: 0.02em;
     }
 
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:6px 12px;
-      border-radius:999px;
-      background:rgba(20,21,35,.9);
-      border:1px solid rgba(255,255,255,.06);
-      color:#cfd3ff;
-      font-size:12px;
-    }
-    .chip-dot{
-      width:7px;height:7px;border-radius:50%;background:#22c55e;
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 3.3rem);
+      line-height: 1.05;
     }
 
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:6px 12px;
-      border-radius:999px;
-      background:#151623;
-      border:1px solid #222336;
-      font-size:12px;
-      color:#d4d7ff;
-      margin:4px 6px 0 0;
-      white-space:nowrap;
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 1.9rem);
     }
 
-    .hero{
-      padding:26px 0 10px;
-    }
-    .hero-grid{
-      display:grid;
-      gap:24px;
-      align-items:flex-start;
-    }
-    .hero-lead{
-      font-size:15px;
-      color:#d5d7f0;
-      margin-top:10px;
-    }
-    .hero-ctas{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:18px;
+    h3 {
+      font-size: 1.1rem;
     }
 
-    .hero-cta-row-secondary{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:14px;
-      font-size:12px;
-      color:#a4a6c0;
+    p {
+      margin: 0 0 8px;
+      color: var(--text-muted);
+      line-height: 1.5;
     }
 
-    .card{
-      background:radial-gradient(circle at 0 0,rgba(124,92,255,.15) 0,transparent 55%),
-                 radial-gradient(circle at 100% 100%,rgba(77,208,225,.12) 0,transparent 55%),
-                 var(--card);
-      border-radius:var(--radius);
-      border:1px solid rgba(255,255,255,.06);
-      box-shadow:var(--shadow);
-      padding:18px 18px 16px;
-    }
-    .card h3{margin-bottom:6px;}
-
-    .grid{
-      display:grid;
-      gap:var(--gap);
-    }
-    .grid-2{grid-template-columns:1fr;}
-    .grid-3{grid-template-columns:1fr;}
-
-    .meta-label{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-      color:#8b8ea7;
-      margin-bottom:4px;
+    ul {
+      margin: 4px 0 12px 20px;
+      padding: 0;
+      color: var(--text-muted);
     }
 
-    .kpi-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:10px;
-    }
-    .kpi-pill{
-      padding:6px 10px;
-      border-radius:999px;
-      background:#10111c;
-      border:1px solid #222336;
-      font-size:11px;
-      color:#d9dbff;
+    /* NAV */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(20px);
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 6, 10, 0.96),
+        rgba(5, 6, 10, 0.82),
+        transparent
+      );
+      border-bottom: 1px solid rgba(255, 255, 255, 0.02);
     }
 
-    .list-tight{
-      margin:6px 0 0;
-      padding-left:18px;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.45;
-    }
-    .list-tight li{margin-bottom:4px;}
-
-    .section-heading{
-      margin-bottom:10px;
+    .nav-shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
 
-    .label-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:6px;
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
 
-    /* ========== NEW ADVANCED TALENT COPILOT ========== */
-    .copilot-shell{
-      border-radius:24px;
-      border:1px solid rgba(124,92,255,.45);
-      background:
-        radial-gradient(circle at 0 0,rgba(124,92,255,.20) 0,transparent 55%),
-        radial-gradient(circle at 100% 100%,rgba(77,208,225,.18) 0,transparent 55%),
-        #050611;
-      box-shadow:0 22px 70px rgba(0,0,0,.85);
-      padding:18px;
-      display:grid;
-      gap:18px;
-    }
-    .copilot-main{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-    .copilot-header{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-    }
-    .copilot-header h3{
-      margin-top:2px;
-      font-size:17px;
-    }
-    .cp-status{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:6px 10px;
-      border-radius:999px;
-      background:rgba(12,181,82,.07);
-      border:1px solid rgba(34,197,94,.35);
-      font-size:11px;
-      color:#bbf7d0;
-      white-space:nowrap;
-    }
-    .cp-status-dot{
-      width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 10px rgba(34,197,94,.7);
+    .brand-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      background: linear-gradient(90deg, #ffffff, var(--accent-2));
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
-    .cp-quick{
-      display:flex;
-      flex-wrap:wrap;
-      gap:6px;
-      margin-top:4px;
-    }
-    .cp-chip{
-      font-size:11px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(148,163,255,.35);
-      background:rgba(15,23,42,.85);
-      color:#e0e7ff;
-      cursor:pointer;
-      transition:background .1s ease,transform .08s ease;
-    }
-    .cp-chip:hover{
-      background:rgba(129,140,248,.25);
-      transform:translateY(-1px);
-    }
-    .cp-chip:active{transform:scale(.97);}
-
-    .cp-layout{
-      display:grid;
-      gap:14px;
+    .brand-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
     }
 
-    .cp-io{
-      display:grid;
-      gap:12px;
-    }
-    .cp-input, .cp-output{
-      background:rgba(3,6,24,.85);
-      border-radius:18px;
-      border:1px solid rgba(148,163,255,.18);
-      padding:12px;
-    }
-    .cp-input-label,
-    .cp-output-label{
-      font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-      color:#9ca3ff;
-      margin-bottom:6px;
-    }
-    .cp-input textarea{
-      width:100%;
-      min-height:120px;
-      border-radius:12px;
-      border:1px solid rgba(148,163,255,.35);
-      background:rgba(5,10,30,.95);
-      color:#f2f4ff;
-      padding:10px;
-      font-family:inherit;
-      font-size:13px;
-      resize:vertical;
-    }
-    .cp-actions-row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      margin-top:8px;
-      gap:8px;
-      flex-wrap:wrap;
-    }
-    .cp-actions-btns{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-    }
-    .cp-hint{
-      font-size:11px;
-      color:#a5b4fc;
-      opacity:.9;
-    }
-    .cp-output pre{
-      margin:0;
-      white-space:pre-wrap;
-      font-size:12px;
-      line-height:1.45;
-      max-height:360px;
-      overflow:auto;
-      color:#e5e7ff;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
 
-    .copilot-side{
-      border-radius:18px;
-      border:1px dashed rgba(148,163,255,.45);
-      background:rgba(15,23,42,.88);
-      padding:12px 12px 10px;
-      font-size:12px;
-      color:#c7d2fe;
+    .nav-links a {
+      position: relative;
     }
-    .copilot-side h4{
-      margin:0 0 6px;
-      font-size:13px;
-      color:#e0e7ff;
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent-2), var(--accent));
+      transition: width 0.18s ease-out;
     }
-    .copilot-side ul{
-      margin:4px 0 0;
-      padding-left:16px;
-      line-height:1.45;
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      width: 100%;
     }
-    .copilot-side li{margin-bottom:4px;}
+
+    .nav-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      padding: 8px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: transparent;
+      color: var(--text-main);
+      transition: background 0.18s ease-out, transform 0.12s ease-out,
+        box-shadow 0.12s ease-out, border-color 0.18s ease-out;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      color: #05060a;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02),
+        0 18px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    .btn-outline {
+      background: rgba(9, 10, 17, 0.8);
+      border-color: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--accent-2);
+      outline-offset: 2px;
+    }
+
+    .nav-toggle {
+      display: none;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(8, 10, 18, 0.9);
+      color: var(--text-main);
+      padding: 6px 11px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      margin-left: 5px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .nav-mobile-panel {
+      display: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(5, 6, 10, 0.98);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-mobile-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 10px 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .nav-mobile-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .nav-mobile-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* HERO */
+
+    .hero {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+      gap: 22px;
+      align-items: flex-start;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      background: rgba(10, 15, 28, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+    }
+
+    .hero-pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #4dffb0, #00c776);
+      box-shadow: 0 0 0 4px rgba(77, 255, 176, 0.2);
+    }
+
+    .hero-sub {
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    .hero-meta {
+      font-size: 0.8rem;
+      margin-top: 4px;
+      color: var(--text-muted);
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .hero-small {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #1a2033, #0a0c13);
+      border-radius: var(--radius-xl);
+      padding: 16px 18px;
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.9rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .tag {
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(10, 13, 22, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* SECTIONS */
+
+    section {
+      margin-top: 32px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .section-card {
+      background: var(--card);
+      border-radius: var(--radius-xl);
+      padding: 14px 16px 14px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .section-chip {
+      display: inline-block;
+      margin-bottom: 6px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .subheading {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .muted {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* COPILOT */
+
+    .copilot-wrapper {
+      margin-top: 24px;
+      background: radial-gradient(circle at top left, #141a2c, #05060a);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(106, 118, 179, 0.45);
+      box-shadow: var(--shadow-card);
+      padding: 16px 16px 18px;
+    }
+
+    .copilot-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1.1fr);
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .copilot-kicker {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .copilot-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .copilot-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(3, 140, 106, 0.16);
+      border: 1px solid rgba(48, 255, 187, 0.4);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .copilot-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #4dffb0, #00c776);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 6px 0 10px;
+    }
+
+    .chip-button {
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(7, 10, 20, 0.9);
+      color: var(--text-muted);
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+
+    .chip-button:hover {
+      border-color: var(--accent-2);
+      color: var(--text-main);
+    }
+
+    .copilot-form {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .copilot-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .copilot-textarea {
+      width: 100%;
+      min-height: 96px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(7, 10, 18, 0.95);
+      color: var(--text-main);
+      padding: 10px 12px;
+      font: inherit;
+      resize: vertical;
+    }
+
+    .copilot-textarea::placeholder {
+      color: rgba(160, 168, 194, 0.7);
+    }
+
+    .copilot-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-top: 4px;
+    }
+
+    .copilot-tip {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .copilot-response {
+      background: rgba(5, 7, 16, 0.92);
+      border-radius: 18px;
+      border: 1px solid rgba(92, 104, 174, 0.6);
+      padding: 10px 12px 12px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      max-height: 260px;
+      overflow: auto;
+      white-space: pre-wrap;
+    }
+
+    .copilot-response h4 {
+      margin-top: 10px;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+
+    .copilot-side-meta {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .copilot-side-meta ul {
+      margin-top: 4px;
+    }
 
     /* CONTACT */
-    .contact-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:14px;
+
+    .contact-card {
+      background: var(--card);
+      border-radius: var(--radius-xl);
+      padding: 18px 16px 16px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-card);
+      margin-top: 16px;
     }
 
-    /* Sticky CTA bar */
-    .spacer{height:72px;}
-    .stickybar{
-      position:fixed;
-      left:0;right:0;bottom:0;
-      z-index:40;
-      background:linear-gradient(180deg,rgba(5,6,11,.25),rgba(5,6,11,.97));
-      backdrop-filter:blur(10px);
-      border-top:1px solid rgba(255,255,255,.06);
-      padding:8px 12px;
-    }
-    .stickybar-inner{
-      max-width:1120px;
-      margin:0 auto;
-      padding:0 4px;
-    }
-    .sticky-row{
-      display:flex;
-      gap:8px;
-    }
-    .sticky-row a{flex:1;}
-
-    /* Targets so anchor scroll doesn't hide headings behind nav */
-    :target{scroll-margin-top:80px;}
-
-    /* ======= MOBILE PATCH ======= */
-    @media (max-width:767px){
-      .nav-row{gap:10px;}
-      .menu{display:none;}
-      .hamb{display:inline-flex;}
-      .menu.open{
-        position:fixed;
-        inset:60px 0 auto 0;
-        display:flex;
-        flex-direction:column;
-        background:#05060f;
-        padding:10px 16px 12px;
-        border-bottom:1px solid rgba(255,255,255,.06);
-        gap:8px;
-      }
-      .menu.open a{
-        background:#10111c;
-        border-radius:12px;
-        padding:10px 12px;
-        border:1px solid #202233;
-      }
-      .header-cta-inline{display:none;} /* hide extra CTAs in nav on mobile */
-
-      h1{font-size:clamp(26px,8vw,40px);line-height:1.07;}
-      h2{font-size:clamp(20px,5.2vw,28px);}
-      p{font-size:14px;}
-
-      section{padding:24px 0;}
-      .hero{padding-top:22px;}
-      .hero-grid{gap:18px;}
-
-      .chip{font-size:11px;padding:5px 10px;}
-      .hero-lead{font-size:14px;}
-
-      .container{padding-left:16px;padding-right:16px;}
-      .card{border-radius:18px;box-shadow:0 14px 40px rgba(0,0,0,.7);}
-      .kpi-row{gap:6px;}
-      .pill{margin-right:4px;font-size:11px;}
-
-      .copilot-shell{
-        padding:14px;
-      }
-      .cp-io{
-        grid-template-columns:1fr;
-      }
-
-      .stickybar{
-        padding-bottom:8px;
-      }
-      .spacer{height:70px;}
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 10px;
     }
 
-    /* ======= DESKTOP ======= */
-    @media (min-width:768px){
-      .hero-grid{
-        grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
-      }
-      .grid-2{grid-template-columns:repeat(2,minmax(0,1fr));}
-      .grid-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+    .contact-foot {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
 
-      .cp-layout{
-        grid-template-columns:minmax(0,1.6fr) minmax(0,1.1fr);
+    /* FOOTER */
+
+    footer {
+      max-width: var(--max-width);
+      margin: 18px auto 16px;
+      padding: 0 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    footer .footer-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
       }
-      .cp-io{
-        grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
+
+      .nav-cta-row {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .nav-mobile-open .nav-mobile-panel {
+        display: block;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .section-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .copilot-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .copilot-response {
+        max-height: none;
       }
     }
 
+    @media (max-width: 480px) {
+      main {
+        padding-inline: 14px;
+      }
+
+      .hero {
+        margin-top: 14px;
+      }
+    }
   </style>
 </head>
 <body>
-
-  <!-- ========== NAVBAR ========== -->
-  <header class="nav">
-    <div class="container nav-row">
+  <header>
+    <div class="nav-shell">
       <div class="brand">
-        <span class="dot"></span>
-        <span>Ayush <span class="brand-tag">Mishra</span></span>
+        <div class="brand-name">Ayush Mishra</div>
+        <div class="brand-sub">360° Talent Partner · Tech + Non-Tech</div>
       </div>
-
-      <nav class="menu" id="menu">
+      <nav class="nav-links" aria-label="Primary">
         <a href="#overview">Overview</a>
         <a href="#capabilities">Capabilities</a>
         <a href="#operating">Operating</a>
@@ -561,456 +662,541 @@
         <a href="#copilot">Copilot</a>
         <a href="#contact">Contact</a>
       </nav>
-
-      <div class="header-cta-inline">
-        <a class="btn ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform" target="_blank">Submit JD</a>
-        <a class="btn primary" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20book%20a%2020-min%20call." target="_blank">Book 20-min</a>
+      <div class="nav-cta-row">
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform"
+          class="btn btn-outline"
+          >Submit JD</a
+        >
+        <a
+          href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20share%20JD%20for%20a%2048-hr%20map"
+          class="btn btn-primary"
+          >Book 20-min</a
+        >
       </div>
-
-      <button class="hamb" id="hamb">☰</button>
+      <button class="nav-toggle" type="button" id="navToggle">
+        ☰ <span>Menu</span>
+      </button>
+    </div>
+    <div class="nav-mobile-panel" id="navMobilePanel">
+      <div class="nav-mobile-inner">
+        <div class="nav-mobile-links">
+          <a href="#overview">Overview</a>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#operating">Operating</a>
+          <a href="#guardrails">Guardrails</a>
+          <a href="#slas">SLAs</a>
+          <a href="#copilot">Copilot</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-mobile-actions">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform"
+            class="btn btn-outline"
+            >Submit JD</a
+          >
+          <a
+            href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20share%20JD%20for%20a%2048-hr%20map"
+            class="btn btn-primary"
+            >Book 20-min</a
+          >
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- ========== OVERVIEW / HERO ========== -->
-  <section id="overview" class="hero">
-    <div class="container">
-      <span class="chip">
-        <span class="chip-dot"></span>
-        For CTOs & CHROs · Product · Security/GRC · Engineering (IC → VP) · Business
-      </span>
-
-      <div class="hero-grid" style="margin-top:16px;">
+  <main>
+    <!-- HERO / OVERVIEW -->
+    <section id="overview">
+      <div class="hero">
         <div>
+          <div class="hero-pill">
+            <div class="hero-pill-dot"></div>
+            <span
+              >For CTOs &amp; CHROs · Product · Security/GRC · Engineering (IC →
+              VP) · Business</span
+            >
+          </div>
           <h1>De-risk hiring. Raise the bar. Ship teams that ship outcomes.</h1>
-          <p class="hero-lead">
-            Executive-grade talent partner for GCCs and product companies across India & UAE.
-            I build complete organizations — Product, Security/GRC, Engineering (IC → Leadership),
-            and select Business leadership.
+          <p class="hero-sub">
+            Executive-grade talent partner for GCCs and product companies across
+            India &amp; UAE. I build complete organizations — Product,
+            Security/GRC, Engineering (IC → Leadership), and select Business
+            leadership.
           </p>
-
-          <div class="hero-ctas">
-            <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform" target="_blank">Submit JD · 48-hour map</a>
-            <a class="btn whatsapp" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20share%20JD%20for%20a%2048-hr%20map" target="_blank">
-              <span>WhatsApp 20-min</span>
-            </a>
-            <a class="btn ghost" href="mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry">Email</a>
+          <div class="hero-cta-row">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform"
+              class="btn btn-primary"
+              >Submit JD · 48-hour map</a
+            >
+            <a
+              href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20share%20JD%20for%20a%2048-hr%20map"
+              class="btn btn-outline"
+              >WhatsApp 20-min</a
+            >
+            <a href="#copilot" class="btn btn-outline">Open Copilot</a>
           </div>
-
-          <div class="hero-cta-row-secondary">
-            <span>• Week-1: Market map + scorecards</span>
-            <span>• Week-2/3: 3–5 calibrated profiles/sprint</span>
-          </div>
+          <p class="hero-small">
+            • Week-1: Market map + scorecards • Week-2/3: 3–5 calibrated
+            profiles/sprint
+          </p>
         </div>
+        <aside class="hero-card" aria-label="What I own">
+          <div class="hero-card-title">Snapshot — What I Own</div>
 
-        <!-- Snapshot card -->
-        <aside class="card">
-          <div class="meta-label">Snapshot — What I Own</div>
-          <h3>Product & Design</h3>
-          <ul class="list-tight">
+          <h3 class="subheading">Product &amp; Design</h3>
+          <ul>
             <li>PMs → Director/Group PM</li>
             <li>Product Designers, UX, Research</li>
             <li>Growth, Platform, Data-adjacent</li>
           </ul>
 
-          <h3 style="margin-top:10px;">Security & GRC</h3>
-          <ul class="list-tight">
+          <h3 class="subheading">Security &amp; GRC</h3>
+          <ul>
             <li>AppSec, CloudSec, IAM, Blue/Red</li>
             <li>GRC/Privacy (DPDP, GDPR)</li>
             <li>Security leadership for GCCs</li>
           </ul>
 
-          <h3 style="margin-top:10px;">Engineering (IC → VP)</h3>
-          <ul class="list-tight">
+          <h3 class="subheading">Engineering (IC → VP)</h3>
+          <ul>
             <li>Backend, Frontend, Full-stack, Platform</li>
             <li>SRE/DevOps, Data/ML, Mobile, Architects</li>
           </ul>
 
-          <h3 style="margin-top:10px;">Business (Select)</h3>
-          <ul class="list-tight">
+          <h3 class="subheading">Business (Select)</h3>
+          <ul>
             <li>Finance, Legal, HR/HRBP, TA</li>
-            <li>Sales & CS, Growth/Marketing</li>
+            <li>Sales &amp; CS, Growth/Marketing</li>
             <li>Ops / Enablement roles</li>
           </ul>
 
-          <div class="kpi-row">
-            <span class="kpi-pill">GCCs for US/EU Product Cos</span>
-            <span class="kpi-pill">India · UAE focus</span>
+          <div class="hero-tag-row">
+            <span class="tag">GCCs for US/EU Product Cos</span>
+            <span class="tag">India · UAE focus</span>
           </div>
         </aside>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ========== CAPABILITIES ========== -->
-  <section id="capabilities">
-    <div class="container">
-      <div class="section-heading">
-        <h2>Core Capabilities</h2>
-        <p>Designed for exec velocity — signal-dense, repeatable, and measurable without fluff.</p>
+    <!-- CAPABILITIES -->
+    <section id="capabilities">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Core Capabilities</div>
+          <h2>Signal-dense, repeatable, measurable.</h2>
+        </div>
+        <p class="muted">
+          Designed for exec velocity — without fluff or vanity metrics.
+        </p>
       </div>
 
-      <div class="grid grid-3">
-        <div class="card">
-          <div class="meta-label">Capability</div>
-          <h3>Talent Intelligence</h3>
-          <ul class="list-tight">
+      <div class="section-grid">
+        <article class="section-card">
+          <div class="section-chip">Capability</div>
+          <h3 class="subheading">Talent Intelligence</h3>
+          <ul>
             <li>Target company list (peers, GCCs, adjacencies)</li>
-            <li>Comp bands & levels (role/geo calibrated)</li>
+            <li>Comp bands &amp; levels (role/geo calibrated)</li>
             <li>Org charts, succession signals, move-ready pools</li>
           </ul>
-          <div class="label-row">
-            <span class="pill">Market maps</span>
-            <span class="pill">Org design input</span>
-          </div>
-        </div>
+          <p class="muted">Market maps · Org design input</p>
+        </article>
 
-        <div class="card">
-          <div class="meta-label">Capability</div>
-          <h3>Headhunting Sprints</h3>
-          <ul class="list-tight">
+        <article class="section-card">
+          <div class="section-chip">Capability</div>
+          <h3 class="subheading">Headhunting Sprints</h3>
+          <ul>
             <li>Scorecards aligned to business outcomes</li>
             <li>3–5 calibrated profiles per sprint, weekly iteration</li>
             <li>IC → VP pipelines with raise-the-bar bias</li>
           </ul>
-          <div class="label-row">
-            <span class="pill">Principal / Director+</span>
-            <span class="pill">Super-niche roles</span>
-          </div>
-        </div>
+          <p class="muted">Principal / Director+ · Super-niche roles</p>
+        </article>
 
-        <div class="card">
-          <div class="meta-label">Capability</div>
-          <h3>Loop Design & Enablement</h3>
-          <ul class="list-tight">
+        <article class="section-card">
+          <div class="section-chip">Capability</div>
+          <h3 class="subheading">Loop Design &amp; Enablement</h3>
+          <ul>
             <li>Structured loops: tech, system design, XFN, bar-raiser</li>
             <li>Rubrics (competencies × weights), feedback hygiene</li>
-            <li>Offer strategy & close plans with landing support</li>
+            <li>Offer strategy &amp; close plans with landing support</li>
           </ul>
-          <div class="label-row">
-            <span class="pill">Interview kits</span>
-            <span class="pill">Bar-raiser culture</span>
-          </div>
+          <p class="muted">Interview kits · Bar-raiser culture</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- OPERATING MODEL -->
+    <section id="operating">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Operating Model</div>
+          <h2>Fast, transparent, corrective.</h2>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== OPERATING MODEL ========== -->
-  <section id="operating">
-    <div class="container">
-      <div class="section-heading">
-        <h2>Operating Model</h2>
-        <p>Fast, transparent, and corrective — so we never fly blind.</p>
+        <p class="muted">We never fly blind; every loop is instrumented.</p>
       </div>
 
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>48-hour kickoff pack</h3>
-          <ul class="list-tight">
+      <div class="section-grid">
+        <article class="section-card">
+          <h3 class="subheading">48-hour kickoff pack</h3>
+          <ul>
             <li>JD co-write → outcomes, must-haves, anti-goals</li>
-            <li>Market map: peers, GCCs, adjacencies, comp window, title drift</li>
+            <li>
+              Market map: peers, GCCs, adjacencies, comp window, title drift
+            </li>
             <li>Scorecards + 2 sample profiles to calibrate</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="card">
-          <h3>Week 0–1 — Define & Map</h3>
-          <ul class="list-tight">
+        <article class="section-card">
+          <h3 class="subheading">Week 0–1 — Define &amp; Map</h3>
+          <ul>
             <li>Signals: what a “hell yes” vs. “maybe” looks like</li>
             <li>Search thesis: where to over-invest vs. ignore</li>
-            <li>Agree on update cadence & decision hygiene</li>
+            <li>Agree on update cadence &amp; decision hygiene</li>
           </ul>
-        </div>
 
-        <div class="card">
-          <h3>Week 2–3 — Sprint & Iterate</h3>
-          <ul class="list-tight">
+          <h3 class="subheading" style="margin-top:10px;">
+            Week 2–3 — Sprint &amp; Iterate
+          </h3>
+          <ul>
             <li>3–5 calibrated profiles each sprint</li>
             <li>Loop instrumentation: who, what, how to de-risk</li>
             <li>Offer strategy, close plans, landing support</li>
           </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- GUARDRAILS -->
+    <section id="guardrails">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Exec Guardrails</div>
+          <h2>How I protect your time, brand, and bar.</h2>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ========== EXEC GUARDRAILS ========== -->
-  <section id="guardrails">
-    <div class="container">
-      <div class="section-heading">
-        <h2>Exec Guardrails</h2>
-        <p>How I protect your time, brand, and bar.</p>
-      </div>
-
-      <div class="grid grid-2">
-        <div class="card">
-          <h3>No spray-and-pray</h3>
-          <ul class="list-tight">
+      <div class="section-grid">
+        <article class="section-card">
+          <h3 class="subheading">No spray-and-pray</h3>
+          <ul>
             <li>No uncalibrated mass outreach, ever.</li>
             <li>Every candidate sees a contextual, role-specific story.</li>
             <li>Your brand is presented like an internal TA leader would.</li>
           </ul>
-        </div>
 
-        <div class="card">
-          <h3>Honest signal, not theatre</h3>
-          <ul class="list-tight">
+          <h3 class="subheading" style="margin-top:10px;">
+            Honest signal, not theatre
+          </h3>
+          <ul>
             <li>If the market doesn’t support the ask, I say it early.</li>
             <li>Every loop debrief ends with “ship / stretch / stop” clarity.</li>
             <li>Escalations are structured — not emotional.</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="card">
-          <h3>Exec-ready communication</h3>
-          <ul class="list-tight">
+        <article class="section-card">
+          <h3 class="subheading">Exec-ready communication</h3>
+          <ul>
             <li>1-page summaries you can forward to founders/boards.</li>
             <li>Clear numbers: funnel health, time-to-signal, blockers.</li>
             <li>No jargon; no 20-slide decks for 2-minute decisions.</li>
           </ul>
-        </div>
 
-        <div class="card">
-          <h3>Candidate-first</h3>
-          <ul class="list-tight">
+          <h3 class="subheading" style="margin-top:10px;">
+            Candidate-first
+          </h3>
+          <ul>
             <li>No ghosting; expectations and timelines are explicit.</li>
             <li>Post-offer connect and landing support baked in.</li>
           </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- SLAS -->
+    <section id="slas">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">SLAs</div>
+          <h2>Simple, measurable, founder-friendly.</h2>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ========== SLAs ========== -->
-  <section id="slas">
-    <div class="container">
-      <div class="section-heading">
-        <h2>SLAs</h2>
-        <p>Simple, measurable, and written for founders & execs.</p>
-      </div>
-
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>Speed & Signal</h3>
-          <ul class="list-tight">
+      <div class="section-grid">
+        <article class="section-card">
+          <h3 class="subheading">Speed &amp; Signal</h3>
+          <ul>
             <li>48-hour kickoff pack for any new role.</li>
             <li>First calibrated profiles within 5–7 business days.</li>
           </ul>
-        </div>
 
-        <div class="card">
-          <h3>Communication</h3>
-          <ul class="list-tight">
+          <h3 class="subheading" style="margin-top:10px;">
+            Communication
+          </h3>
+          <ul>
             <li>Weekly written update; async Loom optional.</li>
             <li>Critical issues surfaced same day — not in the next review.</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="card">
-          <h3>Quality</h3>
-          <ul class="list-tight">
+        <article class="section-card">
+          <h3 class="subheading">Quality</h3>
+          <ul>
             <li>Every candidate: written “why this person / why now”.</li>
             <li>Loop design reviewed before you start interviewing.</li>
           </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- TALENT COPILOT -->
+    <section id="copilot">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Talent Copilot</div>
+          <h2>TA console for Boolean, loops &amp; market maps.</h2>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== TALENT COPILOT (ADVANCED UI) ========== -->
-  <section id="copilot">
-    <div class="container">
-      <div class="section-heading">
-        <h2>Talent Copilot</h2>
-        <p>Purpose-built assistant for TA & leadership hiring — Boolean, loops, market maps, not generic chat.</p>
+        <p class="muted">
+          Purpose-built for TA &amp; leadership hiring — not generic chat.
+        </p>
       </div>
 
-      <div class="copilot-shell">
-        <div class="cp-layout">
-          <!-- LEFT: main console -->
-          <div class="copilot-main">
-            <div class="copilot-header">
-              <div>
-                <div class="meta-label">AI Assistant</div>
-                <h3>TA Copilot for GCC & Product Hiring</h3>
-                <p style="font-size:12px;margin-top:4px;color:#c7d2fe;">
-                  Works best with short, direct prompts. One intent at a time.
-                </p>
-              </div>
-              <div class="cp-status">
-                <span class="cp-status-dot"></span>
-                Online · v1.0
-              </div>
-            </div>
+      <div class="copilot-wrapper">
+        <div class="copilot-title-row">
+          <div>
+            <div class="copilot-kicker">AI Assistant</div>
+            <h3 class="subheading">TA Copilot for GCC &amp; Product Hiring</h3>
+            <p class="muted">
+              Works best with short, direct prompts. One intent at a time.
+            </p>
+          </div>
+          <div class="copilot-status-pill">
+            <span class="copilot-status-dot"></span> Online · v1.0
+          </div>
+        </div>
 
-            <div class="cp-quick">
-              <span class="cp-chip" data-prompt="boolean hrbp in bangalore include:org design">
+        <div class="copilot-grid">
+          <!-- LEFT: PROMPT -->
+          <div>
+            <div class="chip-row">
+              <button class="chip-button" data-example="boolean hrbp in bangalore include:org design,performance">
                 HRBP · Bangalore Boolean
-              </span>
-              <span class="cp-chip" data-prompt="boolean product manager in hyderabad similar companies like google include:platform,experimentation">
+              </button>
+              <button class="chip-button" data-example="boolean principal product manager in hyderabad include:experimentation,platform">
                 Principal PM · Hyderabad
-              </span>
-              <span class="cp-chip" data-prompt="boolean ml engineer in bangalore similar companies like google include:transformers">
+              </button>
+              <button class="chip-button" data-example="boolean ml engineer in blr include:kubernetes,python">
                 ML Engineer · BLR
-              </span>
-              <span class="cp-chip" data-prompt="boolean fp&a manager in mumbai include:forecasting,variance">
-                FP&A Manager · Mumbai
-              </span>
-              <span class="cp-chip" data-prompt="interview loop principal product manager">
+              </button>
+              <button class="chip-button" data-example="boolean fp&a manager in mumbai include:b2b,saas">
+                FP&amp;A Manager · Mumbai
+              </button>
+              <button class="chip-button" data-example="interview loop principal product manager">
                 Interview loop · Principal PM
-              </span>
-              <span class="cp-chip" data-prompt="market map sre in pune">
+              </button>
+              <button class="chip-button" data-example="market map sre in pune">
                 Market map · SRE Pune
-              </span>
+              </button>
             </div>
 
-            <div class="cp-io">
-              <!-- INPUT -->
-              <div class="cp-input">
-                <div class="cp-input-label">Prompt</div>
-                <textarea id="cp_inp" placeholder="Examples:
-- boolean hrbp in bangalore include:org design
-- boolean ml engineer in hyderabad similar companies like google
-- boolean fp&a manager in mumbai include:forecasting,variance
-- interview loop principal product manager
-- market map sre in pune"></textarea>
-                <div class="cp-actions-row">
-                  <div class="cp-actions-btns">
-                    <button class="btn primary" id="cp_run">Run</button>
-                    <button class="btn ghost" id="cp_clear">Clear</button>
-                  </div>
-                  <div class="cp-hint">
-                    Tip: keep it tight — role · geo · include:/exclude: · “similar companies like …”
-                  </div>
-                </div>
+            <form
+              class="copilot-form"
+              onsubmit="event.preventDefault(); runCopilot();"
+            >
+              <label for="copilotPrompt" class="copilot-label"
+                >Prompt</label
+              >
+              <textarea
+                id="copilotPrompt"
+                class="copilot-textarea"
+                placeholder="e.g. boolean head of security in dubai similar companies like google"
+              ></textarea>
+              <div class="copilot-actions">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  id="copilotRun"
+                >
+                  Run
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline"
+                  id="copilotClear"
+                >
+                  Clear
+                </button>
               </div>
-
-              <!-- OUTPUT -->
-              <div class="cp-output">
-                <div class="cp-output-label">Response</div>
-                <pre id="cp_out">Ready.</pre>
-              </div>
-            </div>
+              <p class="copilot-tip">
+                Tip: keep it tight — role · geo ·
+                <code>include:</code>/<code>exclude:</code> · “similar companies
+                like …”
+              </p>
+            </form>
           </div>
 
-          <!-- RIGHT: side info -->
-          <aside class="copilot-side">
-            <h4>What it’s good at</h4>
-            <ul>
-              <li>Boolean/X-ray for tech & non-tech GCC roles.</li>
-              <li>Naukri (≤500 chars) variants you can paste.</li>
-              <li>Interview loop outlines for staff/leadership.</li>
-              <li>High-level market map hints for new searches.</li>
-            </ul>
-            <h4 style="margin-top:10px;">Best prompts</h4>
-            <ul>
-              <li><code style="font-size:11px;">boolean sre in hyderabad include:kubernetes,terraform</code></li>
-              <li><code style="font-size:11px;">boolean head of security in bangalore similar companies like google</code></li>
-              <li><code style="font-size:11px;">boolean hrbp in gurgaon include:org design,performance</code></li>
-            </ul>
-          </aside>
+          <!-- RIGHT: RESPONSE -->
+          <div>
+            <div
+              class="copilot-response"
+              id="copilotResponse"
+              aria-live="polite"
+            >
+Ready.
+            </div>
+
+            <div class="copilot-side-meta">
+              <h4>What it’s good at</h4>
+              <ul>
+                <li>Boolean/X-ray for tech &amp; non-tech GCC roles.</li>
+                <li>Naukri (≤500 chars) variants you can paste.</li>
+                <li>Interview loop outlines for staff/leadership.</li>
+                <li>High-level market map hints for new searches.</li>
+              </ul>
+
+              <h4>Best prompts</h4>
+              <ul>
+                <li><code>boolean sre in hyderabad include:kubernetes,terraform</code></li>
+                <li><code>boolean head of security in bangalore similar companies like google</code></li>
+                <li><code>boolean hrbp in gurgaon include:org design,performance</code></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-foot" style="margin-top:14px;">
+          Need a human brain? Use the CTAs below or send a JD for a
+          48-hour kickoff pack.
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ========== CONTACT ========== -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-heading">
-        <h2>Contact</h2>
-      <p>Share a JD, a market question, or a hiring problem. I’ll respond within one business day.</p>
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Engage</div>
+          <h2>Share a JD, a market question, or a hiring problem.</h2>
+        </div>
+        <p class="muted">I’ll respond within one business day.</p>
       </div>
 
-      <div class="card">
-        <div class="meta-label">Channels</div>
+      <div class="contact-card">
+        <h3 class="subheading">Channels</h3>
         <div class="contact-row">
-          <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform" target="_blank">Submit JD</a>
-          <a class="btn whatsapp" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20book%20a%2020-min%20call." target="_blank"><span>WhatsApp 20-min</span></a>
-          <a class="btn ghost" href="mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry">Email</a>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform"
+            class="btn btn-primary"
+            >Submit JD</a
+          >
+          <a
+            href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20share%20JD%20for%20a%2048-hr%20map"
+            class="btn btn-outline"
+            >WhatsApp 20-min</a
+          >
+          <a href="mailto:ayush.email@example.com" class="btn btn-outline"
+            >Email Ayush</a
+          >
+          <a
+            href="https://www.linkedin.com/in/ayush-mishra-/"
+            class="btn btn-outline"
+            >LinkedIn</a
+          >
         </div>
-
-        <div class="kpi-row" style="margin-top:14px;">
-          <span class="kpi-pill">India · UAE</span>
-          <span class="kpi-pill">Product · Security/GRC · Engineering · Business</span>
-        </div>
+        <p class="contact-foot">
+          India · UAE · Product · Security/GRC · Engineering · Business
+        </p>
       </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© Ayush Mishra · Talent Partner for CTOs &amp; CHROs</span>
+    <div class="footer-actions">
+      <a href="#overview">Top</a>
     </div>
-  </section>
+  </footer>
 
-  <!-- Spacer so content doesn't hide behind sticky bar -->
-  <div class="spacer"></div>
-
-  <!-- ========== STICKY CTA BAR ========== -->
-  <div class="stickybar">
-    <div class="stickybar-inner">
-      <div class="sticky-row">
-        <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfzi8biHKhhIaznv9xSWbRFYrn48ZSJz4ArvzYDurqx_8lxHw/viewform" target="_blank">Submit JD</a>
-        <a class="btn whatsapp" href="https://wa.me/919740352682?text=Hi%20Ayush%2C%20book%20a%2020-min%20call." target="_blank"><span>WhatsApp</span></a>
-        <a class="btn ghost" href="mailto:ayushmishra14feb@gmail.com?subject=Talent%20Partner%20Enquiry">Email</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ========== SCRIPTS ========== -->
   <script>
-    // Apps Script endpoint (latest deployment)
-    const BOT_URL = "https://script.google.com/macros/s/AKfycbyN4lE9s0_sICQG0y9TkPqGb50F6xXZWERJokjQdNvfY02-s679afcs3DGqfQsJMyb-yg/exec";
+    // NAV MOBILE TOGGLE
+    const navToggle = document.getElementById("navToggle");
+    const navMobilePanel = document.getElementById("navMobilePanel");
+    navToggle.addEventListener("click", () => {
+      document.body.classList.toggle("nav-mobile-open");
+    });
+    // Close menu when clicking a link
+    navMobilePanel.addEventListener("click", (e) => {
+      if (e.target.tagName === "A") {
+        document.body.classList.remove("nav-mobile-open");
+      }
+    });
 
-    // Mobile nav toggle
-    const hamb = document.getElementById('hamb');
-    const menu = document.getElementById('menu');
-    if (hamb && menu) {
-      hamb.addEventListener('click', () => {
-        menu.classList.toggle('open');
-      });
-    }
+    // TALENT COPILOT
+    const BOT_URL =
+      "https://script.google.com/macros/s/AKfycbyN4lE9s0_sICQG0y9TkPqGb50F6xXZWERJokjQdNvfY02-s679afcs3DGqfQsJMyb-yg/exec";
 
-    // Talent Copilot logic
-    const inp = document.getElementById('cp_inp');
-    const out = document.getElementById('cp_out');
-    const runBtn = document.getElementById('cp_run');
-    const clearBtn = document.getElementById('cp_clear');
+    const copilotPrompt = document.getElementById("copilotPrompt");
+    const copilotResponse = document.getElementById("copilotResponse");
+    const copilotRun = document.getElementById("copilotRun");
+    const copilotClear = document.getElementById("copilotClear");
+    const exampleButtons = document.querySelectorAll("[data-example]");
 
-    if (runBtn) {
-      runBtn.addEventListener('click', async () => {
-        const msg = (inp.value || '').trim();
-        if (!msg) {
-          out.textContent = "Type a request, e.g., `boolean hrbp in bangalore include:org design`";
-          return;
-        }
-        out.textContent = "Thinking…";
-        try {
-          const u = new URL(BOT_URL);
-          u.searchParams.set('session_id', 'web-' + Date.now());
-          u.searchParams.set('message', msg);
-          const resp = await fetch(u.toString(), { method: 'GET' });
-          const json = await resp.json();
-          out.textContent = (json && json.reply && json.reply.text)
-            ? json.reply.text
-            : JSON.stringify(json, null, 2);
-        } catch (e) {
-          out.textContent = "Can’t reach server. Check BOT_URL or deployment.";
-        }
-      });
-    }
+    let sessionId =
+      "web-" + Math.random().toString(36).substring(2, 10) + Date.now();
 
-    if (clearBtn) {
-      clearBtn.addEventListener('click', () => {
-        inp.value = "";
-        out.textContent = "Ready.";
-      });
-    }
-
-    // Quick chips → fill prompt
-    document.querySelectorAll('.cp-chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        const prompt = chip.getAttribute('data-prompt') || '';
-        inp.value = prompt;
-        inp.focus();
+    exampleButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        copilotPrompt.value = btn.getAttribute("data-example");
+        copilotPrompt.focus();
       });
     });
+
+    copilotClear.addEventListener("click", () => {
+      copilotPrompt.value = "";
+      copilotResponse.textContent = "Ready.";
+      copilotPrompt.focus();
+    });
+
+    async function runCopilot() {
+      const text = copilotPrompt.value.trim();
+      if (!text) {
+        copilotPrompt.focus();
+        return;
+      }
+      copilotRun.disabled = true;
+      copilotRun.textContent = "Running…";
+
+      try {
+        const url =
+          BOT_URL +
+          "?message=" +
+          encodeURIComponent(text) +
+          "&session_id=" +
+          encodeURIComponent(sessionId);
+
+        const res = await fetch(url);
+        const data = await res.json();
+
+        let replyText =
+          data && data.reply && data.reply.text
+            ? data.reply.text
+            : "No response received.";
+
+        copilotResponse.textContent = replyText;
+      } catch (err) {
+        copilotResponse.textContent =
+          "Could not reach the copilot server. Please try again in a moment.";
+      } finally {
+        copilotRun.disabled = false;
+        copilotRun.textContent = "Run";
+      }
+    }
   </script>
 </body>
 </html>
+
 
