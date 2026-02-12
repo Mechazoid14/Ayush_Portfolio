@@ -446,6 +446,192 @@
     @media (min-width: 960px){
       .glassbar{display:none}
     }
+    /* ===== Feature Carousel (sticky, SaaS-style) ===== */
+.featureShell{
+  margin-top: 10px;
+  display:grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap:14px;
+  align-items:start;
+}
+.featureSticky{
+  position: sticky;
+  top: 86px;
+  border-radius: var(--r-xl);
+  border: 1px solid rgba(255,255,255,.12);
+  background:
+    radial-gradient(700px 260px at 0% 0%, rgba(70,215,255,.16), transparent 62%),
+    radial-gradient(620px 260px at 100% 0%, rgba(123,92,255,.18), transparent 60%),
+    rgba(255,255,255,.06);
+  box-shadow: var(--shadow);
+  padding: 14px;
+  overflow:hidden;
+}
+.featureBadge{
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  padding:6px 10px;
+  border-radius: var(--r-pill);
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: var(--muted);
+  font-size: .78rem;
+}
+.featureBadge i{
+  width:8px;height:8px;border-radius:50%;
+  background: radial-gradient(circle, var(--b), var(--a));
+  display:inline-block;
+  box-shadow:0 0 0 5px rgba(70,215,255,.10);
+}
+.featureTitle{
+  margin: 10px 0 6px;
+  font-weight: 900;
+  font-size: 1.18rem;
+  letter-spacing:.01em;
+}
+.featureDesc{
+  color: var(--muted);
+  line-height:1.6;
+  font-size: .95rem;
+  margin: 0 0 10px;
+}
+.featureKpis{
+  display:flex; flex-wrap:wrap; gap:8px;
+  margin-top: 10px;
+}
+.kpi{
+  padding: 7px 10px;
+  border-radius: 14px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(6,7,18,.55);
+  color: rgba(245,247,255,.68);
+  font-size:.82rem;
+}
+.kpi b{color: rgba(245,247,255,.92)}
+.featureNav{
+  display:flex; gap:10px; align-items:center;
+  margin-top: 12px;
+}
+.featureNav .btn{box-shadow:none}
+.featureRail{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.featureItem{
+  border-radius: var(--r-xl);
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.05);
+  box-shadow: var(--shadow2);
+  padding: 12px;
+  cursor:pointer;
+  transition: transform .12s ease, border-color .18s ease, background .18s ease;
+  position:relative;
+  overflow:hidden;
+}
+.featureItem:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.18);
+  background: rgba(255,255,255,.07);
+}
+.featureItem.active{
+  border-color: rgba(70,215,255,.35);
+  background:
+    radial-gradient(420px 180px at 0% 0%, rgba(70,215,255,.12), transparent 60%),
+    rgba(255,255,255,.07);
+}
+.featureItem .top{
+  display:flex; justify-content:space-between; align-items:center; gap:10px;
+}
+.featureItem .label{
+  font-weight: 850;
+  letter-spacing:.01em;
+}
+.featureItem .hint{
+  color: var(--muted2);
+  font-size:.82rem;
+  margin-top: 6px;
+  line-height:1.55;
+}
+.featureItem .tagRow{
+  display:flex; flex-wrap:wrap; gap:6px;
+  margin-top: 8px;
+}
+.tagMini{
+  padding: 4px 8px;
+  border-radius: var(--r-pill);
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.05);
+  color: var(--muted2);
+  font-size:.76rem;
+}
+
+/* ===== How it works timeline ===== */
+.timeline{
+  margin-top: 12px;
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 12px;
+}
+.step{
+  border-radius: var(--r-xl);
+  border:1px solid rgba(255,255,255,.10);
+  background:
+    radial-gradient(500px 200px at 0% 0%, rgba(123,92,255,.12), transparent 62%),
+    rgba(255,255,255,.05);
+  box-shadow: var(--shadow2);
+  padding: 14px;
+  position:relative;
+  overflow:hidden;
+  transition: transform .14s ease, border-color .18s ease, background .18s ease;
+}
+.step:hover{
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,.18);
+  background: rgba(255,255,255,.07);
+}
+.stepNum{
+  width: 34px; height: 34px;
+  border-radius: 12px;
+  display:flex; align-items:center; justify-content:center;
+  background: rgba(6,7,18,.55);
+  border:1px solid rgba(255,255,255,.12);
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+.stepTitle{
+  font-weight: 900;
+  margin: 0 0 6px;
+}
+.stepText{
+  margin:0;
+  color: var(--muted);
+  line-height:1.6;
+  font-size:.92rem;
+}
+.stepBar{
+  margin-top: 12px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  overflow:hidden;
+}
+.stepBar > div{
+  height:100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--b), var(--a));
+  transition: width .6s ease;
+}
+.step.inView .stepBar > div{ width: 100%; }
+
+@media (max-width: 920px){
+  .featureShell{grid-template-columns: 1fr;}
+  .featureSticky{position:relative; top:auto;}
+  .timeline{grid-template-columns: 1fr;}
+}
+
   </style>
 </head>
 
